@@ -1,0 +1,258 @@
+/* Reset Styles */
+html, body {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+    background: #f8f9fa; /* THEME: --bs-light */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #212529; /* THEME: --bs-body-color */
+}
+
+/* Basic Styles */
+table, td {
+    border-collapse: collapse;
+}
+
+img {
+    border: 0;
+    height: auto;
+    line-height: 100%;
+    outline: none;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: #ecb807; /* THEME: Swapped to --bs-secondary (yellow) */
+    font-weight: bold;
+}
+
+p {
+    margin: 0 0 1em 0;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+h1, h2 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    margin: 0 0 0.5em 0;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 28px;
+    color: #212529; /* THEME: --bs-dark */
+}
+
+h2 {
+    font-size: 22px;
+    color: #ecb807; /* THEME: Swapped to --bs-secondary (yellow) */
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    background: #ffffff; /* THEME: --bs-white */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* THEME: --bs-box-shadow */
+}
+
+/* Header */
+.header {
+    padding: 40px;
+    text-align: center;
+    background: #ffffff;
+    border-bottom: 1px solid #dee2e6; /* THEME: --bs-border-color */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+    color: #212529;
+}
+
+.header p {
+    color: #212529;
+}
+
+/* Body Content */
+.content {
+    padding: 30px 40px;
+    color: #212529;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    background: #ecb807; /* THEME: Swapped to --bs-secondary (yellow) */
+    color: #212529 !important; /* Made text dark for contrast */
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 14px 28px;
+    border-radius: 0.375rem; /* THEME: --bs-border-radius */
+    text-decoration: none;
+    margin: 10px 0 20px 0;
+    border: none;
+    cursor: pointer;
+}
+.cta-button:hover {
+    background: #d4a706; /* Darker yellow for hover */
+}
+
+/* Section */
+.section {
+    padding-top: 20px;
+    border-top: 1px solid #dee2e6; /* THEME: --bs-border-color */
+}
+
+/* Footer */
+.footer {
+    padding: 40px;
+    text-align: center;
+    color: #f8f9fa; /* THEME: --bs-light */
+    font-size: 12px;
+    background: #212529; /* THEME: --bs-dark */
+}
+
+.footer p {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #f8f9fa;
+}
+
+.footer .social-icons {
+    margin-bottom: 10px;
+}
+
+.footer .social-icons img {
+    width: 24px;
+    height: 24px;
+    margin: 0 5px;
+}
+
+.footer a {
+    color: #1D809F; /* THEME: --bs-primary (blue for contrast) */
+}
+
+/* --- NEW GEMINI FEATURE STYLES (THEMED) --- */
+
+/* Gemini-powered feature button */
+.gemini-button {
+    background: #ecb807; /* THEME: Swapped to --bs-secondary (yellow) */
+    color: #212529 !important; /* Made text dark for contrast */
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 14px 28px;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    margin: 10px 0 20px 0;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+.gemini-button:hover {
+    background: #d4a706; /* Darker yellow for hover */
+}
+.gemini-button:disabled {
+    background: #adb5bd; /* THEME: --bs-gray-500 */
+    cursor: not-allowed;
+}
+
+/* Input area for Agri-Bot */
+.gemini-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 0.375rem;
+    border: 1px solid #dee2e6; /* THEME: --bs-border-color */
+    min-height: 80px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    color: #212529;
+}
+
+/* Result container */
+.gemini-result {
+    background: #f8f9fa; /* THEME: --bs-light */
+    border: 1px solid #dee2e6; /* THEME: --bs-border-color */
+    border-radius: 0.375rem;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    color: #212529;
+}
+
+/* Loading spinner */
+.spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-top-color: #ffffff; /* Spinner color for light button text */
+    animation: spin 1s ease-in-out infinite;
+    margin: -2px 8px -6px 0;
+    display: inline-block;
+}
+/* Ensure spinner is visible on dark buttons */
+.cta-button, .gemini-button {
+    position: relative;
+}
+.cta-button .spinner, .gemini-button .spinner {
+    border-top-color: #212529; /* Dark spinner for yellow buttons */
+}
+
+@keyframes spin {
+    to { transform: rotate(365deg); }
+}
+
+/* Hide spinner by default */
+.gemini-button .spinner {
+    display: none;
+}
+/* Show spinner and hide text when loading */
+.gemini-button.loading .spinner {
+    display: inline-block;
+}
+.gemini-button.loading .button-text {
+    display: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 100% !important;
+        border-radius: 0;
+    }
+    .content {
+        padding: 20px 25px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+
+    .gemini-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
