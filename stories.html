@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Impact Stories - NVCBO</title>
+    
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+    <style>
+        /* HERO HEADER: Matches your brand Orange/Blue theme */
+        .stories-header {
+            background: linear-gradient(135deg, #1D809F 0%, #155d74 100%);
+            padding: 8rem 0 5rem;
+            color: white;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Background pattern overlay (optional) */
+        .stories-header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('assets/img/bg-callout.jpg') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        /* NEWS CARDS */
+        .story-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #fff;
+            height: 100%; /* Equal height cards */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(29, 128, 159, 0.15);
+        }
+
+        .story-img-wrapper {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .story-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .story-card:hover .story-img {
+            transform: scale(1.05);
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #FF8C00; /* NVCBO Orange */
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .meta-text {
+            color: #999;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .card-title {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .card-text {
+            color: #666;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: #1D809F;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more:hover {
+            color: #FF8C00;
+            text-decoration: none;
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: margin 0.2s ease;
+        }
+        
+        .read-more:hover i {
+            margin-left: 10px;
+        }
+
+        /* Sidebar Override */
+        .menu-toggle {
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%) !important;
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+        #sidebar-wrapper {
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%) !important;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+    <a class="menu-toggle rounded" href="#"><i class="fa fa-bars"></i></a>
+    <nav class="navbar navbar-expand" id="sidebar-wrapper">
+        <div class="container">
+            <ul class="navbar-nav sidebar-nav" id="sidebar-nav">
+                <li class="nav-item sidebar-brand"><a class="nav-link active" href="index.html">NVCBO</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="index.html#portfolio">Projects</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="newsletter.html">Subscribe</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="stories-header text-center">
+        <div class="container" style="position: relative; z-index: 1;">
+            <h1 class="display-3 fw-bold mb-3">Our Journey & Impact</h1>
+            <p class="lead mb-0" style="opacity: 0.9;">Stories of resilience, innovation, and cultural exchange from Northern Kenya and beyond.</p>
+        </div>
+    </header>
+
+    <section class="content-section" style="padding-top: 0;">
+        <div class="container">
+            <div class="row g-4">
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="story-card">
+                        <div class="story-img-wrapper">
+                            <span class="category-badge">Global Exchange</span>
+                            <a href="campaign-sweden.html">
+                                <img src="assets/img/portfolio-3.jpg" class="story-img" alt="Sweden Hiking">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <span class="meta-text">NOV 2025 • HALMSTAD</span>
+                            <h3 class="card-title"><a href="campaign-sweden.html" style="color: inherit; text-decoration: none;">Cultural Immersion in Sweden</a></h3>
+                            <p class="card-text">From hiking Halmstad’s beaches to sharing meals in the forest. Discover how our team connected with Swedish culture beyond the classroom.</p>
+                            <a href="campaign-sweden.html" class="read-more">Read Full Story <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="story-card">
+                        <div class="story-img-wrapper">
+                            <span class="category-badge">Sustainability</span>
+                            <a href="campaign-details.html">
+                                <img src="assets/img/portfolio-2.jpg" class="story-img" alt="Solar Lanterns">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <span class="meta-text">OCT 2025 • GOTU</span>
+                            <h3 class="card-title"><a href="campaign-details.html" style="color: inherit; text-decoration: none;">Light in the Darkness</a></h3>
+                            <p class="card-text">Bringing 300 solar lanterns to the "Sons of Gold." How clean energy is providing security and dignity to pastoralist families.</p>
+                            <a href="campaign-details.html" class="read-more">Read Full Story <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="story-card">
+                        <div class="story-img-wrapper">
+                            <span class="category-badge" style="background-color: #1D809F;">Advocacy</span>
+                            <a href="#">
+                                <img src="assets/img/portfolio-1.jpg" class="story-img" alt="Land Rights">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <span class="meta-text">SEPT 2025 • ISIOLO</span>
+                            <h3 class="card-title">The Land Is Our Mother</h3>
+                            <p class="card-text">"Laaf Haadha Teenna." How indigenous healing circles are changing the narrative on women's land rights in Northern Kenya.</p>
+                            <a href="#" class="read-more">Coming Soon <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 text-white text-center" style="background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <i class="icon-envelope-open fa-3x mb-3" style="opacity: 0.8;"></i>
+                    <h2 class="fw-bold mb-3">Don't Miss the Next Story</h2>
+                    <p class="lead mb-4">Join our community to receive updates on our campaigns, tech innovations, and global partnerships.</p>
+                    <a href="newsletter.html" class="btn btn-light btn-xl rounded-pill" style="color: #FF8C00; font-weight: 700;">Subscribe Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-center" style="background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%); color: #FFF5E6; padding: 3rem 0;">
+        <div class="container">
+            <ul class="list-inline mb-5">
+                <li class="list-inline-item">&nbsp;
+                    <a class="social-link rounded-circle" href="#" style="background-color: rgba(255,255,255,0.15); border: 2px solid #FFAB76; color: #FFF5E6; display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px;">
+                        <i class="icon-social-facebook"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">&nbsp;
+                    <a class="social-link rounded-circle" href="#" style="background-color: rgba(255,255,255,0.15); border: 2px solid #FFAB76; color: #FFF5E6; display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px;">
+                        <i class="icon-social-twitter"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">&nbsp;
+                    <a class="social-link rounded-circle" href="#" style="background-color: rgba(255,255,255,0.15); border: 2px solid #FFAB76; color: #FFF5E6; display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px;">
+                        <i class="icon-social-instagram"></i>
+                    </a>
+                </li>
+            </ul>
+            <p class="mb-0 small" style="color: #FFAB76; font-weight: 500; opacity: 0.9;">Copyright &copy; NVCBO 2025</p>
+        </div>
+    </footer>
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/stylish-portfolio.js"></script>
+
+</body>
+</html>
