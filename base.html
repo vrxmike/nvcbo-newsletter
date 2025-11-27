@@ -15,12 +15,14 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 
     <style>
-        /* --- GLOBAL THEME VARIABLES --- */
+        /* --- GLOBAL THEME VARIABLES (Matched to campaign-details.html) --- */
         :root {
             --nvcbo-blue: #1D809F;
             --nvcbo-dark-blue: #155d74;
             --nvcbo-orange: #FF8C00;
-            --nvcbo-dark-orange: #CC5500;
+            --nvcbo-dark-orange: #CC5500; /* Matches article headers */
+            --nvcbo-cream: #FFF5E6;      /* Matches badges/quotes */
+            --nvcbo-light-bg: #f8f9fa;   /* Matches content sections */
         }
 
         /* --- HERO SECTION --- */
@@ -29,8 +31,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Using your local image with a blue overlay for readability */
-            background: linear-gradient(rgba(29, 128, 159, 0.85), rgba(21, 93, 116, 0.8)), url('assets/img/IMG_4320.png');
+            /* Adjusted overlay to match the campaign header style (Blue/Teal) */
+            background: linear-gradient(rgba(29, 128, 159, 0.9), rgba(21, 93, 116, 0.8)), url('assets/img/IMG_4320.png');
             background-position: center;
             background-size: cover;
             color: white;
@@ -50,6 +52,7 @@
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             margin-bottom: 3rem;
             opacity: 0.9;
+            color: var(--nvcbo-cream); /* Subtle tie-in to the theme */
         }
 
         /* --- BUTTONS --- */
@@ -65,7 +68,8 @@
         }
 
         .btn-primary-custom {
-            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            /* Exact gradient from campaign sidebar */
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%);
             color: white;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
@@ -107,7 +111,7 @@
         .section-heading .subheading {
             font-size: 1rem;
             font-weight: 700;
-            color: var(--nvcbo-orange);
+            color: var(--nvcbo-dark-orange); /* Updated to #CC5500 */
             text-transform: uppercase;
             letter-spacing: 2px;
             display: block;
@@ -123,11 +127,13 @@
             transition: transform 0.3s ease;
             height: 100%;
             text-align: center;
+            border-bottom: 4px solid transparent; /* Preparation for hover */
         }
 
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-bottom-color: var(--nvcbo-orange); /* Orange accent on hover */
         }
 
         .service-icon {
@@ -144,7 +150,7 @@
             box-shadow: 0 5px 15px rgba(29, 128, 159, 0.3);
         }
 
-        /* --- PORTFOLIO GRID (Matching Gallery Style) --- */
+        /* --- PORTFOLIO GRID --- */
         .portfolio-card {
             position: relative;
             border-radius: 15px;
@@ -152,11 +158,17 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             margin-bottom: 30px;
             background: white;
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-card:hover {
+             transform: translateY(-5px);
         }
 
         .portfolio-img-wrapper {
             height: 250px;
             overflow: hidden;
+            position: relative;
         }
 
         .portfolio-img-wrapper img {
@@ -169,6 +181,22 @@
         .portfolio-card:hover img {
             transform: scale(1.1);
         }
+        
+        /* Added the Tag Badge style from Campaign Details */
+        .portfolio-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--nvcbo-orange);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            z-index: 10;
+        }
 
         .portfolio-caption {
             padding: 1.5rem;
@@ -177,12 +205,14 @@
         .portfolio-caption h4 {
             font-weight: 700;
             margin-bottom: 0.5rem;
+            color: #333;
         }
 
         /* --- CALLOUT / NEWSLETTER --- */
         .callout {
             padding: 8rem 0;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url('assets/img/bg-callout.jpg');
+            /* Darker overlay to match campaign header vibes */
+            background: linear-gradient(rgba(21, 93, 116, 0.9), rgba(29, 128, 159, 0.8)), url('assets/img/bg-callout.jpg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -190,22 +220,14 @@
             position: relative;
         }
         
-        /* Dark overlay for readability */
-        .callout::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(29, 128, 159, 0.9);
-            z-index: 0;
-        }
-
-        .callout .container {
-            position: relative;
-            z-index: 1;
+        .callout h2 {
+            font-size: 3rem;
+            font-weight: 700;
             color: white;
+            margin-bottom: 1rem;
         }
 
-        /* --- NAVIGATION --- */
+        /* --- NAVIGATION (Exact match to Campaign Details) --- */
         .menu-toggle {
             position: fixed;
             right: 15px;
@@ -214,15 +236,22 @@
             height: 50px;
             text-align: center;
             color: #fff;
-            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            /* Exact gradient from campaign-details.html */
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%) !important;
             line-height: 50px;
             z-index: 999;
             border-radius: 50%;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .menu-toggle:hover {
+            background: linear-gradient(135deg, #FF7F00 0%, #CC5500 100%) !important;
         }
         
         #sidebar-wrapper {
-            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            /* Exact gradient from campaign-details.html */
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%) !important;
         }
     </style>
 </head>
@@ -256,7 +285,7 @@
         </div>
     </header>
 
-    <section class="content-section bg-light" id="about">
+    <section class="content-section" id="about" style="background-color: var(--nvcbo-cream);">
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
@@ -264,18 +293,18 @@
                         <span class="subheading">Who We Are</span>
                         <h2>Driving Sustainable Change</h2>
                     </div>
-                    <p class="lead mb-5">
+                    <p class="lead mb-5" style="color: #555;">
                         Founded in 2020, <strong>NorthernVision CBO</strong> focuses on Sustainable Development Goals (SDGs) 5, 10, and 15. 
                         We place special emphasis on empowering smallholder farmers, particularly women and youth, through 
                         climate resilience, digital skills, and resource management.
                     </p>
-                    <a class="btn btn-dark btn-xl" href="#services">See Our Impact</a>
+                    <a class="btn btn-dark btn-xl" href="#services" style="background-color: #333; border: none;">See Our Impact</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content-section" id="services">
+    <section class="content-section" id="services" style="background-color: white;">
         <div class="container">
             <div class="section-heading">
                 <span class="subheading">Our Pillars</span>
@@ -317,14 +346,14 @@
     <section class="callout">
         <div class="container text-center">
             <h2 class="mx-auto mb-3">Our Stories Are Changing Lives</h2>
-            <p class="lead mb-5">From the forests of Sweden to the plains of Isiolo, explore our journey.</p>
+            <p class="lead mb-5" style="color: rgba(255,255,255,0.9);">From the forests of Sweden to the plains of Isiolo, explore our journey.</p>
             <a class="btn btn-primary-custom btn-xl" href="stories.html">
                 Read the Blog
             </a>
         </div>
     </section>
 
-    <section class="content-section" id="portfolio">
+    <section class="content-section" id="portfolio" style="background-color: var(--nvcbo-light-bg);">
         <div class="container">
             <div class="section-heading">
                 <span class="subheading">Portfolio</span>
@@ -334,8 +363,9 @@
                 
                 <div class="col-lg-6">
                     <div class="portfolio-card">
-                        <a class="portfolio-link" href="campaign-sweden.html">
+                        <a class="portfolio-link" href="campaign-sweden.html" style="text-decoration: none;">
                             <div class="portfolio-img-wrapper">
+                                <span class="portfolio-tag">Exchange</span>
                                 <img src="assets/img/IMG_7016.jpg" alt="Sweden Exchange">
                             </div>
                             <div class="portfolio-caption">
@@ -348,8 +378,9 @@
 
                 <div class="col-lg-6">
                     <div class="portfolio-card">
-                        <a class="portfolio-link" href="campaign-details.html">
+                        <a class="portfolio-link" href="campaign-details.html" style="text-decoration: none;">
                             <div class="portfolio-img-wrapper">
+                                <span class="portfolio-tag">Solar</span>
                                 <img src="assets/img/IMG_8630.jpg" alt="Solar Light Project">
                             </div>
                             <div class="portfolio-caption">
@@ -362,8 +393,9 @@
 
                 <div class="col-lg-6">
                     <div class="portfolio-card">
-                        <a class="portfolio-link" href="stories.html">
+                        <a class="portfolio-link" href="stories.html" style="text-decoration: none;">
                             <div class="portfolio-img-wrapper">
+                                <span class="portfolio-tag">Education</span>
                                 <img src="assets/img/IMG_7013.jpg" alt="Education Workshop">
                             </div>
                             <div class="portfolio-caption">
@@ -376,8 +408,9 @@
 
                 <div class="col-lg-6">
                     <div class="portfolio-card">
-                        <a class="portfolio-link" href="gallery.html">
+                        <a class="portfolio-link" href="gallery.html" style="text-decoration: none;">
                             <div class="portfolio-img-wrapper">
+                                <span class="portfolio-tag">Community</span>
                                 <img src="assets/img/portfolio-1.jpg" alt="Community Baraza">
                             </div>
                             <div class="portfolio-caption">
@@ -390,18 +423,18 @@
 
             </div>
             <div class="text-center mt-5">
-                <a class="btn btn-dark btn-xl" href="gallery.html">View Full Gallery</a>
+                <a class="btn btn-dark btn-xl" href="gallery.html" style="background-color: #333; border: none;">View Full Gallery</a>
             </div>
         </div>
     </section>
 
     <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Isiolo,+Kenya&amp;aq=0&amp;ie=UTF8&amp;t=m&amp;z=12&amp;iwloc=A&amp;output=embed"></iframe>
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=Isiolo&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
     </section>
 
     <footer class="footer text-center" style="padding: 4rem 0; background-color: #fff;">
         <div class="container">
-            <h2 class="mb-4">Connect With Us</h2>
+            <h2 class="mb-4" style="color: #333; font-weight: 700;">Connect With Us</h2>
             <ul class="list-inline mb-5">
                 <li class="list-inline-item">
                     <a class="social-link rounded-circle text-white mr-3" href="#!" style="background-color: #1D809F;">
@@ -419,11 +452,11 @@
                     </a>
                 </li>
             </ul>
-            <p class="text-muted small mb-0">Copyright &copy; NorthernVision CBO 2025</p>
+            <p class="text-muted small mb-0">Copyright © NorthernVision CBO 2025</p>
         </div>
     </footer>
 
-    <a class="scroll-to-top rounded" href="#page-top">
+    <a class="scroll-to-top rounded" href="#page-top" style="background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%);">
         <i class="fa fa-angle-up"></i>
     </a>
 
