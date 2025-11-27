@@ -4,99 +4,268 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Campaign Details - NVCBO</title>
+    <title>Home - NorthernVision CBO</title>
+    <meta name="description" content="Empowering Northern Kenya through sustainable agriculture, education, and climate action.">
     
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900&display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="assets/css/bss-overrides.css">
-    
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 
     <style>
-        /* PAGE SPECIFIC STYLES */
-        /* 1. Header: Uses your darker orange gradient + image overlay */
-        .article-header {
-            background: linear-gradient(rgba(204, 85, 0, 0.9), rgba(183, 65, 14, 0.8)), url('assets/img/bg-masthead.jpg');
-            background-size: cover;
+        /* --- GLOBAL THEME VARIABLES --- */
+        :root {
+            --nvcbo-blue: #1D809F;
+            --nvcbo-dark-blue: #155d74;
+            --nvcbo-orange: #FF8C00;
+            --nvcbo-dark-orange: #CC5500;
+            --nvcbo-cream: #FFF5E6;
+            --nvcbo-light-bg: #f8f9fa;
+        }
+
+        /* --- HERO SECTION --- */
+        .masthead {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(29, 128, 159, 0.9), rgba(21, 93, 116, 0.8)), url('assets/img/IMG_4320.png');
             background-position: center;
-            padding: 8rem 0 6rem;
+            background-size: cover;
             color: white;
-            margin-bottom: 4rem;
+            text-align: center;
+            padding: 0 1rem;
         }
 
-        /* 2. Typography: Matches your Source Sans Pro theme */
-        .article-content {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #444;
-            font-weight: 300; /* Matches your "lead" style */
-        }
-
-        .article-content h3 {
-            color: #CC5500; /* Your Dark Orange */
-            font-weight: 700;
-            margin-top: 2.5rem;
+        .masthead h1 {
+            font-weight: 900;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
             margin-bottom: 1.5rem;
+        }
+
+        .masthead h2 {
+            font-weight: 300;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            color: var(--nvcbo-cream);
+        }
+
+        /* --- BUTTONS --- */
+        .btn-xl {
+            padding: 1.25rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .article-content strong {
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+            color: white;
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.5);
+            color: white;
+        }
+
+        .btn-outline-custom:hover {
+            background: white;
+            color: var(--nvcbo-blue);
+            border-color: white;
+        }
+        
+        /* Donation Button Specifics */
+        .btn-donate {
+            background: white;
+            color: var(--nvcbo-dark-orange);
+            font-weight: 800;
+        }
+        .btn-donate:hover {
+            background: var(--nvcbo-cream);
+            color: var(--nvcbo-orange);
+        }
+
+        /* --- SECTIONS --- */
+        .content-section {
+            padding: 7.5rem 0;
+        }
+
+        .section-heading {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            font-size: 3rem;
             font-weight: 700;
             color: #333;
         }
 
-        /* 3. Blockquote: Styled with your Orange */
-        .blockquote-custom {
-            border-left: 5px solid #FF8C00; 
-            background: #FFF5E6; /* Your light cream text color used as bg */
-            padding: 2rem;
-            font-style: italic;
-            margin: 2rem 0;
-            border-radius: 0 15px 15px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        .section-heading .subheading {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--nvcbo-dark-orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
-        /* 4. Gallery Images */
-        .gallery-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 0; /* Keeping it square/clean like your portfolio */
+        /* --- SERVICE CARDS --- */
+        .service-card {
+            background: white;
+            padding: 3rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .gallery-img:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(204, 85, 0, 0.2);
+            height: 100%;
+            text-align: center;
+            border-bottom: 4px solid transparent;
         }
 
-        /* 5. Video Wrapper */
-        .video-wrapper {
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-bottom-color: var(--nvcbo-orange);
+        }
+
+        .service-icon {
+            background: linear-gradient(135deg, var(--nvcbo-blue) 0%, var(--nvcbo-dark-blue) 100%);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(29, 128, 159, 0.3);
+        }
+
+        /* --- PORTFOLIO GRID --- */
+        .portfolio-card {
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
+            border-radius: 15px;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            margin: 3rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            background: white;
+            transition: transform 0.3s ease;
         }
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        
+        .portfolio-card:hover {
+             transform: translateY(-5px);
         }
 
-        /* 6. Sidebar Overrides (Ensures it matches index.html behavior) */
-        .menu-toggle {
-            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%) !important;
-            border-color: rgba(255, 255, 255, 0.8);
+        .portfolio-img-wrapper {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
         }
+
+        .portfolio-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--nvcbo-orange);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .portfolio-caption {
+            padding: 1.5rem;
+        }
+
+        .portfolio-caption h4 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        /* --- CALLOUT / NEWSLETTER --- */
+        .callout {
+            padding: 8rem 0;
+            background: linear-gradient(rgba(21, 93, 116, 0.9), rgba(29, 128, 159, 0.8)), url('assets/img/bg-callout.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            position: relative;
+        }
+        
+        .callout h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        /* --- DONATION SECTION (NEW) --- */
+        .donation-section {
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        /* --- NAVIGATION --- */
+        .menu-toggle {
+            position: fixed;
+            right: 15px;
+            top: 15px;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            line-height: 50px;
+            z-index: 999;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
         .menu-toggle:hover {
             background: linear-gradient(135deg, #FF7F00 0%, #CC5500 100%) !important;
         }
+        
         #sidebar-wrapper {
             background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%) !important;
         }
@@ -105,153 +274,225 @@
 
 <body id="page-top">
 
-    <a class="menu-toggle rounded" href="#"><i class="fa fa-bars"></i></a>
-    <nav class="navbar navbar-expand" id="sidebar-wrapper">
-        <div class="container">
-            <ul class="navbar-nav sidebar-nav" id="sidebar-nav">
-                <li class="nav-item sidebar-brand"><a class="nav-link active" href="https://northernvisionke.org/">NVCBO</a></li>
-                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="https://northernvisionke.org/">Home</a></li>
-                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="https://northernvisionke.org/#about">About</a></li>
-                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="https://northernvisionke.org/#portfolio">Portfolio</a></li>
-                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="https://northernvisionke.org/#contact">Contact</a></li>
-            </ul>
-        </div>
+    <a class="menu-toggle rounded" href="#">
+        <i class="fa fa-bars"></i>
+    </a>
+    
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand"><a href="#page-top">NVCBO</a></li>
+            <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
+            <li class="sidebar-nav-item"><a href="#about">About Us</a></li>
+            <li class="sidebar-nav-item"><a href="#services">Our Impact</a></li>
+            <li class="sidebar-nav-item"><a href="stories.html">Stories & News</a></li>
+            <li class="sidebar-nav-item"><a href="gallery.html">Media Gallery</a></li>
+            <li class="sidebar-nav-item"><a href="#donate">Donate</a></li>
+            <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
-    <header class="article-header text-center">
-        <div class="container">
-            <span class="badge mb-3" style="background-color: #FFF5E6; color: #CC5500; padding: 10px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: 700; letter-spacing: 1px;">PROJECT UPDATE</span>
-            <h1 class="display-3 fw-bold" style="text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Light in the Darkness</h1>
-            <p class="lead mt-3" style="color: #FFF5E6; font-weight: 400;">The Gotu Initiative: Bringing solar power to the "Sons of Gold"</p>
+    <header class="masthead d-flex">
+        <div class="container text-center my-auto">
+            <h1 class="mb-1">Rooted in the Land. Powered by Light.</h1>
+            <h2 class="mb-5">
+                <em>Empowering Northern Kenya's pastoralist communities through climate justice, innovation, and cultural exchange.</em>
+            </h2>
+            <a class="btn btn-primary-custom btn-xl me-3" href="#about">Discover More</a>
+            <a class="btn btn-outline-custom btn-xl" href="#donate">Support Us</a>
         </div>
     </header>
 
-    <article class="container mb-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 article-content">
-                
-                <p>
-                    In the pastoralist community of <strong>Gotu, Dahaba</strong>, sunset often meant the end of productivity. 
-                    Without access to the national grid, students struggled to study, and women faced security challenges in the dark.
-                    Last month, Northern Vision CBO changed that narrative.
-                </p>
-
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/8XJ-jgpUAsY" allowfullscreen></iframe>
-                </div>
-
-                <h3>Mission: More Than Just Light</h3>
-                <p>
-                    Our mission was simple but profound: ensure that every home in Gotu has access to light. 
-                    We believe access to clean energy is not a gift—it is justice. Every family deserves the power to learn, 
-                    live, and be safe under their own light.
-                </p>
-
-                <blockquote class="blockquote-custom">
-                    "Each lantern brings connection, security, dignity, and hope into their homes. 
-                    A small start, but a powerful light for our community's future."
-                </blockquote>
-
-                <h3>The Impact in Numbers</h3>
-                <ul class="list-unstyled mt-3">
-                    <li class="mb-3 d-flex align-items-center">
-                        <i class="icon-check me-3" style="color: #FF8C00; font-size: 1.5rem;"></i> 
-                        <span><strong>300 Solar Lanterns</strong> distributed to off-grid families.</span>
-                    </li>
-                    <li class="mb-3 d-flex align-items-center">
-                        <i class="icon-check me-3" style="color: #FF8C00; font-size: 1.5rem;"></i> 
-                        <span><strong>150+ Households</strong> now have sustainable night lighting.</span>
-                    </li>
-                    <li class="mb-3 d-flex align-items-center">
-                        <i class="icon-check me-3" style="color: #FF8C00; font-size: 1.5rem;"></i> 
-                        <span><strong>3 Key Groups</strong> supported: Students, Women, and Herders.</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </article>
-
-    <section class="py-5" style="background-color: #f8f9fa;">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h3 class="mb-0" style="color: #FF8C00; font-weight: 500; letter-spacing: 1px;">Gallery</h3>
-                <h2 class="mb-0" style="color: #333; font-weight: 700;">Snapshots from Isiolo</h2>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <img src="assets/img/portfolio-1.jpg" class="gallery-img" alt="Community Event" onclick="openModal(this)">
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <img src="assets/img/portfolio-2.jpg" class="gallery-img" alt="Distribution" onclick="openModal(this)">
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <img src="assets/img/IMG_4320.png" class="gallery-img" alt="Team Photo" onclick="openModal(this)">
+    <section class="content-section bg-light" id="about">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="section-heading">
+                        <span class="subheading">Who We Are</span>
+                        <h2>Driving Sustainable Change</h2>
+                    </div>
+                    <p class="lead mb-5" style="color: #555;">
+                        Founded in 2020, <strong>NorthernVision CBO</strong> focuses on Sustainable Development Goals (SDGs) 5, 10, and 15. 
+                        We place special emphasis on empowering smallholder farmers, particularly women and youth, through 
+                        climate resilience, digital skills, and resource management.
+                    </p>
+                    <a class="btn btn-dark btn-xl" href="#services" style="background-color: #333; border: none;">See Our Impact</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content-section text-white text-center" style="background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%); padding: 6rem 0;">
+    <section class="content-section" id="services" style="background-color: white;">
         <div class="container">
-            <h2 class="mb-4 fw-bold">Support the Next Phase</h2>
-            <p class="mb-5 lead" style="color: #FFF5E6;">We are expanding to Marsabit next month. Your contribution keeps the lights on.</p>
-            
-            <a class="btn btn-xl" href="https://northernvisionke.org/#contact" 
-               style="background-color: #FF8C00; border-color: #FF8C00; color: white; border-radius: 25px; font-weight: 600;">
-               Partner With Us
+            <div class="section-heading">
+                <span class="subheading">Our Pillars</span>
+                <h2>Areas of Action</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="icon-screen-smartphone"></i></span>
+                        <h4><strong>Quality Education</strong></h4>
+                        <p class="text-muted mb-0">Bridging the digital divide with literacy labs and tech training for youth.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="icon-people"></i></span>
+                        <h4><strong>Gender Equality</strong></h4>
+                        <p class="text-muted mb-0">Securing land rights and economic opportunities for indigenous women.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="icon-energy"></i></span>
+                        <h4><strong>Climate Action</strong></h4>
+                        <p class="text-muted mb-0">Implementing solar solutions and sustainable farming in arid lands.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <span class="service-icon"><i class="icon-mustache"></i></span>
+                        <h4><strong>Life on Land</strong></h4>
+                        <p class="text-muted mb-0">Restoring ecosystems and promoting peaceful resource sharing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="callout">
+        <div class="container text-center">
+            <h2 class="mx-auto mb-3">Our Stories Are Changing Lives</h2>
+            <p class="lead mb-5" style="color: rgba(255,255,255,0.9);">From the forests of Sweden to the plains of Isiolo, explore our journey.</p>
+            <a class="btn btn-primary-custom btn-xl" href="stories.html">
+                Read the Blog
             </a>
         </div>
     </section>
 
-    <footer class="footer text-center" style="background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%); color: #FFF5E6; padding: 3rem 0;">
+    <section class="content-section" id="portfolio" style="background-color: var(--nvcbo-light-bg);">
         <div class="container">
+            <div class="section-heading">
+                <span class="subheading">Portfolio</span>
+                <h2>Recent Projects</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="portfolio-card">
+                        <a class="portfolio-link" href="campaign-sweden.html" style="text-decoration: none;">
+                            <div class="portfolio-img-wrapper">
+                                <span class="portfolio-tag">Exchange</span>
+                                <img src="assets/img/IMG_7016.jpg" alt="Sweden Exchange">
+                            </div>
+                            <div class="portfolio-caption">
+                                <h4>Global Exchange</h4>
+                                <p class="text-muted mb-0">Cultural immersion and learning in Halmstad, Sweden.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="portfolio-card">
+                        <a class="portfolio-link" href="campaign-details.html" style="text-decoration: none;">
+                            <div class="portfolio-img-wrapper">
+                                <span class="portfolio-tag">Solar</span>
+                                <img src="assets/img/IMG_8630.jpg" alt="Solar Light Project">
+                            </div>
+                            <div class="portfolio-caption">
+                                <h4>Light in the Darkness</h4>
+                                <p class="text-muted mb-0">Providing solar lanterns to off-grid families in Gotu.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="portfolio-card">
+                        <a class="portfolio-link" href="stories.html" style="text-decoration: none;">
+                            <div class="portfolio-img-wrapper">
+                                <span class="portfolio-tag">Education</span>
+                                <img src="assets/img/IMG_7013.jpg" alt="Education Workshop">
+                            </div>
+                            <div class="portfolio-caption">
+                                <h4>Digital & Rights Education</h4>
+                                <p class="text-muted mb-0">Workshops empowering youth and women with knowledge.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="portfolio-card">
+                        <a class="portfolio-link" href="gallery.html" style="text-decoration: none;">
+                            <div class="portfolio-img-wrapper">
+                                <span class="portfolio-tag">Community</span>
+                                <img src="assets/img/portfolio-1.jpg" alt="Community Baraza">
+                            </div>
+                            <div class="portfolio-caption">
+                                <h4>Community Dialogue</h4>
+                                <p class="text-muted mb-0">Fostering peace and resource management through local barazas.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a class="btn btn-dark btn-xl" href="gallery.html" style="background-color: #333; border: none;">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="donation-section" id="donate">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4" style="font-weight: 800; text-shadow: 0 2px 5px rgba(0,0,0,0.1);">The Buttons Below Are Impossible To Resist...</h2>
+                    <p class="lead mb-5" style="opacity: 0.9;">Your support directly funds solar lanterns for students, advocacy for women, and climate resilience in Isiolo.</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a class="btn btn-donate btn-xl me-md-3 mb-3 mb-md-0" href="#contact">Donate Now</a>
+                        <a class="btn btn-outline-custom btn-xl mb-3 mb-md-0" href="#contact">Partner With Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="map">
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Isiolo,+Kenya&aq=0&ie=UTF8&t=m&z=12&iwloc=A&output=embed"></iframe>
+    </section>
+
+    <footer class="footer text-center" style="padding: 4rem 0; background-color: #fff;">
+        <div class="container">
+            <h2 class="mb-4" style="color: #333; font-weight: 700;">Connect With Us</h2>
             <ul class="list-inline mb-5">
-                <li class="list-inline-item">&nbsp;
-                    <a class="social-link rounded-circle" href="#" style="background-color: rgba(255,255,255,0.15); border: 2px solid #FFAB76; color: #FFF5E6; display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px; text-decoration: none;">
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white mr-3" href="#!" style="background-color: #1D809F;">
                         <i class="icon-social-facebook"></i>
                     </a>
                 </li>
-                <li class="list-inline-item">&nbsp;
-                    <a class="social-link rounded-circle" href="#" style="background-color: rgba(255,255,255,0.15); border: 2px solid #FFAB76; color: #FFF5E6; display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px; text-decoration: none;">
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white mr-3" href="#!" style="background-color: #1D809F;">
                         <i class="icon-social-twitter"></i>
                     </a>
                 </li>
-                <li class="list-inline-item">&nbsp;
-                    <a class="social-link rounded-circle" href="#" style="background-color: rgba(255,255,255,0.15); border: 2px solid #FFAB76; color: #FFF5E6; display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px; text-decoration: none;">
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white" href="#!" style="background-color: #1D809F;">
                         <i class="icon-social-instagram"></i>
                     </a>
                 </li>
             </ul>
-            <p class="mb-0 small" style="color: #FFAB76; font-weight: 500; opacity: 0.9;">Copyright &copy; NVCBO 2025</p>
+            <p class="text-muted small mb-0">Copyright © NorthernVision CBO 2025</p>
         </div>
     </footer>
 
-    <a class="scroll-to-top rounded" href="#page-top" style="background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%); display: none;">
+    <a class="scroll-to-top rounded" href="#page-top" style="background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%);">
         <i class="fa fa-angle-up"></i>
     </a>
 
-    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content bg-transparent border-0">
-                <div class="modal-body p-0 text-center">
-                    <img id="modalImage" src="" class="img-fluid rounded shadow-lg" style="max-height: 80vh;">
-                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/js/stylish-portfolio.js"></script>
-    <script>
-        // Simple lightbox script
-        function openModal(imgElement) {
-            var myModal = new bootstrap.Modal(document.getElementById('imageModal'));
-            document.getElementById('modalImage').src = imgElement.src;
-            myModal.show();
-        }
-    </script>
 
 </body>
 </html>
