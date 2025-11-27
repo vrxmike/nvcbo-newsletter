@@ -1,69 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-bs-theme="light" lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Media Gallery - NorthernVision CBO</title>
-    <meta name="description" content="A centralized gallery of our campaigns and cultural exchanges.">
+    <title>Media Gallery - NVCBO</title>
     
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
-    <link rel="stylesheet" href="assets/css/newsletter.css">
-    
-    <style>
-        .gallery-header {
-            padding-top: 8rem;
-            padding-bottom: 4rem;
-            background: linear-gradient(90deg, rgba(29, 128, 159, 0.9) 0%, rgba(29, 128, 159, 0.7) 100%), url('assets/img/bg-callout.jpg');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            color: white;
-            text-align: center;
-        }
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 
-        .filter-buttons {
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
+    <style>
+        /* HEADER: Matches 'Stories' page style */
+        .gallery-header {
+            background: linear-gradient(135deg, #1D809F 0%, #155d74 100%);
+            padding: 8rem 0 5rem;
+            color: white;
+            margin-bottom: 0; /* Removed bottom margin to sit flush with filters */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* FILTER BUTTONS: Styled like your 'Call to Action' buttons */
+        .filter-container {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 3rem;
         }
 
         .filter-btn {
-            background: #fff;
-            color: #333;
-            border: 1px solid #ddd;
-            padding: 8px 20px;
+            background: transparent;
+            color: #666;
+            border: 2px solid #ddd;
+            padding: 10px 25px;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .filter-btn:hover, .filter-btn.active {
-            background: #ecb807; /* Your brand yellow */
+            background: #FF8C00; /* NVCBO Orange */
             color: #fff;
-            border-color: #ecb807;
+            border-color: #FF8C00;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
+        /* GALLERY CARDS: Matches 'Portfolio' style but cleaner */
         .gallery-item {
             margin-bottom: 30px;
             transition: opacity 0.4s ease-in-out;
         }
         
-        /* Animation class for filtering */
-        .gallery-item.hide {
-            display: none;
-        }
-        .gallery-item.show {
-            display: block;
-            animation: fadeIn 0.5s;
-        }
+        .gallery-item.hide { display: none; }
+        .gallery-item.show { display: block; animation: fadeIn 0.5s; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -71,113 +70,170 @@
         }
 
         .card-custom {
+            background: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             height: 100%;
-            transition: transform 0.3s;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer;
         }
 
         .card-custom:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(29, 128, 159, 0.2); /* Blue shadow hint */
         }
 
         .card-img-wrapper {
             position: relative;
-            padding-top: 65%; /* Aspect Ratio */
+            height: 240px;
             overflow: hidden;
-            background-color: #f0f0f0;
         }
 
         .card-img-wrapper img {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.5s ease;
         }
 
         .card-custom:hover .card-img-wrapper img {
-            transform: scale(1.05);
+            transform: scale(1.1);
+        }
+
+        /* Overlay Icon on Hover */
+        .card-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(29, 128, 159, 0.8); /* NVCBO Blue Overlay */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-custom:hover .card-overlay {
+            opacity: 1;
         }
 
         .card-body {
             padding: 1.5rem;
-            background: white;
+            text-align: left;
         }
 
         .tag-badge {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #1D809F;
-            font-weight: 700;
+            color: #FF8C00;
+            font-weight: 800;
             margin-bottom: 0.5rem;
             display: block;
         }
 
-        /* Modal Styles */
-        .modal-body img {
-            width: 100%;
-            border-radius: 5px;
+        .card-title {
+            font-weight: 700;
+            color: #333;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* SIDEBAR & UTILS (Copied from Repo styles) */
+        .menu-toggle {
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%) !important;
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+        #sidebar-wrapper {
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%) !important;
         }
     </style>
 </head>
+
 <body id="page-top">
 
-    <a class="menu-toggle rounded" href="#">
-        <i class="fa fa-bars"></i>
-    </a>
-    <nav id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand"><a href="index.html">NorthernVision</a></li>
-            <li class="sidebar-nav-item"><a href="index.html">Home</a></li>
-            <li class="sidebar-nav-item"><a href="stories.html">Stories</a></li>
-            <li class="sidebar-nav-item"><a href="gallery.html">Media Gallery</a></li>
-            <li class="sidebar-nav-item"><a href="index.html#contact">Contact</a></li>
-        </ul>
+    <a class="menu-toggle rounded" href="#"><i class="fa fa-bars"></i></a>
+    <nav class="navbar navbar-expand" id="sidebar-wrapper">
+        <div class="container">
+            <ul class="navbar-nav sidebar-nav" id="sidebar-nav">
+                <li class="nav-item sidebar-brand"><a class="nav-link active" href="index.html">NVCBO</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="stories.html">Stories</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="gallery.html">Media Gallery</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <header class="gallery-header">
-        <div class="container">
-            <h1 class="mx-auto my-0 text-uppercase">Media Hub</h1>
-            <h2 class="text-white-50 mx-auto mt-2 mb-5">Capturing moments of change and connection.</h2>
+    <header class="gallery-header text-center">
+        <div class="container px-4"> <h1 class="display-3 fw-bold mb-3">Media Gallery</h1>
+            <p class="lead mb-0" style="opacity: 0.9; font-weight: 300;">Visual stories from our campaigns in Isiolo, Marsabit, and Sweden.</p>
         </div>
     </header>
 
-    <section class="content-section bg-light" id="gallery">
-        <div class="container">
-            
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="filter-buttons" id="gallery-filters">
-                        <button class="filter-btn active" onclick="filterGallery('all', this)">All Moments</button>
-                        <button class="filter-btn" onclick="filterGallery('international', this)">International Exchange</button>
-                        <button class="filter-btn" onclick="filterGallery('education', this)">Education</button>
-                        <button class="filter-btn" onclick="filterGallery('community', this)">Community</button>
-                    </div>
-                </div>
+    <section class="filter-container">
+        <div class="container text-center">
+            <div class="d-flex justify-content-center flex-wrap">
+                <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+                <button class="filter-btn" onclick="filterGallery('international', this)">Global Exchange</button>
+                <button class="filter-btn" onclick="filterGallery('community', this)">Community</button>
+                <button class="filter-btn" onclick="filterGallery('education', this)">Education</button>
             </div>
+        </div>
+    </section>
 
-            <div class="row" id="gallery-grid">
+    <section class="pb-5">
+        <div class="container">
+            <div class="row g-4" id="gallery-grid">
                 
                 <div class="col-lg-4 col-md-6 gallery-item international">
                     <div class="card-custom" onclick="openModal(this)" 
-                         data-title="Sweden Cultural Exchange" 
-                         data-desc="Our team and students during the cultural immersion program in Halmstad, sharing smiles and experiences."
+                         data-title="Sweden Exchange Team" 
+                         data-desc="The NVCBO team and students in Halmstad, celebrating a successful cultural exchange program."
                          data-img="assets/img/IMG_7016.jpg">
                         <div class="card-img-wrapper">
-                            <img src="assets/img/IMG_7016.jpg" alt="Sweden Group Photo">
+                            <img src="assets/img/IMG_7016.jpg" alt="Sweden Group">
+                            <div class="card-overlay"><i class="icon-magnifier text-white fa-3x"></i></div>
                         </div>
                         <div class="card-body">
                             <span class="tag-badge">International</span>
-                            <h5 class="card-title">Exchange Team</h5>
-                            <p class="card-text text-muted small">Building bridges in Halmstad.</p>
+                            <h5 class="card-title">Cultural Exchange</h5>
+                            <p class="text-muted small mb-0">Halmstad, Sweden</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-item community">
+                    <div class="card-custom" onclick="openModal(this)"
+                         data-title="Light for Gotu" 
+                         data-desc="Mothers and children in Gotu holding their new solar lanterns, bringing light to off-grid homes."
+                         data-img="assets/img/IMG_8630.jpg">
+                        <div class="card-img-wrapper">
+                            <img src="assets/img/IMG_8630.jpg" alt="Solar Lanterns">
+                            <div class="card-overlay"><i class="icon-magnifier text-white fa-3x"></i></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="tag-badge">Community</span>
+                            <h5 class="card-title">Solar Distribution</h5>
+                            <p class="text-muted small mb-0">Gotu, Isiolo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-item education">
+                    <div class="card-custom" onclick="openModal(this)"
+                         data-title="Community Workshop" 
+                         data-desc="Interactive sessions on land rights and digital literacy, empowering the next generation."
+                         data-img="assets/img/IMG_7013.jpg">
+                        <div class="card-img-wrapper">
+                            <img src="assets/img/IMG_7013.jpg" alt="Workshop">
+                            <div class="card-overlay"><i class="icon-magnifier text-white fa-3x"></i></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="tag-badge">Education</span>
+                            <h5 class="card-title">Empowerment Session</h5>
+                            <p class="text-muted small mb-0">Isiolo County</p>
                         </div>
                     </div>
                 </div>
@@ -185,79 +241,50 @@
                 <div class="col-lg-4 col-md-6 gallery-item international">
                     <div class="card-custom" onclick="openModal(this)" 
                          data-title="Forest Traditions" 
-                         data-desc="Picking mushrooms and making hotdogs in the forest - a true Swedish afternoon."
-                         data-img="https://placehold.co/800x600/ecb807/333333?text=Forest+Hotdogs">
+                         data-desc="Learning about sustainable forestry and local traditions in the Swedish woodlands."
+                         data-img="https://placehold.co/800x600/ecb807/333333?text=Forest+Walk">
                         <div class="card-img-wrapper">
-                            <img src="https://placehold.co/800x600/ecb807/333333?text=Forest+Hotdogs" alt="Forest Hotdogs">
+                            <img src="https://placehold.co/800x600/ecb807/333333?text=Forest+Walk" alt="Forest">
+                            <div class="card-overlay"><i class="icon-magnifier text-white fa-3x"></i></div>
                         </div>
                         <div class="card-body">
                             <span class="tag-badge">International</span>
-                            <h5 class="card-title">Forest Lunch</h5>
-                            <p class="card-text text-muted small">Mushroom picking & campfire cooking.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 gallery-item education">
-                    <div class="card-custom" onclick="openModal(this)"
-                         data-title="Knowledge Sharing" 
-                         data-desc="Interactive workshop sessions focusing on values, storytelling, and community history."
-                         data-img="assets/img/IMG_7013.jpg">
-                        <div class="card-img-wrapper">
-                            <img src="assets/img/IMG_7013.jpg" alt="Classroom Workshop">
-                        </div>
-                        <div class="card-body">
-                            <span class="tag-badge">Education</span>
-                            <h5 class="card-title">Community Workshop</h5>
-                            <p class="card-text text-muted small">Empowering minds through dialogue.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 gallery-item international">
-                    <div class="card-custom" onclick="openModal(this)"
-                         data-title="Cultural Dinner" 
-                         data-desc="Sharing Swedish meatballs and Kenyan dishes. Food, stories, and laughter are universal languages."
-                         data-img="https://placehold.co/800x600/1D809F/ffffff?text=Cultural+Dinner">
-                        <div class="card-img-wrapper">
-                            <img src="https://placehold.co/800x600/1D809F/ffffff?text=Cultural+Dinner" alt="Cultural Dinner">
-                        </div>
-                        <div class="card-body">
-                            <span class="tag-badge">International</span>
-                            <h5 class="card-title">A Shared Table</h5>
-                            <p class="card-text text-muted small">Exchange of flavors and friendship.</p>
+                            <h5 class="card-title">Nature Walk</h5>
+                            <p class="text-muted small mb-0">Halmstad Forest</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 gallery-item community">
                     <div class="card-custom" onclick="openModal(this)"
-                         data-title="Light in the Darkness" 
-                         data-desc="Community members receiving solar lanterns to improve security and study hours for children."
-                         data-img="assets/img/IMG_8630.jpg">
+                         data-title="Village Meeting" 
+                         data-desc="Elders and community members gathering to discuss water resources and future projects."
+                         data-img="assets/img/portfolio-1.jpg">
                         <div class="card-img-wrapper">
-                            <img src="assets/img/IMG_8630.jpg" alt="Solar Lantern Distribution">
+                            <img src="assets/img/portfolio-1.jpg" alt="Meeting">
+                            <div class="card-overlay"><i class="icon-magnifier text-white fa-3x"></i></div>
                         </div>
                         <div class="card-body">
                             <span class="tag-badge">Community</span>
-                            <h5 class="card-title">Solar Initiative</h5>
-                            <p class="card-text text-muted small">Bringing sustainable light to homes.</p>
+                            <h5 class="card-title">Baraza Session</h5>
+                            <p class="text-muted small mb-0">Dahaba</p>
                         </div>
                     </div>
                 </div>
 
-                 <div class="col-lg-4 col-md-6 gallery-item environment">
+                 <div class="col-lg-4 col-md-6 gallery-item education">
                     <div class="card-custom" onclick="openModal(this)"
-                         data-title="Tree Planting" 
-                         data-desc="Community volunteers planting indigenous trees to restore the river bank."
-                         data-img="https://placehold.co/800x600/166534/ffffff?text=Tree+Planting">
+                         data-title="Digital Skills" 
+                         data-desc="Introduction to computers and digital tools for youth in the region."
+                         data-img="assets/img/portfolio-4.jpg">
                         <div class="card-img-wrapper">
-                            <img src="https://placehold.co/800x600/166534/ffffff?text=Tree+Planting" alt="Tree Planting">
+                            <img src="assets/img/portfolio-4.jpg" alt="Computers">
+                            <div class="card-overlay"><i class="icon-magnifier text-white fa-3x"></i></div>
                         </div>
                         <div class="card-body">
-                            <span class="tag-badge">Environment</span>
-                            <h5 class="card-title">Green Future</h5>
-                            <p class="card-text text-muted small">Restoring our local ecosystem.</p>
+                            <span class="tag-badge">Education</span>
+                            <h5 class="card-title">Digital Literacy</h5>
+                            <p class="text-muted small mb-0">Nairobi Hub</p>
                         </div>
                     </div>
                 </div>
@@ -266,39 +293,43 @@
         </div>
     </section>
 
-    <footer class="footer text-center">
+    <footer class="footer text-center" style="background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%); color: #FFF5E6; padding: 3rem 0;">
         <div class="container">
             <ul class="list-inline mb-5">
-                <li class="list-inline-item">
-                    <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-facebook"></i></a>
+                <li class="list-inline-item">&nbsp;
+                    <a class="social-link rounded-circle" href="#" style="background-color: rgba(255,255,255,0.15); border: 2px solid #FFAB76; color: #FFF5E6; display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px;">
+                        <i class="icon-social-facebook"></i>
+                    </a>
                 </li>
-                <li class="list-inline-item">
-                    <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
+                <li class="list-inline-item">&nbsp;
+                    <a class="social-link rounded-circle" href="#" style="background-color: rgba(255,255,255,0.15); border: 2px solid #FFAB76; color: #FFF5E6; display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px;">
+                        <i class="icon-social-twitter"></i>
+                    </a>
                 </li>
-                <li class="list-inline-item">
-                    <a class="social-link rounded-circle text-white" href="#!"><i class="icon-social-instagram"></i></a>
+                <li class="list-inline-item">&nbsp;
+                    <a class="social-link rounded-circle" href="#" style="background-color: rgba(255,255,255,0.15); border: 2px solid #FFAB76; color: #FFF5E6; display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px;">
+                        <i class="icon-social-instagram"></i>
+                    </a>
                 </li>
             </ul>
-            <p class="text-muted small mb-0">Copyright &copy; NorthernVision CBO 2025</p>
+            <p class="mb-0 small" style="color: #FFAB76; font-weight: 500; opacity: 0.9;">Copyright &copy; NVCBO 2025</p>
         </div>
     </footer>
 
-    <a class="scroll-to-top rounded" href="#page-top">
+    <a class="scroll-to-top rounded" href="#page-top" style="background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%);">
         <i class="fa fa-angle-up"></i>
     </a>
 
-    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
                 <div class="modal-header border-0 pb-0">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <img id="modalImage" src="" alt="" class="img-fluid mb-3">
-                    <h4 id="modalTitle" class="text-dark font-weight-bold"></h4>
-                    <p id="modalDesc" class="text-muted"></p>
+                <div class="modal-body text-center pb-5">
+                    <img id="modalImage" src="" alt="" class="img-fluid rounded mb-4 shadow-sm" style="max-height: 70vh;">
+                    <h3 id="modalTitle" class="fw-bold text-dark mb-2"></h3>
+                    <p id="modalDesc" class="text-muted lead"></p>
                 </div>
             </div>
         </div>
@@ -306,25 +337,9 @@
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/stylish-portfolio.js"></script>
     
     <script>
-        // Sidebar Logic
-        (function($) {
-            "use strict"; 
-            $(".menu-toggle").click(function(e) {
-                e.preventDefault();
-                $("#sidebar-wrapper").toggleClass("active");
-                $(".menu-toggle > .fa-bars, .menu-toggle > .fa-times").toggleClass("fa-bars fa-times");
-                $(this).toggleClass("active");
-            });
-            $(".scroll-to-top").click(function() {
-                 $("#sidebar-wrapper").removeClass("active");
-                 $(".menu-toggle").removeClass("active");
-                 $(".menu-toggle > .fa").addClass("fa-bars").removeClass("fa-times");
-            });
-        })(jQuery);
-
         // Filter Logic
         function filterGallery(category, btn) {
             const buttons = document.querySelectorAll('.filter-btn');
@@ -343,7 +358,7 @@
             });
         }
 
-        // Modal Logic
+        // Modal Logic (Updated for Bootstrap 5 syntax)
         function openModal(element) {
             const title = element.getAttribute('data-title');
             const desc = element.getAttribute('data-desc');
@@ -353,7 +368,8 @@
             document.getElementById('modalDesc').innerText = desc;
             document.getElementById('modalImage').src = img;
 
-            $('#imageModal').modal('show');
+            var myModal = new bootstrap.Modal(document.getElementById('imageModal'));
+            myModal.show();
         }
     </script>
 
