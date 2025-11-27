@@ -6,14 +6,12 @@
     <title>Media Gallery - NorthernVision CBO</title>
     <meta name="description" content="A centralized gallery of our campaigns and cultural exchanges.">
     
-    <!-- CSS Dependencies from your assets folder -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="assets/css/newsletter.css">
     
-    <!-- Inline Styles for Gallery Specifics -->
     <style>
         .gallery-header {
             padding-top: 8rem;
@@ -132,7 +130,6 @@
 </head>
 <body id="page-top">
 
-    <!-- Navigation Toggle (Matches your existing site) -->
     <a class="menu-toggle rounded" href="#">
         <i class="fa fa-bars"></i>
     </a>
@@ -142,11 +139,10 @@
             <li class="sidebar-nav-item"><a href="index.html">Home</a></li>
             <li class="sidebar-nav-item"><a href="stories.html">Stories</a></li>
             <li class="sidebar-nav-item"><a href="gallery.html">Media Gallery</a></li>
-            <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
+            <li class="sidebar-nav-item"><a href="index.html#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Header -->
     <header class="gallery-header">
         <div class="container">
             <h1 class="mx-auto my-0 text-uppercase">Media Hub</h1>
@@ -154,11 +150,9 @@
         </div>
     </header>
 
-    <!-- Gallery Section -->
     <section class="content-section bg-light" id="gallery">
         <div class="container">
             
-            <!-- Filters -->
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="filter-buttons" id="gallery-filters">
@@ -166,32 +160,28 @@
                         <button class="filter-btn" onclick="filterGallery('international', this)">International Exchange</button>
                         <button class="filter-btn" onclick="filterGallery('education', this)">Education</button>
                         <button class="filter-btn" onclick="filterGallery('community', this)">Community</button>
-                        <button class="filter-btn" onclick="filterGallery('environment', this)">Environment</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Grid -->
             <div class="row" id="gallery-grid">
                 
-                <!-- Item 1: Sweden (Halmstad) -->
                 <div class="col-lg-4 col-md-6 gallery-item international">
                     <div class="card-custom" onclick="openModal(this)" 
-                         data-title="Halmstad Old Town" 
-                         data-desc="An immersive tour through the historic cobblestone streets of Halmstad."
-                         data-img="https://placehold.co/800x600/1D809F/ffffff?text=Halmstad+Old+Town">
+                         data-title="Sweden Cultural Exchange" 
+                         data-desc="Our team and students during the cultural immersion program in Halmstad, sharing smiles and experiences."
+                         data-img="assets/img/IMG_7016.jpg">
                         <div class="card-img-wrapper">
-                            <img src="https://placehold.co/800x600/1D809F/ffffff?text=Halmstad+Old+Town" alt="Halmstad Old Town">
+                            <img src="assets/img/IMG_7016.jpg" alt="Sweden Group Photo">
                         </div>
                         <div class="card-body">
                             <span class="tag-badge">International</span>
-                            <h5 class="card-title">Historic Tour</h5>
-                            <p class="card-text text-muted small">Exploring the rich history of Halmstad.</p>
+                            <h5 class="card-title">Exchange Team</h5>
+                            <p class="card-text text-muted small">Building bridges in Halmstad.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Item 2: Sweden (Forest) -->
                 <div class="col-lg-4 col-md-6 gallery-item international">
                     <div class="card-custom" onclick="openModal(this)" 
                          data-title="Forest Traditions" 
@@ -208,24 +198,22 @@
                     </div>
                 </div>
 
-                <!-- Item 3: Education (Mock) -->
                 <div class="col-lg-4 col-md-6 gallery-item education">
                     <div class="card-custom" onclick="openModal(this)"
-                         data-title="Digital Literacy" 
-                         data-desc="Students engaging with new learning software at the community center."
-                         data-img="https://placehold.co/800x600/22c55e/ffffff?text=Digital+Classroom">
+                         data-title="Knowledge Sharing" 
+                         data-desc="Interactive workshop sessions focusing on values, storytelling, and community history."
+                         data-img="assets/img/IMG_7013.jpg">
                         <div class="card-img-wrapper">
-                            <img src="https://placehold.co/800x600/22c55e/ffffff?text=Digital+Classroom" alt="Digital Classroom">
+                            <img src="assets/img/IMG_7013.jpg" alt="Classroom Workshop">
                         </div>
                         <div class="card-body">
                             <span class="tag-badge">Education</span>
-                            <h5 class="card-title">Digital Skills</h5>
-                            <p class="card-text text-muted small">Empowering youth through technology.</p>
+                            <h5 class="card-title">Community Workshop</h5>
+                            <p class="card-text text-muted small">Empowering minds through dialogue.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Item 4: Sweden (Dinner) -->
                 <div class="col-lg-4 col-md-6 gallery-item international">
                     <div class="card-custom" onclick="openModal(this)"
                          data-title="Cultural Dinner" 
@@ -242,28 +230,26 @@
                     </div>
                 </div>
 
-                <!-- Item 5: Sweden (Ice Skating) -->
-                <div class="col-lg-4 col-md-6 gallery-item international">
+                <div class="col-lg-4 col-md-6 gallery-item community">
                     <div class="card-custom" onclick="openModal(this)"
-                         data-title="Ice Skating" 
-                         data-desc="Lacing up skates for a fun (and slippery) afternoon on the ice."
-                         data-img="https://placehold.co/800x600/ecb807/333333?text=Ice+Skating">
+                         data-title="Light in the Darkness" 
+                         data-desc="Community members receiving solar lanterns to improve security and study hours for children."
+                         data-img="assets/img/IMG_8630.jpg">
                         <div class="card-img-wrapper">
-                            <img src="https://placehold.co/800x600/ecb807/333333?text=Ice+Skating" alt="Ice Skating">
+                            <img src="assets/img/IMG_8630.jpg" alt="Solar Lantern Distribution">
                         </div>
                         <div class="card-body">
-                            <span class="tag-badge">International</span>
-                            <h5 class="card-title">Ice Skating</h5>
-                            <p class="card-text text-muted small">Fun winter activities in Halmstad.</p>
+                            <span class="tag-badge">Community</span>
+                            <h5 class="card-title">Solar Initiative</h5>
+                            <p class="card-text text-muted small">Bringing sustainable light to homes.</p>
                         </div>
                     </div>
                 </div>
 
-                 <!-- Item 6: Environment (Mock) -->
                  <div class="col-lg-4 col-md-6 gallery-item environment">
                     <div class="card-custom" onclick="openModal(this)"
                          data-title="Tree Planting" 
-                         data-desc="Community members planting indigenous trees to restore the river bank."
+                         data-desc="Community volunteers planting indigenous trees to restore the river bank."
                          data-img="https://placehold.co/800x600/166534/ffffff?text=Tree+Planting">
                         <div class="card-img-wrapper">
                             <img src="https://placehold.co/800x600/166534/ffffff?text=Tree+Planting" alt="Tree Planting">
@@ -280,7 +266,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer text-center">
         <div class="container">
             <ul class="list-inline mb-5">
@@ -298,12 +283,10 @@
         </div>
     </footer>
 
-    <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>
     </a>
 
-    <!-- Lightbox Modal -->
     <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -321,15 +304,12 @@
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript -->
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- We need standard Bootstrap JS for the modal, using CDN since local file might lack dependencies like Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Custom Scripts -->
     <script>
-        // Sidebar toggle (copied from stylish-portfolio.js logic)
+        // Sidebar Logic
         (function($) {
             "use strict"; 
             $(".menu-toggle").click(function(e) {
@@ -338,7 +318,6 @@
                 $(".menu-toggle > .fa-bars, .menu-toggle > .fa-times").toggleClass("fa-bars fa-times");
                 $(this).toggleClass("active");
             });
-            // Closes sidebar on click
             $(".scroll-to-top").click(function() {
                  $("#sidebar-wrapper").removeClass("active");
                  $(".menu-toggle").removeClass("active");
@@ -346,16 +325,13 @@
             });
         })(jQuery);
 
-        // Filter Functionality
+        // Filter Logic
         function filterGallery(category, btn) {
-            // Update active button state
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // Filter items
             const items = document.querySelectorAll('.gallery-item');
-            
             items.forEach(item => {
                 if (category === 'all' || item.classList.contains(category)) {
                     item.classList.remove('hide');
@@ -367,7 +343,7 @@
             });
         }
 
-        // Modal Functionality
+        // Modal Logic
         function openModal(element) {
             const title = element.getAttribute('data-title');
             const desc = element.getAttribute('data-desc');
