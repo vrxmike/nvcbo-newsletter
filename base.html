@@ -15,14 +15,14 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 
     <style>
-        /* --- GLOBAL THEME VARIABLES (Matched to campaign-details.html) --- */
+        /* --- GLOBAL THEME VARIABLES --- */
         :root {
             --nvcbo-blue: #1D809F;
             --nvcbo-dark-blue: #155d74;
             --nvcbo-orange: #FF8C00;
-            --nvcbo-dark-orange: #CC5500; /* Matches article headers */
-            --nvcbo-cream: #FFF5E6;      /* Matches badges/quotes */
-            --nvcbo-light-bg: #f8f9fa;   /* Matches content sections */
+            --nvcbo-dark-orange: #CC5500;
+            --nvcbo-cream: #FFF5E6;
+            --nvcbo-light-bg: #f8f9fa;
         }
 
         /* --- HERO SECTION --- */
@@ -31,7 +31,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Adjusted overlay to match the campaign header style (Blue/Teal) */
             background: linear-gradient(rgba(29, 128, 159, 0.9), rgba(21, 93, 116, 0.8)), url('assets/img/IMG_4320.png');
             background-position: center;
             background-size: cover;
@@ -52,7 +51,7 @@
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             margin-bottom: 3rem;
             opacity: 0.9;
-            color: var(--nvcbo-cream); /* Subtle tie-in to the theme */
+            color: var(--nvcbo-cream);
         }
 
         /* --- BUTTONS --- */
@@ -65,10 +64,12 @@
             letter-spacing: 1px;
             transition: all 0.3s ease;
             border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .btn-primary-custom {
-            /* Exact gradient from campaign sidebar */
             background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%);
             color: white;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -91,6 +92,17 @@
             color: var(--nvcbo-blue);
             border-color: white;
         }
+        
+        /* Donation Button Specifics */
+        .btn-donate {
+            background: white;
+            color: var(--nvcbo-dark-orange);
+            font-weight: 800;
+        }
+        .btn-donate:hover {
+            background: var(--nvcbo-cream);
+            color: var(--nvcbo-orange);
+        }
 
         /* --- SECTIONS --- */
         .content-section {
@@ -111,14 +123,14 @@
         .section-heading .subheading {
             font-size: 1rem;
             font-weight: 700;
-            color: var(--nvcbo-dark-orange); /* Updated to #CC5500 */
+            color: var(--nvcbo-dark-orange);
             text-transform: uppercase;
             letter-spacing: 2px;
             display: block;
             margin-bottom: 0.5rem;
         }
 
-        /* --- SERVICE CARDS (SDGs) --- */
+        /* --- SERVICE CARDS --- */
         .service-card {
             background: white;
             padding: 3rem 1.5rem;
@@ -127,13 +139,13 @@
             transition: transform 0.3s ease;
             height: 100%;
             text-align: center;
-            border-bottom: 4px solid transparent; /* Preparation for hover */
+            border-bottom: 4px solid transparent;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border-bottom-color: var(--nvcbo-orange); /* Orange accent on hover */
+            border-bottom-color: var(--nvcbo-orange);
         }
 
         .service-icon {
@@ -182,7 +194,6 @@
             transform: scale(1.1);
         }
         
-        /* Added the Tag Badge style from Campaign Details */
         .portfolio-tag {
             position: absolute;
             top: 15px;
@@ -211,7 +222,6 @@
         /* --- CALLOUT / NEWSLETTER --- */
         .callout {
             padding: 8rem 0;
-            /* Darker overlay to match campaign header vibes */
             background: linear-gradient(rgba(21, 93, 116, 0.9), rgba(29, 128, 159, 0.8)), url('assets/img/bg-callout.jpg');
             background-position: center center;
             background-repeat: no-repeat;
@@ -227,7 +237,15 @@
             margin-bottom: 1rem;
         }
 
-        /* --- NAVIGATION (Exact match to Campaign Details) --- */
+        /* --- DONATION SECTION (NEW) --- */
+        .donation-section {
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        /* --- NAVIGATION --- */
         .menu-toggle {
             position: fixed;
             right: 15px;
@@ -236,8 +254,7 @@
             height: 50px;
             text-align: center;
             color: #fff;
-            /* Exact gradient from campaign-details.html */
-            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%) !important;
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
             line-height: 50px;
             z-index: 999;
             border-radius: 50%;
@@ -250,7 +267,6 @@
         }
         
         #sidebar-wrapper {
-            /* Exact gradient from campaign-details.html */
             background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%) !important;
         }
     </style>
@@ -270,6 +286,7 @@
             <li class="sidebar-nav-item"><a href="#services">Our Impact</a></li>
             <li class="sidebar-nav-item"><a href="stories.html">Stories & News</a></li>
             <li class="sidebar-nav-item"><a href="gallery.html">Media Gallery</a></li>
+            <li class="sidebar-nav-item"><a href="#donate">Donate</a></li>
             <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -281,11 +298,11 @@
                 <em>Empowering Northern Kenya's pastoralist communities through climate justice, innovation, and cultural exchange.</em>
             </h2>
             <a class="btn btn-primary-custom btn-xl me-3" href="#about">Discover More</a>
-            <a class="btn btn-outline-custom btn-xl" href="stories.html">Read Stories</a>
+            <a class="btn btn-outline-custom btn-xl" href="#donate">Support Us</a>
         </div>
     </header>
 
-    <section class="content-section" id="about" style="background-color: var(--nvcbo-cream);">
+    <section class="content-section bg-light" id="about">
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
@@ -360,7 +377,6 @@
                 <h2>Recent Projects</h2>
             </div>
             <div class="row g-4">
-                
                 <div class="col-lg-6">
                     <div class="portfolio-card">
                         <a class="portfolio-link" href="campaign-sweden.html" style="text-decoration: none;">
@@ -420,7 +436,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
             <div class="text-center mt-5">
                 <a class="btn btn-dark btn-xl" href="gallery.html" style="background-color: #333; border: none;">View Full Gallery</a>
@@ -428,8 +443,23 @@
         </div>
     </section>
 
+    <section class="donation-section" id="donate">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4" style="font-weight: 800; text-shadow: 0 2px 5px rgba(0,0,0,0.1);">The Buttons Below Are Impossible To Resist...</h2>
+                    <p class="lead mb-5" style="opacity: 0.9;">Your support directly funds solar lanterns for students, advocacy for women, and climate resilience in Isiolo.</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a class="btn btn-donate btn-xl me-md-3 mb-3 mb-md-0" href="#contact">Donate Now</a>
+                        <a class="btn btn-outline-custom btn-xl mb-3 mb-md-0" href="#contact">Partner With Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=Isiolo&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Isiolo,+Kenya&aq=0&ie=UTF8&t=m&z=12&iwloc=A&output=embed"></iframe>
     </section>
 
     <footer class="footer text-center" style="padding: 4rem 0; background-color: #fff;">
