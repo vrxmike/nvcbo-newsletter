@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - NorthernVision CBO</title>
-    <meta name="description" content="Empowering Northern Kenya through sustainable agriculture, education, and climate action.">
+    <title>Newsletter Hub - Northern Vision CBO</title>
+    <meta name="description" content="Stay updated with the latest stories, campaigns, and newsletters from Northern Vision CBO. Empowering Northern Kenya's communities.">
     
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900&display=swap">
@@ -25,499 +25,1296 @@
             --nvcbo-light-bg: #f8f9fa;
         }
 
-        /* --- HERO SECTION --- */
-        .masthead {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(rgba(29, 128, 159, 0.85), rgba(21, 93, 116, 0.8)), url('assets/img/IMG_4320.png');
-            background-position: center;
-            background-size: cover;
-            color: white;
-            text-align: center;
-            padding: 0 1rem;
-        }
-
-        .masthead h1 {
-            font-weight: 900;
-            /* Clamp ensures font scales smoothly between mobile (2.5rem) and desktop (4.5rem) */
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .masthead h2 {
-            font-weight: 300;
-            font-size: clamp(1.1rem, 3vw, 1.8rem);
-            margin-bottom: 3rem;
-            opacity: 0.9;
-            color: var(--nvcbo-cream);
-            max-width: 800px; /* Prevents text from stretching too wide on big screens */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* --- BUTTONS (Enhanced Responsiveness) --- */
-        .btn-xl {
-            padding: 1.25rem 2.5rem;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 200px; /* Ensures buttons look uniform on desktop */
-        }
-
-        /* Mobile Optimizations for Buttons */
-        @media (max-width: 576px) {
-            .btn-xl {
-                padding: 1rem 1.5rem; /* Smaller padding for mobile screens */
-                width: 100%;         /* Full width buttons for easier tapping */
-                margin-bottom: 0;    /* Margins handled by gap utility */
-            }
-            
-            /* Container constraint so buttons don't get too wide on tablets */
-            .hero-btn-container {
-                width: 100%;
-                max-width: 320px;
-                margin: 0 auto;
-            }
-        }
-
-        .btn-primary-custom {
-            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .btn-primary-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
-            color: white;
-        }
-
-        .btn-outline-custom {
-            background: transparent;
-            border: 2px solid rgba(255,255,255,0.6);
-            color: white;
-        }
-
-        .btn-outline-custom:hover {
-            background: white;
-            color: var(--nvcbo-blue);
-            border-color: white;
-        }
-        
-        /* Donation Button */
-        .btn-donate {
-            background: white;
-            color: var(--nvcbo-dark-orange);
-            font-weight: 800;
-        }
-        .btn-donate:hover {
-            background: var(--nvcbo-cream);
-            color: var(--nvcbo-orange);
-        }
-
-        /* --- SECTIONS --- */
-        .content-section {
-            padding: 7.5rem 0;
-        }
-
-        .section-heading {
-            margin-bottom: 4rem;
-            text-align: center;
-        }
-
-        .section-heading h2 {
-            font-size: 3rem;
-            font-weight: 700;
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
             color: #333;
         }
 
-        .section-heading .subheading {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--nvcbo-dark-orange);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        /* --- SERVICE CARDS --- */
-        .service-card {
+        /* --- HEADER & NAVIGATION --- */
+        .main-header {
             background: white;
-            padding: 3rem 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            height: 100%;
-            text-align: center;
-            border-bottom: 4px solid transparent;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border-bottom-color: var(--nvcbo-orange);
-        }
-
-        .service-icon {
+        .header-top {
             background: linear-gradient(135deg, var(--nvcbo-blue) 0%, var(--nvcbo-dark-blue) 100%);
+            padding: 0.5rem 0;
             color: white;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: inline-flex;
+            font-size: 0.85rem;
+        }
+
+        .header-top a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .header-top a:hover {
+            color: var(--nvcbo-orange);
+        }
+
+        .header-main {
+            padding: 1rem 0;
+        }
+
+        .logo-text {
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: var(--nvcbo-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-text:hover {
+            color: var(--nvcbo-dark-blue);
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            border-radius: 10px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 5px 15px rgba(29, 128, 159, 0.3);
+            color: white;
+            font-size: 1.3rem;
         }
 
-        /* --- PORTFOLIO GRID --- */
-        .portfolio-card {
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .main-nav .nav-link {
+            color: #333;
+            font-weight: 600;
+            padding: 0.75rem 1.25rem;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .main-nav .nav-link:hover {
+            color: var(--nvcbo-orange);
+            background: var(--nvcbo-cream);
+        }
+
+        .main-nav .nav-link.active {
+            color: var(--nvcbo-orange);
+        }
+
+        .search-box {
             position: relative;
+        }
+
+        .search-box input {
+            border: 2px solid #eee;
+            border-radius: 25px;
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+            width: 220px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--nvcbo-blue);
+            outline: none;
+            width: 280px;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .btn-subscribe-header {
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-subscribe-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,140,0,0.3);
+            color: white;
+        }
+
+        /* Mobile Navigation */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--nvcbo-blue);
+        }
+
+        @media (max-width: 991px) {
+            .mobile-toggle {
+                display: block;
+            }
+            .main-nav, .search-box, .btn-subscribe-header {
+                display: none;
+            }
+            .mobile-nav-active .main-nav {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                padding: 1rem;
+            }
+        }
+
+        /* --- HERO CAROUSEL --- */
+        .hero-carousel {
+            background: linear-gradient(135deg, var(--nvcbo-blue) 0%, var(--nvcbo-dark-blue) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            min-height: 500px;
+        }
+
+        .carousel-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+        }
+
+        .carousel-content {
+            position: relative;
+            z-index: 2;
+            padding: 5rem 0;
+            color: white;
+        }
+
+        .carousel-tag {
+            display: inline-block;
+            background: var(--nvcbo-orange);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .carousel-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .carousel-excerpt {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn-read-story {
+            background: white;
+            color: var(--nvcbo-dark-blue);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-read-story:hover {
+            background: var(--nvcbo-cream);
+            transform: translateX(5px);
+            color: var(--nvcbo-dark-blue);
+        }
+
+        .carousel-indicators {
+            bottom: 30px;
+        }
+
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: none;
+            margin: 0 5px;
+        }
+
+        .carousel-indicators button.active {
+            background: var(--nvcbo-orange);
+        }
+
+        @media (max-width: 768px) {
+            .carousel-title {
+                font-size: 2rem;
+            }
+            .carousel-item {
+                min-height: 400px;
+            }
+        }
+
+        /* --- LATEST NEWS GRID --- */
+        .news-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #333;
+            margin: 0;
+        }
+
+        .section-title span {
+            color: var(--nvcbo-orange);
+        }
+
+        .view-all-link {
+            color: var(--nvcbo-blue);
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .view-all-link:hover {
+            color: var(--nvcbo-orange);
+        }
+
+        .news-card {
+            background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            background: white;
-            transition: transform 0.3s ease;
-        }
-        
-        .portfolio-card:hover {
-             transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
-        .portfolio-img-wrapper {
-            height: 250px;
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .news-card-img {
+            height: 200px;
             overflow: hidden;
             position: relative;
         }
 
-        .portfolio-img-wrapper img {
+        .news-card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .portfolio-card:hover img {
+        .news-card:hover .news-card-img img {
             transform: scale(1.1);
         }
-        
-        .portfolio-tag {
+
+        .news-card-tag {
             position: absolute;
             top: 15px;
-            right: 15px;
-            background: var(--nvcbo-orange);
+            left: 15px;
+            background: var(--nvcbo-blue);
             color: white;
-            padding: 5px 12px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .news-card-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card-date {
+            color: #999;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .news-card-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .news-card-title a:hover {
+            color: var(--nvcbo-blue);
+        }
+
+        .news-card-excerpt {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .news-card-link {
+            color: var(--nvcbo-orange);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 1rem;
+        }
+
+        .news-card-link:hover {
+            color: var(--nvcbo-dark-orange);
+        }
+
+        /* --- ACTIVE CAMPAIGNS --- */
+        .campaigns-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--nvcbo-cream) 0%, #fff 100%);
+        }
+
+        .campaign-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .campaign-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .campaign-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .campaign-content {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .campaign-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            color: white;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 700;
-            letter-spacing: 0.5px;
             text-transform: uppercase;
-            z-index: 10;
-        }
-
-        .portfolio-caption {
-            padding: 1.5rem;
-        }
-
-        .portfolio-caption h4 {
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        /* --- CALLOUT --- */
-        .callout {
-            padding: 8rem 0;
-            background: linear-gradient(rgba(21, 93, 116, 0.9), rgba(29, 128, 159, 0.8)), url('assets/img/bg-callout.jpg');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            text-align: center;
-            position: relative;
-        }
-        
-        .callout h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: white;
             margin-bottom: 1rem;
         }
 
-        /* --- DONATION SECTION --- */
-        .donation-section {
+        .campaign-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 0.75rem;
+        }
+
+        .campaign-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .campaign-progress {
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .progress-raised {
+            color: var(--nvcbo-blue);
+        }
+
+        .progress-goal {
+            color: #999;
+        }
+
+        .progress-bar-container {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 12px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .progress-percent {
+            text-align: center;
+            color: var(--nvcbo-orange);
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        .campaign-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-donate {
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-donate:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,140,0,0.4);
+            color: white;
+        }
+
+        .btn-learn-more {
+            background: transparent;
+            border: 2px solid var(--nvcbo-blue);
+            color: var(--nvcbo-blue);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-learn-more:hover {
+            background: var(--nvcbo-blue);
+            color: white;
+        }
+
+        /* --- NEWSLETTER QUICK ACCESS --- */
+        .newsletter-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .newsletter-featured {
+            background: linear-gradient(135deg, var(--nvcbo-blue) 0%, var(--nvcbo-dark-blue) 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-preview {
+            flex: 1;
+            min-width: 300px;
+            padding: 3rem;
+            color: white;
+        }
+
+        .newsletter-label {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-meta {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-excerpt {
+            opacity: 0.9;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .btn-read-newsletter {
+            background: white;
+            color: var(--nvcbo-dark-blue);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-read-newsletter:hover {
+            background: var(--nvcbo-cream);
+            transform: translateX(5px);
+            color: var(--nvcbo-dark-blue);
+        }
+
+        .newsletter-archive-link {
+            flex: 0 0 280px;
+            background: rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-archive-link:hover {
+            background: rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .archive-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .archive-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .archive-count {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* --- ENGAGEMENT/SUBSCRIBE SECTION --- */
+        .subscribe-section {
+            padding: 5rem 0;
             background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
             color: white;
             text-align: center;
-            padding: 6rem 0;
         }
 
-        /* --- NAVIGATION --- */
-        .menu-toggle {
-            position: fixed;
-            right: 15px;
-            top: 15px;
+        .subscribe-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .subscribe-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subscribe-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            gap: 0;
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 1rem;
+        }
+
+        .subscribe-form input:focus {
+            outline: none;
+        }
+
+        .subscribe-form button {
+            background: var(--nvcbo-dark-blue);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0 50px 50px 0;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-form button:hover {
+            background: var(--nvcbo-blue);
+        }
+
+        .subscribe-privacy {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .subscribe-privacy a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-link {
             width: 50px;
             height: 50px;
-            text-align: center;
-            color: #fff;
-            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
-            line-height: 50px;
-            z-index: 999;
+            background: rgba(255,255,255,0.2);
             border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
-        
-        .menu-toggle:hover {
-            background: linear-gradient(135deg, #FF7F00 0%, #CC5500 100%) !important;
+
+        .social-link:hover {
+            background: white;
+            color: var(--nvcbo-orange);
+            transform: translateY(-3px);
         }
-        
-        #sidebar-wrapper {
-            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%) !important;
+
+        @media (max-width: 576px) {
+            .subscribe-form {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .subscribe-form input,
+            .subscribe-form button {
+                border-radius: 50px;
+                width: 100%;
+            }
+        }
+
+        /* --- FOOTER --- */
+        .main-footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-brand {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo:hover {
+            color: var(--nvcbo-orange);
+        }
+
+        .footer-logo .logo-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.1rem;
+        }
+
+        .footer-description {
+            color: #999;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-heading {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--nvcbo-orange);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--nvcbo-orange);
+            padding-left: 5px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: #999;
+        }
+
+        .footer-contact-item i {
+            color: var(--nvcbo-orange);
+            width: 20px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copyright {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--nvcbo-orange);
+        }
+
+        /* --- SCROLL TO TOP --- */
+        .scroll-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            color: white;
         }
     </style>
 </head>
 
 <body id="page-top">
 
-    <a class="menu-toggle rounded" href="#">
-        <i class="fa fa-bars"></i>
-    </a>
-    
-    <nav id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand"><a href="#page-top">NVCBO</a></li>
-            <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
-            <li class="sidebar-nav-item"><a href="#about">About Us</a></li>
-            <li class="sidebar-nav-item"><a href="#services">Our Impact</a></li>
-            <li class="sidebar-nav-item"><a href="stories.html">Stories & News</a></li>
-            <li class="sidebar-nav-item"><a href="gallery.html">Media Gallery</a></li>
-            <li class="sidebar-nav-item"><a href="#donate">Donate</a></li>
-            <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <!-- Top Bar -->
+        <div class="header-top">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex gap-4">
+                        <a href="mailto:info@northernvisioncbo.org"><i class="fa fa-envelope me-2"></i>info@northernvisioncbo.org</a>
+                        <a href="#" class="d-none d-md-inline"><i class="fa fa-map-marker me-2"></i>Isiolo, Kenya</a>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <a href="https://www.facebook.com/northernvisioncbo" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/northernvisioncbo" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/northernvisioncbo/" target="_blank"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <header class="masthead d-flex">
-        <div class="container text-center my-auto px-4">
-            <h1 class="mb-1">Rooted in the Land. Powered by Light.</h1>
-            <h2 class="mb-5">
-                <em>Empowering Northern Kenya's pastoralist communities through climate justice, innovation, and cultural exchange.</em>
-            </h2>
-            
-            <div class="hero-btn-container d-flex justify-content-center gap-3 flex-column flex-sm-row">
-                <a class="btn btn-primary-custom btn-xl" href="#about">Discover More</a>
-                <a class="btn btn-outline-custom btn-xl" href="#donate">Support Us</a>
+        <!-- Main Header -->
+        <div class="header-main">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo-text">
+                        <span class="logo-icon"><i class="icon-book-open"></i></span>
+                        NVCBO <span style="font-weight: 300; font-size: 1rem; color: #999;">Newsletter</span>
+                    </a>
+
+                    <!-- Mobile Toggle -->
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Main Navigation -->
+                    <nav class="main-nav" id="mainNav">
+                        <a href="index.html" class="nav-link active">Home</a>
+                        <a href="stories.html" class="nav-link">Stories</a>
+                        <a href="gallery.html" class="nav-link">Gallery</a>
+                        <a href="year-in-review-2025-v3.html" class="nav-link">2025 Review</a>
+                        <a href="https://www.northernvisionke.org" class="nav-link" target="_blank">Main Site <i class="fa fa-external-link" style="font-size:0.7em;"></i></a>
+                    </nav>
+
+                    <!-- Search -->
+                    <div class="search-box d-none d-lg-block">
+                        <i class="fa fa-search"></i>
+                        <input type="text" placeholder="Search stories...">
+                    </div>
+
+                    <!-- Subscribe Button -->
+                    <a href="#subscribe" class="btn-subscribe-header d-none d-md-inline-flex">Subscribe</a>
+                </div>
             </div>
         </div>
     </header>
 
-    <section class="content-section bg-light" id="about">
-        <div class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="section-heading">
-                        <span class="subheading">Who We Are</span>
-                        <h2>Driving Sustainable Change</h2>
+    <!-- Hero Carousel -->
+    <section class="hero-carousel">
+        <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <!-- Slide 1: Sweden Exchange -->
+                <div class="carousel-item active">
+                    <div class="carousel-bg" style="background-image: url('assets/img/IMG_7016.jpg');"></div>
+                    <div class="carousel-content">
+                        <div class="container">
+                            <span class="carousel-tag">Featured Story</span>
+                            <h1 class="carousel-title">From Isiolo to Sweden:<br>A Cultural Journey</h1>
+                            <p class="carousel-excerpt">Our youth delegates experienced transformative cultural exchange in Halmstad, Sweden, building bridges across continents.</p>
+                            <a href="campaign-sweden.html" class="btn-read-story">
+                                Read Full Story <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                    <p class="lead mb-5" style="color: #555;">
-                        Founded in 2020, <strong>NorthernVision CBO</strong> focuses on Sustainable Development Goals (SDGs) 5, 10, and 15. 
-                        We place special emphasis on empowering smallholder farmers, particularly women and youth, through 
-                        climate resilience, digital skills, and resource management.
-                    </p>
-                    <a class="btn btn-dark btn-xl" href="#services" style="background-color: #333; border: none;">See Our Impact</a>
+                </div>
+
+                <!-- Slide 2: Solar Campaign -->
+                <div class="carousel-item">
+                    <div class="carousel-bg" style="background-image: url('assets/img/IMG_8630.jpg');"></div>
+                    <div class="carousel-content">
+                        <div class="container">
+                            <span class="carousel-tag">Active Campaign</span>
+                            <h1 class="carousel-title">Light in the Darkness:<br>300 Solar Lanterns Distributed</h1>
+                            <p class="carousel-excerpt">Bringing sustainable light to off-grid pastoralist families in the Gotu community of Northern Kenya.</p>
+                            <a href="campaign-details.html" class="btn-read-story">
+                                Learn More <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Year in Review -->
+                <div class="carousel-item">
+                    <div class="carousel-bg" style="background-image: url('assets/img/IMG_4320.png');"></div>
+                    <div class="carousel-content">
+                        <div class="container">
+                            <span class="carousel-tag">Annual Report</span>
+                            <h1 class="carousel-title">2025 Year in Review:<br>300+ Families Empowered</h1>
+                            <p class="carousel-excerpt">A year of growth, impact, and community transformation. Explore our journey through 2025.</p>
+                            <a href="year-in-review-2025-v3.html" class="btn-read-story">
+                                View Report <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
         </div>
     </section>
 
-    <section class="content-section" id="services" style="background-color: white;">
+    <!-- Latest News Grid -->
+    <section class="news-section">
         <div class="container">
-            <div class="section-heading">
-                <span class="subheading">Our Pillars</span>
-                <h2>Areas of Action</h2>
+            <div class="section-header">
+                <h2 class="section-title">Latest <span>Stories</span></h2>
+                <a href="stories.html" class="view-all-link">View All Stories <i class="fa fa-arrow-right"></i></a>
             </div>
+
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-screen-smartphone"></i></span>
-                        <h4><strong>Quality Education</strong></h4>
-                        <p class="text-muted mb-0">Bridging the digital divide with literacy labs and tech training for youth.</p>
-                    </div>
+                <!-- News Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="news-card">
+                        <div class="news-card-img">
+                            <span class="news-card-tag">Education</span>
+                            <img src="assets/img/IMG_7013.jpg" alt="Digital literacy workshop">
+                        </div>
+                        <div class="news-card-body">
+                            <span class="news-card-date"><i class="fa fa-calendar me-2"></i>December 15, 2025</span>
+                            <h3 class="news-card-title">
+                                <a href="stories.html">Digital Literacy Labs Transform Youth Opportunities</a>
+                            </h3>
+                            <p class="news-card-excerpt">Over 150 youth have graduated from our digital skills program, gaining vital computer literacy and job-ready skills.</p>
+                            <a href="stories.html" class="news-card-link">Read More <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </article>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-people"></i></span>
-                        <h4><strong>Gender Equality</strong></h4>
-                        <p class="text-muted mb-0">Securing land rights and economic opportunities for indigenous women.</p>
-                    </div>
+
+                <!-- News Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="news-card">
+                        <div class="news-card-img">
+                            <span class="news-card-tag">Climate</span>
+                            <img src="assets/img/portfolio-1.jpg" alt="Tree planting initiative">
+                        </div>
+                        <div class="news-card-body">
+                            <span class="news-card-date"><i class="fa fa-calendar me-2"></i>November 28, 2025</span>
+                            <h3 class="news-card-title">
+                                <a href="stories.html">150+ Trees Planted in Reforestation Drive</a>
+                            </h3>
+                            <p class="news-card-excerpt">Community-led reforestation efforts are restoring degraded lands and creating sustainable ecosystems in Isiolo County.</p>
+                            <a href="stories.html" class="news-card-link">Read More <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </article>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-energy"></i></span>
-                        <h4><strong>Climate Action</strong></h4>
-                        <p class="text-muted mb-0">Implementing solar solutions and sustainable farming in arid lands.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="service-card">
-                        <span class="service-icon"><i class="icon-mustache"></i></span>
-                        <h4><strong>Life on Land</strong></h4>
-                        <p class="text-muted mb-0">Restoring ecosystems and promoting peaceful resource sharing.</p>
-                    </div>
+
+                <!-- News Card 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <article class="news-card">
+                        <div class="news-card-img">
+                            <span class="news-card-tag">Advocacy</span>
+                            <img src="assets/img/IMG_4320.png" alt="COP30 advocacy">
+                        </div>
+                        <div class="news-card-body">
+                            <span class="news-card-date"><i class="fa fa-calendar me-2"></i>November 10, 2025</span>
+                            <h3 class="news-card-title">
+                                <a href="stories.html">NVCBO Advocates at COP30 for Indigenous Rights</a>
+                            </h3>
+                            <p class="news-card-excerpt">Our delegation represented pastoralist communities at the global climate summit, championing indigenous land rights.</p>
+                            <a href="stories.html" class="news-card-link">Read More <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="callout">
-        <div class="container text-center">
-            <h2 class="mx-auto mb-3">Our Stories Are Changing Lives</h2>
-            <p class="lead mb-5" style="color: rgba(255,255,255,0.9);">From the forests of Sweden to the plains of Isiolo, explore our journey.</p>
-            <a class="btn btn-primary-custom btn-xl" href="stories.html">
-                Read the Blog
-            </a>
-        </div>
-    </section>
-
-    <section class="content-section" id="portfolio" style="background-color: var(--nvcbo-light-bg);">
+    <!-- Active Campaigns -->
+    <section class="campaigns-section">
         <div class="container">
-            <div class="section-heading">
-                <span class="subheading">Portfolio</span>
-                <h2>Recent Projects</h2>
+            <div class="section-header">
+                <h2 class="section-title">Active <span>Campaign</span></h2>
             </div>
+
+            <div class="campaign-card">
+                <div class="campaign-image">
+                    <img src="assets/img/IMG_8630.jpg" alt="Solar lantern distribution">
+                </div>
+                <div class="campaign-content">
+                    <span class="campaign-badge"><i class="fa fa-bolt me-2"></i>Active Campaign</span>
+                    <h3 class="campaign-title">Light in the Darkness: Gotu Solar Project</h3>
+                    <p class="campaign-description">Providing solar lanterns to 300 off-grid pastoralist families in the "Sons of Gold" community. Each lantern means safer nights, extended study hours for children, and reduced reliance on kerosene.</p>
+                    
+                    <div class="campaign-progress">
+                        <div class="progress-header">
+                            <span class="progress-raised">$4,500 Raised</span>
+                            <span class="progress-goal">Goal: $6,000</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 75%;"></div>
+                        </div>
+                        <div class="progress-percent">75% Complete</div>
+                    </div>
+
+                    <div class="campaign-actions">
+                        <a href="#donate" class="btn-donate"><i class="fa fa-heart"></i> Donate Now</a>
+                        <a href="campaign-details.html" class="btn-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Quick Access -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest <span>Newsletter</span></h2>
+            </div>
+
+            <div class="newsletter-featured">
+                <div class="newsletter-preview">
+                    <span class="newsletter-label"><i class="fa fa-newspaper-o me-2"></i>January 2026 Issue</span>
+                    <h3 class="newsletter-title">2025 Year in Review: A Year of Transformation</h3>
+                    <p class="newsletter-meta"><i class="fa fa-calendar me-2"></i>Published: January 1, 2026 | <i class="fa fa-clock-o ms-2 me-2"></i>8 min read</p>
+                    <p class="newsletter-excerpt">Reflecting on a transformative year: 300+ families empowered, 150+ trees planted, global climate advocacy at COP30, and cultural bridges built with Sweden. Experience our interactive Wrapped-style annual report.</p>
+                    <a href="year-in-review-2025-v3.html" class="btn-read-newsletter">
+                        Read Newsletter <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+                <a href="stories.html" class="newsletter-archive-link">
+                    <div class="archive-icon"><i class="fa fa-archive"></i></div>
+                    <span class="archive-text">Browse Archive</span>
+                    <span class="archive-count">12+ Past Issues</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section class="subscribe-section" id="subscribe">
+        <div class="container">
+            <h2 class="subscribe-title">Stay Updated</h2>
+            <p class="subscribe-subtitle">Get the latest stories, campaign updates, and newsletters delivered directly to your inbox. Join our community of supporters!</p>
+            
+            <form class="subscribe-form" action="#" method="post">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+
+            <p class="subscribe-privacy">We respect your privacy. Read our <a href="#">Privacy Policy</a>.</p>
+
+            <div class="social-links">
+                <a href="https://www.facebook.com/northernvisioncbo" class="social-link" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/northernvisioncbo" class="social-link" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.instagram.com/northernvisioncbo/" class="social-link" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@northernvisioncbo" class="social-link" target="_blank"><i class="fa fa-youtube-play"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
             <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="portfolio-card">
-                        <a class="portfolio-link" href="campaign-sweden.html" style="text-decoration: none;">
-                            <div class="portfolio-img-wrapper">
-                                <span class="portfolio-tag">Exchange</span>
-                                <img src="assets/img/IMG_7016.jpg" alt="Sweden Exchange">
-                            </div>
-                            <div class="portfolio-caption">
-                                <h4>Global Exchange</h4>
-                                <p class="text-muted mb-0">Cultural immersion and learning in Halmstad, Sweden.</p>
-                            </div>
+                <!-- Brand Column -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <span class="logo-icon"><i class="icon-book-open"></i></span>
+                            NVCBO Newsletter
                         </a>
+                        <p class="footer-description">Empowering Northern Kenya's pastoralist communities through climate justice, sustainable agriculture, education, and cultural exchange.</p>
                     </div>
                 </div>
 
-                <div class="col-lg-6">
-                    <div class="portfolio-card">
-                        <a class="portfolio-link" href="campaign-details.html" style="text-decoration: none;">
-                            <div class="portfolio-img-wrapper">
-                                <span class="portfolio-tag">Solar</span>
-                                <img src="assets/img/IMG_8630.jpg" alt="Solar Light Project">
-                            </div>
-                            <div class="portfolio-caption">
-                                <h4>Light in the Darkness</h4>
-                                <p class="text-muted mb-0">Providing solar lanterns to off-grid families in Gotu.</p>
-                            </div>
-                        </a>
-                    </div>
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fa fa-angle-right"></i> Home</a></li>
+                        <li><a href="stories.html"><i class="fa fa-angle-right"></i> Stories</a></li>
+                        <li><a href="gallery.html"><i class="fa fa-angle-right"></i> Gallery</a></li>
+                        <li><a href="year-in-review-2025-v3.html"><i class="fa fa-angle-right"></i> 2025 Review</a></li>
+                        <li><a href="sitemap.html"><i class="fa fa-angle-right"></i> Sitemap</a></li>
+                    </ul>
                 </div>
 
-                <div class="col-lg-6">
-                    <div class="portfolio-card">
-                        <a class="portfolio-link" href="stories.html" style="text-decoration: none;">
-                            <div class="portfolio-img-wrapper">
-                                <span class="portfolio-tag">Education</span>
-                                <img src="assets/img/IMG_7013.jpg" alt="Education Workshop">
-                            </div>
-                            <div class="portfolio-caption">
-                                <h4>Digital & Rights Education</h4>
-                                <p class="text-muted mb-0">Workshops empowering youth and women with knowledge.</p>
-                            </div>
-                        </a>
-                    </div>
+                <!-- Campaigns -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Campaigns</h4>
+                    <ul class="footer-links">
+                        <li><a href="campaign-details.html"><i class="fa fa-angle-right"></i> Solar Lantern Project</a></li>
+                        <li><a href="campaign-sweden.html"><i class="fa fa-angle-right"></i> Sweden Exchange</a></li>
+                        <li><a href="https://www.northernvisionke.org/#donate"><i class="fa fa-angle-right"></i> Donate</a></li>
+                        <li><a href="https://www.northernvisionke.org" target="_blank"><i class="fa fa-angle-right"></i> Main Website</a></li>
+                    </ul>
                 </div>
 
-                <div class="col-lg-6">
-                    <div class="portfolio-card">
-                        <a class="portfolio-link" href="gallery.html" style="text-decoration: none;">
-                            <div class="portfolio-img-wrapper">
-                                <span class="portfolio-tag">Community</span>
-                                <img src="assets/img/portfolio-1.jpg" alt="Community Baraza">
-                            </div>
-                            <div class="portfolio-caption">
-                                <h4>Community Dialogue</h4>
-                                <p class="text-muted mb-0">Fostering peace and resource management through local barazas.</p>
-                            </div>
-                        </a>
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <i class="fa fa-map-marker"></i>
+                        <span>Isiolo Town, Isiolo County<br>Kenya</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa fa-envelope"></i>
+                        <span>info@northernvisioncbo.org</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa fa-phone"></i>
+                        <span>+254 XXX XXX XXX</span>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-5">
-                <a class="btn btn-dark btn-xl" href="gallery.html" style="background-color: #333; border: none;">View Full Gallery</a>
-            </div>
-        </div>
-    </section>
 
-    <section class="donation-section" id="donate">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="mb-4" style="font-weight: 800; text-shadow: 0 2px 5px rgba(0,0,0,0.1);">The Buttons Below Are Impossible To Resist...</h2>
-                    <p class="lead mb-5" style="opacity: 0.9;">Your support directly funds solar lanterns for students, advocacy for women, and climate resilience in Isiolo.</p>
-                    <div class="d-flex justify-content-center gap-3 flex-column flex-sm-row">
-                        <a class="btn btn-donate btn-xl" href="#contact">Donate Now</a>
-                        <a class="btn btn-outline-custom btn-xl" href="#contact">Partner With Us</a>
-                    </div>
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2026 Northern Vision CBO. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="sitemap.html">Sitemap</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Isiolo,+Kenya&aq=0&ie=UTF8&t=m&z=12&iwloc=A&output=embed"></iframe>
-    </section>
-
-    <footer class="footer text-center" style="padding: 4rem 0; background-color: #fff;">
-        <div class="container">
-            <h2 class="mb-4" style="color: #333; font-weight: 700;">Connect With Us</h2>
-            <ul class="list-inline mb-5">
-                <li class="list-inline-item">
-                    <a class="social-link rounded-circle text-white mr-3" href="#!" style="background-color: #1D809F;">
-                        <i class="icon-social-facebook"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="social-link rounded-circle text-white mr-3" href="#!" style="background-color: #1D809F;">
-                        <i class="icon-social-twitter"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="social-link rounded-circle text-white" href="#!" style="background-color: #1D809F;">
-                        <i class="icon-social-instagram"></i>
-                    </a>
-                </li>
-            </ul>
-            <p class="text-muted small mb-0">Copyright © NorthernVision CBO 2025</p>
         </div>
     </footer>
 
-    <a class="scroll-to-top rounded" href="#page-top" style="background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%);">
+    <!-- Scroll to Top -->
+    <a href="#page-top" class="scroll-to-top" id="scrollToTop">
         <i class="fa fa-angle-up"></i>
     </a>
 
+    <!-- Scripts -->
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/stylish-portfolio.js"></script>
+    <script>
+        // Mobile Navigation Toggle
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            document.querySelector('.header-main').classList.toggle('mobile-nav-active');
+        });
 
+        // Scroll to Top Button
+        const scrollBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        scrollBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>

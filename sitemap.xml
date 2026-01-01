@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    
+    <!-- 
+        Northern Vision CBO Sitemap
+        Generated: 2026-01-01
+        Website: https://northernvisionke.org
+    -->
+
+    <!-- ==================== CORE PAGES ==================== -->
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://northernvisionke.org/index.html</loc>
+        <lastmod>2026-01-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Stories & News Hub -->
+    <url>
+        <loc>https://northernvisionke.org/stories.html</loc>
+        <lastmod>2026-01-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Media Gallery -->
+    <url>
+        <loc>https://northernvisionke.org/gallery.html</loc>
+        <lastmod>2025-12-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- ==================== CAMPAIGNS ==================== -->
+
+    <!-- Gotu Solar Lantern Campaign -->
+    <url>
+        <loc>https://northernvisionke.org/campaign-details.html</loc>
+        <lastmod>2025-11-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Sweden Cultural Exchange -->
+    <url>
+        <loc>https://northernvisionke.org/campaign-sweden.html</loc>
+        <lastmod>2025-10-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- ==================== ANNUAL REVIEWS ==================== -->
+
+    <!-- 2025 Year in Review - Primary Version -->
+    <url>
+        <loc>https://northernvisionke.org/year-in-review-2025.html</loc>
+        <lastmod>2026-01-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- 2025 Year in Review - Editorial Version -->
+    <url>
+        <loc>https://northernvisionke.org/year-in-review-2025-v2.html</loc>
+        <lastmod>2026-01-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- 2025 Year in Review - Wrapped Stories Version -->
+    <url>
+        <loc>https://northernvisionke.org/year-in-review-2025-v3.html</loc>
+        <lastmod>2026-01-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- ==================== UTILITY PAGES ==================== -->
+
+    <!-- Visual Sitemap for Users -->
+    <url>
+        <loc>https://northernvisionke.org/sitemap.html</loc>
+        <lastmod>2026-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- ==================== FUTURE PAGES (Uncomment when created) ==================== -->
+
+    <!--
+    <url>
+        <loc>https://northernvisionke.org/subscribe.html</loc>
+        <lastmod>2026-01-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://northernvisionke.org/volunteer.html</loc>
+        <lastmod>2026-01-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://northernvisionke.org/privacy.html</loc>
+        <lastmod>2026-01-01</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <url>
+        <loc>https://northernvisionke.org/newsletter-archive.html</loc>
+        <lastmod>2026-01-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    -->
+
+</urlset>

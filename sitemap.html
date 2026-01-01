@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Sitemap - Northern Vision CBO</title>
+    <meta name="description" content="Complete sitemap of Northern Vision CBO website - Find all our pages, stories, campaigns, and resources.">
+    
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900&display=swap">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+    <style>
+        :root {
+            --nvcbo-blue: #1D809F;
+            --nvcbo-dark-blue: #155d74;
+            --nvcbo-orange: #FF8C00;
+            --nvcbo-dark-orange: #CC5500;
+            --nvcbo-cream: #FFF5E6;
+            --nvcbo-light-bg: #f8f9fa;
+        }
+
+        .sitemap-header {
+            background: linear-gradient(135deg, var(--nvcbo-blue) 0%, var(--nvcbo-dark-blue) 100%);
+            padding: 6rem 0 4rem;
+            color: white;
+            text-align: center;
+        }
+
+        .sitemap-header h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .sitemap-header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .sitemap-section {
+            padding: 4rem 0;
+        }
+
+        .sitemap-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--nvcbo-orange);
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .category-title {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--nvcbo-dark-blue);
+            margin: 0;
+        }
+
+        .sitemap-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sitemap-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .sitemap-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left-color: var(--nvcbo-orange);
+        }
+
+        .sitemap-item a {
+            text-decoration: none;
+            flex: 1;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: var(--nvcbo-blue);
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .item-title:hover {
+            color: var(--nvcbo-orange);
+        }
+
+        .item-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .item-badge {
+            font-size: 0.7rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+
+        .badge-new {
+            background: var(--nvcbo-cream);
+            color: var(--nvcbo-dark-orange);
+        }
+
+        .badge-featured {
+            background: var(--nvcbo-orange);
+            color: white;
+        }
+
+        .badge-coming {
+            background: #e9ecef;
+            color: #666;
+        }
+
+        .proposed-section {
+            background: var(--nvcbo-light-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .proposed-section .category-header {
+            border-bottom-color: #ccc;
+        }
+
+        .proposed-section .category-icon {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+        }
+
+        .proposed-item {
+            opacity: 0.7;
+            border-left-style: dashed;
+        }
+
+        .proposed-item:hover {
+            opacity: 1;
+        }
+
+        .quick-stats {
+            background: var(--nvcbo-cream);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--nvcbo-blue);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: #999;
+            font-size: 0.85rem;
+            padding: 2rem 0;
+            border-top: 1px solid #eee;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .sitemap-header h1 {
+                font-size: 2rem;
+            }
+            
+            .item-badge {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <!-- Menu Toggle -->
+    <a class="menu-toggle rounded" href="#"><i class="fa fa-bars"></i></a>
+    
+    <!-- Sidebar Navigation -->
+    <nav class="navbar navbar-expand" id="sidebar-wrapper">
+        <div class="container">
+            <ul class="navbar-nav sidebar-nav" id="sidebar-nav">
+                <li class="nav-item sidebar-brand"><a class="nav-link active" href="index.html">NVCBO</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="stories.html">Stories & News</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="gallery.html">Media Gallery</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="year-in-review-2025.html">2025 Year in Review</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="index.html#donate">Donate</a></li>
+                <li class="nav-item sidebar-nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="sitemap-header">
+        <div class="container">
+            <h1><i class="fa fa-sitemap me-3"></i>Site Map</h1>
+            <p>Explore all pages and resources on the Northern Vision CBO website</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="sitemap-section">
+        <div class="container">
+            
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="row">
+                    <div class="col-6 col-md-3 stat-item">
+                        <div class="stat-number">9</div>
+                        <div class="stat-label">Active Pages</div>
+                    </div>
+                    <div class="col-6 col-md-3 stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Campaigns</div>
+                    </div>
+                    <div class="col-6 col-md-3 stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Annual Reviews</div>
+                    </div>
+                    <div class="col-6 col-md-3 stat-item">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Planned Pages</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Pages -->
+            <div class="sitemap-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="icon-home"></i></div>
+                    <h2 class="category-title">Core Pages</h2>
+                </div>
+                <ul class="sitemap-list">
+                    <li class="sitemap-item">
+                        <a href="index.html">
+                            <span class="item-title">Home</span>
+                            <p class="item-description">Main landing page with overview of NVCBO's mission, programs, and impact</p>
+                        </a>
+                        <span class="item-badge badge-featured">Main</span>
+                    </li>
+                    <li class="sitemap-item">
+                        <a href="stories.html">
+                            <span class="item-title">Stories & News</span>
+                            <p class="item-description">Human-interest stories, success spotlights, and latest updates from our community</p>
+                        </a>
+                    </li>
+                    <li class="sitemap-item">
+                        <a href="gallery.html">
+                            <span class="item-title">Media Gallery</span>
+                            <p class="item-description">Photos and videos from our campaigns in Isiolo, Marsabit, and Sweden</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Campaigns -->
+            <div class="sitemap-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="icon-rocket"></i></div>
+                    <h2 class="category-title">Campaigns & Projects</h2>
+                </div>
+                <ul class="sitemap-list">
+                    <li class="sitemap-item">
+                        <a href="campaign-details.html">
+                            <span class="item-title">Light in the Darkness - Gotu Solar Project</span>
+                            <p class="item-description">300 solar lanterns distributed to pastoralist families in the "Sons of Gold" community</p>
+                        </a>
+                        <span class="item-badge badge-featured">Featured</span>
+                    </li>
+                    <li class="sitemap-item">
+                        <a href="campaign-sweden.html">
+                            <span class="item-title">Sweden Cultural Exchange</span>
+                            <p class="item-description">International partnership and cultural immersion program strengthening global connections</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Annual Reviews -->
+            <div class="sitemap-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="icon-book-open"></i></div>
+                    <h2 class="category-title">2025 Year in Review</h2>
+                </div>
+                <ul class="sitemap-list">
+                    <li class="sitemap-item">
+                        <a href="year-in-review-2025.html">
+                            <span class="item-title">2025 Annual Report (Standard)</span>
+                            <p class="item-description">Bootstrap-styled comprehensive review matching the main site theme with photo gallery and social sharing</p>
+                        </a>
+                        <span class="item-badge badge-new">New</span>
+                    </li>
+                    <li class="sitemap-item">
+                        <a href="year-in-review-2025-v2.html">
+                            <span class="item-title">2025 Annual Report (Editorial)</span>
+                            <p class="item-description">High-end editorial newspaper style with polar/radar charts and tabbed content sections</p>
+                        </a>
+                        <span class="item-badge badge-new">New</span>
+                    </li>
+                    <li class="sitemap-item">
+                        <a href="year-in-review-2025-v3.html">
+                            <span class="item-title">2025 Annual Report (Wrapped)</span>
+                            <p class="item-description">Instagram Stories-style interactive carousel with sepia editorial aesthetic and auto-playing stories</p>
+                        </a>
+                        <span class="item-badge badge-new">New</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Utility Pages -->
+            <div class="sitemap-category">
+                <div class="category-header">
+                    <div class="category-icon"><i class="icon-settings"></i></div>
+                    <h2 class="category-title">Utility & Resources</h2>
+                </div>
+                <ul class="sitemap-list">
+                    <li class="sitemap-item">
+                        <a href="sitemap.html">
+                            <span class="item-title">Site Map</span>
+                            <p class="item-description">This page - complete index of all website pages and resources</p>
+                        </a>
+                    </li>
+                    <li class="sitemap-item">
+                        <a href="sitemap.xml">
+                            <span class="item-title">XML Sitemap</span>
+                            <p class="item-description">Machine-readable sitemap for search engines (SEO)</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Proposed Future Pages -->
+            <div class="proposed-section">
+                <div class="sitemap-category" style="margin-bottom: 0;">
+                    <div class="category-header">
+                        <div class="category-icon"><i class="icon-clock"></i></div>
+                        <h2 class="category-title">Coming Soon</h2>
+                    </div>
+                    <p class="text-muted mb-4">These pages are planned for future development:</p>
+                    <ul class="sitemap-list">
+                        <li class="sitemap-item proposed-item">
+                            <a href="#">
+                                <span class="item-title">Newsletter Subscription</span>
+                                <p class="item-description">Sign up to receive updates, stories, and newsletters directly to your inbox</p>
+                            </a>
+                            <span class="item-badge badge-coming">Planned</span>
+                        </li>
+                        <li class="sitemap-item proposed-item">
+                            <a href="#">
+                                <span class="item-title">Volunteer Registration</span>
+                                <p class="item-description">Join our team of dedicated volunteers making an impact in Northern Kenya</p>
+                            </a>
+                            <span class="item-badge badge-coming">Planned</span>
+                        </li>
+                        <li class="sitemap-item proposed-item">
+                            <a href="#">
+                                <span class="item-title">Newsletter Archive</span>
+                                <p class="item-description">Browse past newsletters and annual reports in one convenient location</p>
+                            </a>
+                            <span class="item-badge badge-coming">Planned</span>
+                        </li>
+                        <li class="sitemap-item proposed-item">
+                            <a href="#">
+                                <span class="item-title">Events Calendar</span>
+                                <p class="item-description">Upcoming community events, workshops, and activities</p>
+                            </a>
+                            <span class="item-badge badge-coming">Planned</span>
+                        </li>
+                        <li class="sitemap-item proposed-item">
+                            <a href="#">
+                                <span class="item-title">Privacy Policy</span>
+                                <p class="item-description">Information about data collection and privacy practices</p>
+                            </a>
+                            <span class="item-badge badge-coming">Planned</span>
+                        </li>
+                        <li class="sitemap-item proposed-item">
+                            <a href="#">
+                                <span class="item-title">404 Error Page</span>
+                                <p class="item-description">Custom error page for broken or missing links</p>
+                            </a>
+                            <span class="item-badge badge-coming">Planned</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Last Updated -->
+            <div class="last-updated">
+                <i class="fa fa-clock-o me-2"></i>
+                Last updated: January 1, 2026
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <ul class="list-inline mb-5">
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white mr-3" href="https://www.instagram.com/northernvisioncbo/" target="_blank" rel="noopener">
+                        <i class="icon-social-instagram"></i>
+                    </a>
+                </li>
+            </ul>
+            <p class="small mb-0" style="color: rgb(154,154,154);">Copyright © Northern Vision Community Based Organization 2025</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/stylish-portfolio.js"></script>
+</body>
+
+</html>

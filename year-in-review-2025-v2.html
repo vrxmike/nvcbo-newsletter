@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northern Vision Dispatch: 2025 Annual Review</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Earthy Editorial 
+         Background: #F9F7F2 (Antique White)
+         Primary Text: #1A1A1A (Carbon)
+         Accent (Heritage): #8E3A1F (Burnt Sienna)
+         Accent (Nature): #3D5A35 (Forest)
+         Accent (Solar): #E6AF2E (Sunlight)
+    -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'news-bg': '#F9F7F2',
+                        'news-text': '#1A1A1A',
+                        'news-accent': '#8E3A1F',
+                        'news-leaf': '#3D5A35',
+                        'news-sun': '#E6AF2E',
+                        'news-border': '#D1CFC7',
+                    },
+                    fontFamily: {
+                        'serif': ['Merriweather', 'serif'],
+                        'sans': ['Montserrat', 'sans-serif'],
+                        'display': ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background-color: #F9F7F2; color: #1A1A1A; -webkit-tap-highlight-color: transparent; }
+        .masthead-border { border-top: 4px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; }
+        .article-title { font-family: 'Playfair Display', serif; }
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 280px;
+        }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+
+        .dropcap::first-letter {
+            float: left;
+            font-size: 3.5rem;
+            line-height: 3rem;
+            padding-top: 4px;
+            padding-right: 8px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #8E3A1F;
+        }
+
+        .scroll-hide::-webkit-scrollbar { display: none; }
+        .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .btn-active-scale:active { transform: scale(0.96); }
+
+        .comparison-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    </style>
+
+    <!-- Application Structure Plan: 
+         1. Header: High-end editorial masthead.
+         2. Editorial Lead: Letter from Executive Director Zamzam.
+         3. Quantitative Dashboard: Polar Area chart for 2025 metrics.
+         4. Feature Tabs: Deep dives into Climate, Rights, Youth, and Economy.
+         5. ENHANCED CASE STUDY: A multi-modal section focusing on Gotu Village, featuring a side-by-side comparison grid and a radar impact chart.
+         6. Visual Archive: Gallery of milestones.
+         7. Strategic Roadmap: 2026 Vision.
+    -->
+</head>
+<body class="p-0 m-0">
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 bg-white shadow-2xl min-h-screen relative">
+        
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-nav" class="fixed inset-0 bg-news-text text-white z-[100] hidden flex-col justify-center items-center space-y-8 p-10">
+            <button onclick="toggleMobileNav()" class="absolute top-8 right-8 text-3xl font-bold">×</button>
+            <button onclick="scrollToId('letter'); toggleMobileNav()" class="text-xl font-bold uppercase tracking-widest hover:text-news-sun">Director's Letter</button>
+            <button onclick="scrollToId('infographic'); toggleMobileNav()" class="text-xl font-bold uppercase tracking-widest hover:text-news-sun">2025 Impact</button>
+            <button onclick="scrollToId('spotlight'); toggleMobileNav()" class="text-xl font-bold uppercase tracking-widest hover:text-news-sun">Gotu Case Study</button>
+            <button onclick="scrollToId('gallery'); toggleMobileNav()" class="text-xl font-bold uppercase tracking-widest hover:text-news-sun">Visual Archive</button>
+            <button onclick="scrollToId('roadmap'); toggleMobileNav()" class="text-xl font-bold uppercase tracking-widest hover:text-news-sun">2026 Vision</button>
+        </div>
+
+        <!-- Header -->
+        <header class="pt-8 pb-4 text-center">
+            <div class="flex justify-between items-end text-[10px] font-bold uppercase tracking-tighter mb-4 border-b border-gray-100 pb-1">
+                <span>Vol 03 • Issue 01</span>
+                <span>Annual Review Special</span>
+                <span>Isiolo, Kenya • 2025</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl md:text-8xl font-display italic font-bold text-news-text mb-4">NORTHERN VISION</h1>
+            
+            <div class="hidden md:flex masthead-border py-3 flex-wrap justify-center gap-6 lg:gap-12">
+                <button onclick="scrollToId('letter')" class="text-[10px] font-bold uppercase tracking-widest hover:text-news-accent transition-colors">Letter</button>
+                <button onclick="scrollToId('infographic')" class="text-[10px] font-bold uppercase tracking-widest hover:text-news-accent transition-colors">Impact Data</button>
+                <button onclick="scrollToId('features')" class="text-[10px] font-bold uppercase tracking-widest hover:text-news-accent transition-colors">Pillars</button>
+                <button onclick="scrollToId('spotlight')" class="text-[10px] font-bold uppercase tracking-widest hover:text-news-accent transition-colors underline decoration-news-accent underline-offset-4">Case Study</button>
+                <button onclick="scrollToId('gallery')" class="text-[10px] font-bold uppercase tracking-widest hover:text-news-accent transition-colors">Visual Archive</button>
+            </div>
+            
+            <div class="md:hidden masthead-border py-2">
+                <button onclick="toggleMobileNav()" class="text-[11px] font-bold uppercase tracking-widest flex items-center justify-center gap-2 mx-auto py-1">
+                    Menu <span>☰</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Director's Letter -->
+        <main id="letter" class="grid grid-cols-1 lg:grid-cols-12 gap-10 py-12 border-b border-news-border">
+            <article class="lg:col-span-8 border-r-0 lg:border-r border-news-border pr-0 lg:pr-10">
+                <span class="inline-block bg-news-accent text-white px-2 py-1 text-[10px] font-bold uppercase mb-6 tracking-widest">Executive Message</span>
+                <h2 class="article-title text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-8 italic">"Survival, Dignity, and the Future of Our People"</h2>
+                
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-news-accent text-white rounded-full flex items-center justify-center font-bold text-xl">ZB</div>
+                    <div>
+                        <p class="text-sm font-bold uppercase">Zamzam Bonaya Boru</p>
+                        <p class="text-xs text-gray-500 italic">Executive Director</p>
+                    </div>
+                </div>
+
+                <div class="dropcap text-news-text leading-relaxed font-serif text-lg space-y-6">
+                    <p>Northern Vision CBO is a grassroots organization building a just and sustainable future for pastoralist communities. In 2025, we made tangible strides: from providing clean energy to advocating for youth inclusion on global stages like COP30.</p>
+                    <p>This work is only possible because of you—our community, partners, and donors. Together, we are ensuring that grassroots women are at the core of all land and climate policy.</p>
+                </div>
+            </article>
+
+            <aside class="lg:col-span-4 bg-news-bg p-8">
+                <h3 class="font-bold uppercase text-[10px] tracking-[0.3em] border-b border-gray-400 pb-3 mb-6">2025 At A Glance</h3>
+                <div class="space-y-8">
+                    <div>
+                        <p class="text-5xl font-display text-news-sun">300+</p>
+                        <p class="text-[10px] uppercase font-bold text-gray-400 mt-2 tracking-widest">Families Empowered</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl font-display text-news-leaf">150+</p>
+                        <p class="text-[10px] uppercase font-bold text-gray-400 mt-2 tracking-widest">Trees Planted</p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-200">
+                        <p class="text-xs font-serif italic text-gray-500 italic leading-relaxed">"Every like, share, and DM helps amplify the movement for women's land rights."</p>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Impact Dashboard (Polar Chart) -->
+        <section id="infographic" class="py-16 text-center">
+            <h3 class="article-title text-3xl font-bold mb-4 italic">The Reach of Our Resilience</h3>
+            <p class="text-xs sm:text-sm font-serif italic text-gray-600 mb-8 px-4">Our milestones highlight a commitment to local action with global reach.</p>
+            <div class="chart-container">
+                <canvas id="impactChart"></canvas>
+            </div>
+        </section>
+
+        <!-- ENHANCED CASE STUDY SECTION -->
+        <!-- Visualization & Content Choices:
+             Goal: Deep-dive into the "Sons of Gold" community story.
+             Interactive Element: Toggle Comparison Cards + Radar Chart.
+             Why: Using a toggle allows users to visualize the "Before" (Pain Points) vs "After" (Solar Solution) in a way that maps directly to the report's qualitative findings.
+        -->
+        <section id="spotlight" class="py-20 bg-news-text text-white -mx-4 px-6 md:px-16 overflow-hidden relative">
+            <!-- Decorative gradient -->
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-news-sun via-news-accent to-news-leaf"></div>
+            
+            <div class="max-w-4xl mx-auto mb-16 text-center">
+                <span class="text-news-sun font-bold uppercase text-[10px] tracking-[0.4em] block mb-4">IMPACT STORY 2025</span>
+                <h3 class="article-title text-4xl sm:text-5xl md:text-6xl italic mb-6">Light, Dignity, and Hope in Gotu</h3>
+                <p class="text-gray-400 font-serif italic text-lg md:text-xl">"In the 'Sons of Gold' community, nightfall once meant risks and lost opportunities."</p>
+            </div>
+
+            <!-- Interactive Toggle Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left: Interactive Comparison Cards -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="flex justify-between items-end mb-8 border-b border-gray-800 pb-4">
+                        <h4 class="text-[11px] font-bold uppercase tracking-widest text-gray-500">The Gotu Transformation</h4>
+                        <div class="flex bg-gray-900 p-1 rounded">
+                            <button onclick="toggleGotu('before')" id="btn-before" class="px-4 py-2 text-[10px] font-bold uppercase transition-all rounded bg-gray-800 text-gray-500">Before (Kerosene)</button>
+                            <button onclick="toggleGotu('after')" id="btn-after" class="px-4 py-2 text-[10px] font-bold uppercase transition-all rounded bg-news-accent text-white">After (Solar)</button>
+                        </div>
+                    </div>
+
+                    <div id="comparison-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Cards injected via JS -->
+                    </div>
+
+                    <div class="mt-8 p-6 bg-gray-900 border-l-4 border-news-sun">
+                        <p id="gotu-highlight-text" class="text-sm italic font-serif text-gray-300 leading-relaxed italic">
+                            "Clean, sustainable solutions that honor pastoralist life and build daily resilience."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Impact Radar Visualization -->
+                <div class="lg:col-span-5 bg-white p-8 rounded shadow-2xl">
+                    <h4 class="text-[10px] font-bold uppercase tracking-widest text-news-text text-center mb-8 border-b border-gray-100 pb-4">Multi-Dimensional Improvement</h4>
+                    <div class="chart-container" style="height: 300px;">
+                        <canvas id="gotuRadar"></canvas>
+                    </div>
+                    <div class="mt-6 flex flex-col gap-2">
+                        <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-gray-300"></span><span class="text-[9px] font-bold text-gray-400 uppercase">Baseline (Kerosene)</span></div>
+                        <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-news-accent"></span><span class="text-[9px] font-bold text-news-accent uppercase">Solar Impact Distribution</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pillars & Feature Tabs -->
+        <section id="features" class="py-20 border-b border-news-border">
+            <div class="flex justify-start sm:justify-center border-b border-news-border mb-12 overflow-x-auto whitespace-nowrap scroll-hide">
+                <button onclick="switchTab('climate')" id="tab-climate" class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest border-b-2 border-news-accent text-news-accent">Climate</button>
+                <button onclick="switchTab('rights')" id="tab-rights" class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest border-b-2 border-transparent text-gray-400 hover:text-news-text">Land Rights</button>
+                <button onclick="switchTab('youth')" id="tab-youth" class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest border-b-2 border-transparent text-gray-400 hover:text-news-text">Youth</button>
+                <button onclick="switchTab('economy')" id="tab-economy" class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest border-b-2 border-transparent text-gray-400 hover:text-news-text">Economy</button>
+            </div>
+            <div id="tab-content" class="fade-in max-w-4xl mx-auto px-2">
+                <!-- Content via JS -->
+            </div>
+        </section>
+
+        <!-- Visual Archive Gallery -->
+        <section id="gallery" class="py-20">
+            <div class="mb-12 text-center">
+                <span class="text-news-accent font-bold uppercase text-[10px] tracking-[0.3em] block mb-2">Our 2025 Journey</span>
+                <h3 class="article-title text-4xl italic">Visual Snapshot</h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+                <!-- Gallery items via JS -->
+            </div>
+        </section>
+
+        <!-- Roadmap -->
+        <section id="roadmap" class="py-20 bg-news-bg -mx-4 px-8 border-y border-news-border">
+            <div class="text-center mb-16">
+                <h3 class="article-title text-4xl font-bold mb-4">The Horizon: 2026</h3>
+                <div class="w-20 h-0.5 bg-news-accent mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-6 border-t-2 border-news-accent bg-white shadow-sm">
+                    <h4 class="font-bold text-[10px] uppercase mb-3">Climate Resilience</h4>
+                    <p class="text-xs text-gray-600 font-serif leading-relaxed italic">Launching new regreening and water conservation techniques.</p>
+                </div>
+                <div class="p-6 border-t-2 border-news-accent bg-white shadow-sm">
+                    <h4 class="font-bold text-[10px] uppercase mb-3">Tech Innovation</h4>
+                    <p class="text-xs text-gray-600 font-serif leading-relaxed italic">Deploying digital platforms for women's cooperatives.</p>
+                </div>
+                <div class="p-6 border-t-2 border-news-accent bg-white shadow-sm">
+                    <h4 class="font-bold text-[10px] uppercase mb-3">Global Alliances</h4>
+                    <p class="text-xs text-gray-600 font-serif leading-relaxed italic">Deepening connections to spotlight grassroots efforts.</p>
+                </div>
+                <div class="p-6 border-t-2 border-news-accent bg-white shadow-sm">
+                    <h4 class="font-bold text-[10px] uppercase mb-3">Justice Core</h4>
+                    <p class="text-xs text-gray-600 font-serif leading-relaxed italic">Ensuring grassroots women lead land policy dialogue.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-news-text text-white py-20 -mx-4 px-8 text-center">
+            <h3 class="article-title text-3xl mb-12">Building the Future Together</h3>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-16">
+                <button onclick="showActionModal('Support')" class="bg-news-accent text-white font-bold py-4 px-12 text-[10px] uppercase tracking-[0.3em] hover:bg-opacity-90 transition-all btn-active-scale">Support Our Work</button>
+                <button onclick="showActionModal('Partner')" class="border border-gray-700 text-white font-bold py-4 px-12 text-[10px] uppercase tracking-[0.3em] hover:bg-white hover:text-news-text transition-all btn-active-scale">Partner With Us</button>
+            </div>
+            <p class="text-[8px] text-gray-700 tracking-[0.8em]">NORTHERN VISION CBO © 2025 • ISIOLO, KENYA</p>
+        </footer>
+
+    </div>
+
+    <!-- Modals -->
+    <div id="action-modal" class="fixed inset-0 z-[200] hidden flex items-center justify-center p-6 bg-black/70 backdrop-blur-sm">
+        <div class="bg-white p-8 md:p-12 max-w-lg w-full rounded shadow-2xl relative">
+            <button onclick="closeActionModal()" class="absolute top-4 right-4 text-2xl font-bold">×</button>
+            <h3 id="modal-title" class="article-title text-3xl mb-4 italic">Get Involved</h3>
+            <p id="modal-text" class="text-gray-600 mb-8 font-serif italic"></p>
+            <button onclick="closeActionModal()" class="w-full bg-news-text text-white py-3 text-[10px] font-bold uppercase tracking-widest">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // --- DATA REPOSITORY ---
+        const gotuComparison = {
+            before: [
+                { icon: "🏮", title: "Kerosene Risk", desc: "Hazardous fumes and high fire risk for families at night.", status: "Negative" },
+                { icon: "🌑", title: "Dark Nights", desc: "Nightfall brought threats of animal encounters and safety concerns.", status: "Negative" },
+                { icon: "🛑", title: "Lost Hours", desc: "Work and study hours cut short by lack of affordable light.", status: "Negative" },
+                { icon: "💸", title: "Fuel Costs", desc: "Expensive kerosene drained precious household income.", status: "Negative" }
+            ],
+            after: [
+                { icon: "☀️", title: "Solar Safety", desc: "300 lanterns provide clean, safe, and flicker-free illumination.", status: "Positive" },
+                { icon: "🛡️", title: "Secure Gotu", desc: "Enhanced safety for the 'Sons of Gold' community after dark.", status: "Positive" },
+                { icon: "📚", title: "Evening Potential", desc: "Students study and artisans work late into the night.", status: "Positive" },
+                { icon: "📈", title: "Financial Freedom", desc: "Savings on fuel build foundations for local cooperatives.", status: "Positive" }
+            ]
+        };
+
+        const tabData = {
+            climate: {
+                title: "Climate Action in Our Hands",
+                text: "We mobilized over 150 tree plantings in partnership with Isiolo Scouts and Move North to combat desertification. Our 'Light in the Darkness' distributed 300 solar lanterns, replacing hazardous kerosene and promoting clean energy.",
+                quote: "He who plants a tree, plants a hope."
+            },
+            rights: {
+                title: "'The Land Is Our Mother'",
+                text: "At the National Land Commission conference, we co-led sessions shifting power to grassroots women. We launched 'Laaf Haadha Teenna', using cultural healing circles to address land-related trauma.",
+                quote: "Land rights are the foundation of survival and dignity."
+            },
+            youth: {
+                title: "Young African Feminists",
+                text: "At COP30, we challenged exclusion by highlighting barriers like visa costs. We are building sisterhood to ensure our climate stories are heard globally, proving collective action overcomes systemic obstacles.",
+                quote: "Our voices are part of the climate story."
+            },
+            economy: {
+                title: "Economic Empowerment",
+                text: "Clean light transitions families away from kerosene, freeing up household income. This is the foundation for community cooperatives and strengthening local economies from the ground up.",
+                quote: "Savings build the resilience of pastoralist families."
+            }
+        };
+
+        const galleryData = [
+            { title: "Planting Roots", category: "Climate", color: "bg-news-leaf" },
+            { title: "COP30 Voice", category: "Advocacy", color: "bg-news-accent" },
+            { title: "Solar Hope", category: "Gotu", color: "bg-news-sun" },
+            { title: "NLC Summit", category: "Rights", color: "bg-news-text" },
+            { title: "Global Stage", category: "Exchange", color: "bg-news-border" },
+            { title: "Healing Circle", category: "Community", color: "bg-news-accent opacity-80" }
+        ];
+
+        // --- UI LOGIC ---
+        function toggleGotu(state) {
+            const container = document.getElementById('comparison-grid');
+            const btnBefore = document.getElementById('btn-before');
+            const btnAfter = document.getElementById('btn-after');
+            const highlightText = document.getElementById('gotu-highlight-text');
+
+            container.innerHTML = '';
+            const items = gotuComparison[state];
+            
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = `comparison-card p-5 border ${state === 'before' ? 'border-gray-800 bg-black/20' : 'border-news-sun/30 bg-news-sun/5'} rounded-sm fade-in`;
+                card.innerHTML = `
+                    <div class="text-2xl mb-2">${item.icon}</div>
+                    <h5 class="text-[10px] font-bold uppercase tracking-widest ${state === 'before' ? 'text-gray-400' : 'text-news-sun'} mb-1">${item.title}</h5>
+                    <p class="text-xs text-gray-500 leading-relaxed italic">${item.desc}</p>
+                `;
+                container.appendChild(card);
+            });
+
+            if(state === 'before') {
+                btnBefore.classList.add('bg-gray-800', 'text-white');
+                btnAfter.classList.remove('bg-news-accent', 'text-white');
+                btnAfter.classList.add('bg-gray-900', 'text-gray-500');
+                highlightText.innerText = "Nightfall once brought challenges: animal encounters and hazardous fuel risks.";
+                updateRadar('baseline');
+            } else {
+                btnAfter.classList.add('bg-news-accent', 'text-white');
+                btnBefore.classList.remove('bg-gray-800', 'text-white');
+                btnBefore.classList.add('bg-gray-900', 'text-gray-500');
+                highlightText.innerText = "Solar lanterns provide safety, study opportunities, and clean, sustainable solutions.";
+                updateRadar('impact');
+            }
+        }
+
+        function switchTab(id) {
+            const btns = ['climate', 'rights', 'youth', 'economy'];
+            btns.forEach(b => {
+                const btn = document.getElementById(`tab-${b}`);
+                btn.classList.remove('border-news-accent', 'text-news-accent');
+                btn.classList.add('border-transparent', 'text-gray-400');
+            });
+            document.getElementById(`tab-${id}`).classList.add('border-news-accent', 'text-news-accent');
+            
+            const data = tabData[id];
+            const container = document.getElementById('tab-content');
+            container.style.opacity = '0';
+            setTimeout(() => {
+                container.innerHTML = `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center py-4">
+                        <div>
+                            <h4 class="article-title text-3xl mb-6 italic">${data.title}</h4>
+                            <p class="font-serif text-gray-700 leading-relaxed mb-6 text-sm md:text-base">${data.text}</p>
+                        </div>
+                        <div class="bg-news-bg p-8 border-l-4 border-news-accent">
+                            <p class="article-title text-2xl font-bold italic text-news-accent">${data.quote}</p>
+                        </div>
+                    </div>
+                `;
+                container.style.opacity = '1';
+            }, 150);
+        }
+
+        // --- CHARTS ---
+        let impactChart, radarChart;
+
+        function initCharts() {
+            const ctx1 = document.getElementById('impactChart').getContext('2d');
+            impactChart = new Chart(ctx1, {
+                type: 'polarArea',
+                data: {
+                    labels: ['Land Rights', 'Environment', 'Economics', 'Advocacy'],
+                    datasets: [{
+                        data: [85, 70, 95, 80],
+                        backgroundColor: ['rgba(142, 58, 31, 0.7)', 'rgba(61, 90, 53, 0.7)', 'rgba(230, 175, 46, 0.7)', 'rgba(26, 26, 26, 0.7)'],
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { r: { ticks: { display: false }, grid: { color: '#f3f4f6' } } },
+                    plugins: { legend: { position: 'bottom', labels: { font: { size: 9, family: 'Montserrat' } } } }
+                }
+            });
+
+            const ctx2 = document.getElementById('gotuRadar').getContext('2d');
+            radarChart = new Chart(ctx2, {
+                type: 'radar',
+                data: {
+                    labels: ['Safety', 'Study Hours', 'Health', 'Savings', 'Productivity'],
+                    datasets: [
+                        {
+                            label: 'Kerosene Baseline',
+                            data: [20, 25, 15, 10, 30],
+                            backgroundColor: 'rgba(209, 207, 199, 0.3)',
+                            borderColor: '#D1CFC7',
+                            pointRadius: 0
+                        },
+                        {
+                            label: 'Solar Impact',
+                            data: [95, 85, 95, 85, 90],
+                            backgroundColor: 'rgba(142, 58, 31, 0.5)',
+                            borderColor: '#8E3A1F',
+                            pointRadius: 4,
+                            pointBackgroundColor: '#fff'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: { display: false },
+                            grid: { color: '#f3f4f6' },
+                            pointLabels: { font: { size: 9, weight: 'bold', family: 'Montserrat' } }
+                        }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        function updateRadar(mode) {
+            if(!radarChart) return;
+            if(mode === 'baseline') {
+                radarChart.data.datasets[1].hidden = true;
+            } else {
+                radarChart.data.datasets[1].hidden = false;
+            }
+            radarChart.update();
+        }
+
+        // --- CORE UI ---
+        function toggleMobileNav() {
+            document.getElementById('mobile-nav').classList.toggle('hidden');
+            document.getElementById('mobile-nav').classList.toggle('flex');
+        }
+
+        function scrollToId(id) {
+            const el = document.getElementById(id);
+            if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function showActionModal(type) {
+            const modal = document.getElementById('action-modal');
+            document.getElementById('modal-title').innerText = type === 'Support' ? "Support Our Grassroots Projects" : "Partner with Us";
+            document.getElementById('modal-text').innerText = type === 'Support' ? "Your direct contribution funds solar lanterns and land rights advocacy. Contact us on Instagram @northernvisioncbo to learn more." : "We are looking for global partners to spotlight Northern Kenya. DM us at @northernvisioncbo for a collaboration dialogue.";
+            modal.classList.remove('hidden');
+        }
+
+        function closeActionModal() {
+            document.getElementById('action-modal').classList.add('hidden');
+        }
+
+        function initGallery() {
+            const grid = document.getElementById('gallery-grid');
+            galleryData.forEach(item => {
+                const div = document.createElement('div');
+                div.className = `h-56 ${item.color} relative group overflow-hidden cursor-pointer flex items-center justify-center p-6 text-center shadow-sm`;
+                div.innerHTML = `
+                    <span class="text-white font-display italic text-2xl group-hover:scale-110 transition-transform">${item.title}</span>
+                    <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <p class="text-[9px] font-bold uppercase tracking-widest text-news-sun">${item.category}</p>
+                    </div>
+                `;
+                grid.appendChild(div);
+            });
+        }
+
+        window.onload = () => {
+            initCharts();
+            initGallery();
+            switchTab('climate');
+            toggleGotu('after'); // Default to impact state
+        };
+    </script>
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</body>
+</html>

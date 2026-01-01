@@ -31,7 +31,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(rgba(29, 128, 159, 0.9), rgba(21, 93, 116, 0.8)), url('assets/img/IMG_4320.png');
+            background: linear-gradient(rgba(29, 128, 159, 0.85), rgba(21, 93, 116, 0.8)), url('assets/img/IMG_4320.png');
             background-position: center;
             background-size: cover;
             color: white;
@@ -41,20 +41,25 @@
 
         .masthead h1 {
             font-weight: 900;
+            /* Clamp ensures font scales smoothly between mobile (2.5rem) and desktop (4.5rem) */
             font-size: clamp(2.5rem, 5vw, 4.5rem);
             text-shadow: 0 4px 10px rgba(0,0,0,0.2);
             margin-bottom: 1.5rem;
+            line-height: 1.1;
         }
 
         .masthead h2 {
             font-weight: 300;
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
             margin-bottom: 3rem;
             opacity: 0.9;
             color: var(--nvcbo-cream);
+            max-width: 800px; /* Prevents text from stretching too wide on big screens */
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* --- BUTTONS --- */
+        /* --- BUTTONS (Enhanced Responsiveness) --- */
         .btn-xl {
             padding: 1.25rem 2.5rem;
             font-size: 1rem;
@@ -67,6 +72,23 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            min-width: 200px; /* Ensures buttons look uniform on desktop */
+        }
+
+        /* Mobile Optimizations for Buttons */
+        @media (max-width: 576px) {
+            .btn-xl {
+                padding: 1rem 1.5rem; /* Smaller padding for mobile screens */
+                width: 100%;         /* Full width buttons for easier tapping */
+                margin-bottom: 0;    /* Margins handled by gap utility */
+            }
+            
+            /* Container constraint so buttons don't get too wide on tablets */
+            .hero-btn-container {
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+            }
         }
 
         .btn-primary-custom {
@@ -83,7 +105,7 @@
 
         .btn-outline-custom {
             background: transparent;
-            border: 2px solid rgba(255,255,255,0.5);
+            border: 2px solid rgba(255,255,255,0.6);
             color: white;
         }
 
@@ -93,7 +115,7 @@
             border-color: white;
         }
         
-        /* Donation Button Specifics */
+        /* Donation Button */
         .btn-donate {
             background: white;
             color: var(--nvcbo-dark-orange);
@@ -219,7 +241,7 @@
             color: #333;
         }
 
-        /* --- CALLOUT / NEWSLETTER --- */
+        /* --- CALLOUT --- */
         .callout {
             padding: 8rem 0;
             background: linear-gradient(rgba(21, 93, 116, 0.9), rgba(29, 128, 159, 0.8)), url('assets/img/bg-callout.jpg');
@@ -237,7 +259,7 @@
             margin-bottom: 1rem;
         }
 
-        /* --- DONATION SECTION (NEW) --- */
+        /* --- DONATION SECTION --- */
         .donation-section {
             background: linear-gradient(135deg, var(--nvcbo-orange) 0%, var(--nvcbo-dark-orange) 100%);
             color: white;
@@ -293,13 +315,16 @@
     </nav>
 
     <header class="masthead d-flex">
-        <div class="container text-center my-auto">
+        <div class="container text-center my-auto px-4">
             <h1 class="mb-1">Rooted in the Land. Powered by Light.</h1>
             <h2 class="mb-5">
                 <em>Empowering Northern Kenya's pastoralist communities through climate justice, innovation, and cultural exchange.</em>
             </h2>
-            <a class="btn btn-primary-custom btn-xl me-3" href="#about">Discover More</a>
-            <a class="btn btn-outline-custom btn-xl" href="#donate">Support Us</a>
+            
+            <div class="hero-btn-container d-flex justify-content-center gap-3 flex-column flex-sm-row">
+                <a class="btn btn-primary-custom btn-xl" href="#about">Discover More</a>
+                <a class="btn btn-outline-custom btn-xl" href="#donate">Support Us</a>
+            </div>
         </div>
     </header>
 
@@ -450,9 +475,9 @@
                 <div class="col-lg-8 text-center">
                     <h2 class="mb-4" style="font-weight: 800; text-shadow: 0 2px 5px rgba(0,0,0,0.1);">The Buttons Below Are Impossible To Resist...</h2>
                     <p class="lead mb-5" style="opacity: 0.9;">Your support directly funds solar lanterns for students, advocacy for women, and climate resilience in Isiolo.</p>
-                    <div class="d-flex justify-content-center gap-3 flex-wrap">
-                        <a class="btn btn-donate btn-xl me-md-3 mb-3 mb-md-0" href="#contact">Donate Now</a>
-                        <a class="btn btn-outline-custom btn-xl mb-3 mb-md-0" href="#contact">Partner With Us</a>
+                    <div class="d-flex justify-content-center gap-3 flex-column flex-sm-row">
+                        <a class="btn btn-donate btn-xl" href="#contact">Donate Now</a>
+                        <a class="btn btn-outline-custom btn-xl" href="#contact">Partner With Us</a>
                     </div>
                 </div>
             </div>
