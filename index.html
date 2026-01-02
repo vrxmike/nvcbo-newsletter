@@ -74,6 +74,36 @@
             color: var(--nvcbo-dark-blue);
         }
 
+        /* --- ANIMATED LOGO TEXT --- */
+        .logo-animated {
+            font-weight: 900;
+            font-size: 1.8rem;
+            background: linear-gradient(
+                90deg,
+                var(--nvcbo-orange) 0%,
+                #FFB347 25%,
+                var(--nvcbo-orange) 50%,
+                #FFB347 75%,
+                var(--nvcbo-orange) 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .logo-animated:hover {
+            transform: translateY(-2px);
+            filter: drop-shadow(0 4px 8px rgba(255, 140, 0, 0.4));
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
+        }
+
         .logo-icon {
             width: 45px;
             height: 45px;
@@ -961,8 +991,8 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <!-- Logo -->
                     <a href="index.html" class="logo-text">
-                        <span class="logo-icon"><i class="icon-book-open"></i></span>
-                        NVCBO <span style="font-weight: 300; font-size: 1rem; color: #999;">Newsletter</span>
+                        <img src="nvcbo-logo.webp" alt="NVCBO Logo" style="height: 45px; width: auto;">
+                        <span class="logo-animated">NVCBO</span>
                     </a>
 
                     <!-- Mobile Toggle -->
@@ -1216,7 +1246,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-brand">
                         <a href="index.html" class="footer-logo">
-                            <span class="logo-icon"><i class="icon-book-open"></i></span>
+                            <img src="nvcbo-logo.webp" alt="NVCBO Logo" style="height: 40px; width: auto;">
                             NVCBO Newsletter
                         </a>
                         <p class="footer-description">Empowering Northern Kenya's pastoralist communities through climate justice, sustainable agriculture, education, and cultural exchange.</p>
