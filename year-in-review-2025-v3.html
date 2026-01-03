@@ -23,6 +23,16 @@
                         'nv-gold': '#E6AF2E',
                         'nv-border': '#D1CFC7',
                         'nv-dark': '#0A0A0A',
+                        // Arid Earth Palette for COP30 section
+                        'arid-heading': '#2D302E',
+                        'arid-body': '#4A4E4D',
+                        'arid-terracotta': '#8B5E34',
+                        'arid-bone': '#F9F7F2',
+                        // Ecological Growth accents
+                        'eco-forest': '#1B4332',
+                        'eco-sage': '#344E41',
+                        'eco-slate': '#52796F',
+                        'eco-mint': '#74C69D',
                     },
                     fontFamily: {
                         'serif': ['Merriweather', 'serif'],
@@ -138,8 +148,8 @@
                 </div>
 
                 <div class="dropcap text-nv-text leading-relaxed font-serif text-base sm:text-lg space-y-6">
-                    <p>Northern Vision CBO is a grassroots organization building a just and sustainable future for pastoralist communities. Our path in women’s land rights is not just about equity; it’s about survival, dignity, and the future of our people.</p>
-                    <p>In 2025, we made tangible strides: from providing clean energy through solar lanterns in Gotu village to advocating for youth inclusion on global stages like COP30.</p>
+                    <p>In 2025, Northern Vision strengthened community resilience across Northern Kenya—supporting over 300 families with clean, smoke-free energy, planting more than 150 trees through community-led regreening efforts, and expanding access to education, food security, and women-centered climate solutions.</p>
+                    <p>Our path in women's land rights is not just about equity; it's about survival, dignity, and the future of our people. This is the impact of grassroots organizing—and we are just getting started.</p>
                 </div>
 
                 <div class="mt-8 bg-nv-bg p-6 border border-nv-border">
@@ -149,6 +159,8 @@
                         <div class="flex items-center gap-2"><span>⚖️</span> Women's Land Rights</div>
                         <div class="flex items-center gap-2"><span>🔥</span> Youth Empowerment</div>
                         <div class="flex items-center gap-2"><span>🤝</span> Resilience & Co-ops</div>
+                        <div class="flex items-center gap-2"><span>💜</span> Sexual & Reproductive Health</div>
+                        <div class="flex items-center gap-2"><span>🌾</span> NV Farm & Food Security</div>
                     </div>
                 </div>
             </main>
@@ -160,23 +172,28 @@
                 <div class="space-y-8">
                     <div>
                         <p class="text-4xl font-display text-nv-gold mb-1">300+ FAMILIES</p>
-                        <p class="text-[10px] uppercase font-bold text-nv-text tracking-widest mb-2">Empowered in Gotu</p>
-                        <p class="text-[11px] text-gray-500 leading-relaxed italic">Provided clean energy through solar lanterns, bringing light, security, and dignity.</p>
+                        <p class="text-[10px] uppercase font-bold text-nv-text tracking-widest mb-2">Smoke-Free Light</p>
+                        <p class="text-[11px] text-gray-500 leading-relaxed italic">Safer, smoke-free light after dark in Gotu (Sands of Gold), improving study conditions and household safety.</p>
                     </div>
                     <div>
                         <p class="text-4xl font-display text-nv-green mb-1">150+ TREES</p>
-                        <p class="text-[10px] uppercase font-bold text-nv-text tracking-widest mb-2">Planted & Thriving</p>
-                        <p class="text-[11px] text-gray-500 leading-relaxed italic">Sowing seeds of hope and combating desertification through community-led initiatives.</p>
+                        <p class="text-[10px] uppercase font-bold text-nv-text tracking-widest mb-2">Regreening Northern Kenya</p>
+                        <p class="text-[11px] text-gray-500 leading-relaxed italic">Planted with 30+ civil society partners including Gotu Primary School, convened by NEMA Isiolo.</p>
                     </div>
                     <div>
                         <p class="text-4xl font-display text-nv-accent mb-1">GLOBAL VOICE</p>
-                        <p class="text-[10px] uppercase font-bold text-nv-text tracking-widest mb-2">National & COP30 Stages</p>
-                        <p class="text-[11px] text-gray-500 leading-relaxed italic">Advocating for women's land rights and youth inclusion in climate talks.</p>
+                        <p class="text-[10px] uppercase font-bold text-nv-text tracking-widest mb-2">Grassroots at COP30</p>
+                        <p class="text-[11px] text-gray-500 leading-relaxed italic">Engaging on Article 6 safeguards, locally led adaptation, agroecology, and climate finance.</p>
                     </div>
                     <div class="pt-4 border-t border-nv-border">
-                        <p class="text-4xl font-display text-gray-400 mb-1">1 EXCHANGE</p>
-                        <p class="text-[10px] uppercase font-bold text-nv-text tracking-widest mb-2">Sweden Immersion</p>
-                        <p class="text-[11px] text-gray-600 font-serif italic">Strengthening global partnerships and sharing our story.</p>
+                        <p class="text-4xl font-display text-pink-600 mb-1">3 SCHOOLS</p>
+                        <p class="text-[10px] uppercase font-bold text-nv-text tracking-widest mb-2">SRHR Sessions</p>
+                        <p class="text-[11px] text-gray-600 font-serif italic">Menstrual health awareness, hygiene, and sanitary product distribution for adolescent girls.</p>
+                    </div>
+                    <div class="pt-4 border-t border-nv-border">
+                        <p class="text-4xl font-display text-emerald-600 mb-1">NV FARM</p>
+                        <p class="text-[10px] uppercase font-bold text-nv-text tracking-widest mb-2">Climate Adaptation</p>
+                        <p class="text-[11px] text-gray-600 font-serif italic">Circular economy model: solar, fish ponds, organic farming. CJIFA grant enabled azolla breeding.</p>
                     </div>
                 </div>
             </aside>
@@ -194,10 +211,13 @@
         <section id="pillars" class="py-12 bg-nv-bg -mx-4 px-4 sm:px-8 border-b border-nv-border overflow-hidden">
             <div class="max-w-4xl mx-auto">
                 <div class="flex border-b border-nv-border mb-8 overflow-x-auto whitespace-nowrap scroll-hide pb-1">
-                    <button onclick="switchTab('climate')" id="tab-climate" class="px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] border-b-2 border-nv-green text-nv-green">Climate Action</button>
+                    <button onclick="switchTab('climate')" id="tab-climate" class="px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] border-b-2 border-nv-green text-nv-green">Regreening</button>
                     <button onclick="switchTab('rights')" id="tab-rights" class="px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] border-b-2 border-transparent text-gray-400">Land Rights</button>
-                    <button onclick="switchTab('youth')" id="tab-youth" class="px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] border-b-2 border-transparent text-gray-400">Youth Voice</button>
-                    <button onclick="switchTab('economy')" id="tab-economy" class="px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] border-b-2 border-transparent text-gray-400">Cooperatives</button>
+                    <button onclick="switchTab('youth')" id="tab-youth" class="px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] border-b-2 border-transparent text-gray-400">COP30</button>
+                    <button onclick="switchTab('economy')" id="tab-economy" class="px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] border-b-2 border-transparent text-gray-400">Solar Lanterns</button>
+                    <button onclick="switchTab('exchange')" id="tab-exchange" class="px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] border-b-2 border-transparent text-gray-400">Sweden</button>
+                    <button onclick="switchTab('srhr')" id="tab-srhr" class="px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] border-b-2 border-transparent text-gray-400">SRHR</button>
+                    <button onclick="switchTab('farm')" id="tab-farm" class="px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] border-b-2 border-transparent text-gray-400">NV Farm</button>
                 </div>
                 <div id="tab-content" class="fade-in min-h-[300px]">
                     <!-- Injected Content -->
@@ -214,7 +234,7 @@
                         <span id="case-tag" class="text-nv-accent font-bold uppercase text-[10px] tracking-[0.4em] block mb-4 italic transition-colors duration-700">GOTU VILLAGE: IMPACT STORY</span>
                         <h3 id="case-title" class="article-title text-3xl sm:text-5xl italic mb-6 transition-colors duration-700">"Light in the Darkness"</h3>
                         <p id="case-intro" class="font-serif text-base sm:text-lg leading-relaxed mb-8 transition-colors duration-700">
-                            For pastoralist families in the 'Sons of Gold' community, nightfall brought the risk of animal encounters and hazardous kerosene. We provided 300 solar lanterns—a solution that honors their way of life.
+                            Families in Gotu now have safer, smoke-free light after dark, improving study conditions, household safety, and evening productivity. Building on thorough community-led research to clearly identify needs and priorities, Northern Vision CBO distributed 300 solar lanterns in Gotu (Sands of Gold community), replacing hazardous kerosene lamps with clean, renewable energy solutions.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-3 mb-10">
@@ -346,6 +366,48 @@
             </div>
         </section>
 
+        <!-- Thank You Section with Partner Logos -->
+        <section id="thank-you" class="py-16 bg-nv-bg -mx-4 px-6 sm:px-12">
+            <div class="max-w-4xl mx-auto text-center">
+                <span class="text-nv-accent font-bold uppercase text-[10px] tracking-[0.4em] block mb-4">WITH GRATITUDE</span>
+                <h3 class="article-title text-3xl sm:text-4xl italic mb-6">Thank You to Our Partners</h3>
+                <p class="font-serif text-gray-600 text-sm sm:text-base leading-relaxed mb-12 max-w-2xl mx-auto">
+                    This work would not be possible without the dedication of our community members, the trust of our donors, and the collaboration of our partners. Together, we are building a more just and sustainable future.
+                </p>
+                
+                <!-- Partner Logos Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 items-center justify-items-center mb-12">
+                    <!-- Partner placeholder boxes with names -->
+                    <div class="bg-white p-4 rounded border border-nv-border w-full h-20 flex items-center justify-center">
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">NEMA Isiolo</span>
+                    </div>
+                    <div class="bg-white p-4 rounded border border-nv-border w-full h-20 flex items-center justify-center">
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Isiolo Scouts</span>
+                    </div>
+                    <div class="bg-white p-4 rounded border border-nv-border w-full h-20 flex items-center justify-center">
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Journey for Hope</span>
+                    </div>
+                    <div class="bg-white p-4 rounded border border-nv-border w-full h-20 flex items-center justify-center">
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Move Northern Kenya</span>
+                    </div>
+                    <div class="bg-white p-4 rounded border border-nv-border w-full h-20 flex items-center justify-center">
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">PACJA / CJIFA</span>
+                    </div>
+                    <div class="bg-white p-4 rounded border border-nv-border w-full h-20 flex items-center justify-center">
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">National Land Commission</span>
+                    </div>
+                    <div class="bg-white p-4 rounded border border-nv-border w-full h-20 flex items-center justify-center">
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Isiolo Rovers</span>
+                    </div>
+                    <div class="bg-white p-4 rounded border border-nv-border w-full h-20 flex items-center justify-center">
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">30+ Civil Society Orgs</span>
+                    </div>
+                </div>
+                
+                <p class="font-serif italic text-nv-accent text-lg">"Asante sana—thank you for walking this journey with us."</p>
+            </div>
+        </section>
+
         <!-- Footer / Meta -->
         <footer class="bg-nv-text text-white py-16 -mx-4 px-6 text-center">
             <h3 class="article-title text-2xl sm:text-3xl mb-8 italic">"Let's build the future together."</h3>
@@ -376,28 +438,45 @@
         // --- 1. GENERAL CONTENT DATA ---
         const contentPillars = {
             climate: {
-                title: "Climate Action in Our Hands",
-                text: "We mobilized over 150 tree plantings in partnership with Isiolo Scouts and Journey for Hope. Our 'Light in the Darkness' distributed 300 solar lanterns in Gotu, replacing hazardous kerosene and enabling safe evenings.",
+                title: "Regreening Northern Kenya",
+                text: "Convened by the Director NEMA Isiolo, Northern Vision CBO mobilized communities for World Environment Day, National Tree Planting Day, and a dedicated regreening campaign, planting over 150 trees in partnership with Isiolo Scouts, Rovers, Journey for Hope, Move Northern Kenya, and over 30 other civil society organisations in Isiolo. Tree planting activities also included Gotu Primary School, reinforcing environmental stewardship among learners and the wider community.",
                 quote: "“He who plants a tree, plants a hope.”",
                 color: "text-nv-green"
             },
             rights: {
-                title: "'The Land Is Our Mother'",
-                text: "At the National Land Commission conference, we co-led sessions shifting power to grassroots women. We launched 'Laaf Haadha Teenna', using cultural healing circles to address land-related trauma.",
+                title: "Women's Land Rights & Cultural Storytelling",
+                text: "Produced <em>Laftin Haad Namma</em>, a documentary film highlighting land possibilities in Northern Kenya's ASAL regions while raising awareness on the realities of women's land rights in Isiolo County.<br><br>The film sought to tell the Northern Kenya story as it is, centering lived experiences, cultural context and structural challenges. We also highlighted how indigenous solutions such as healing circles were vital in holding dialogues on the topic and this was later followed by advocacy representation and dialogue in Seattle, USA.<br><br>In 2025, Northern Vision CBO also conducted a <strong>Women's Land Rights research study</strong> examining limitations, barriers, solutions and success stories. The research engaged key informants including religious leaders, elders, local administration, civil society organizations, and grassroots women who are also at the center of land and community knowledge and not just victims of WLR violations.<br><br>Alongside this work, we held a small community workshop on equality, sustainability and the importance of STEM, engaging local youth and linking women's rights, education and future livelihoods.",
                 quote: "“The fight for land rights is a fight for survival.”",
                 color: "text-nv-accent"
             },
             youth: {
-                title: "The Fire of African Feminists",
-                text: "At COP30, we challenged exclusion by highlighting barriers like visa costs. We are building sisterhood among young women activists to ensure our climate stories are heard on the global stage.",
-                quote: "“We may not have access, but we have the fire.”",
-                color: "text-nv-text"
+                title: "Grassroots Representation at COP30",
+                text: "Northern Vision CBO participated in COP30 to represent grassroots and indigenous voices on the global stage, share community-based findings and contribute to ensuring that lived realities from ASAL regions are reflected in climate outcomes.<br><br>The engagement also provided space to learn from solutions implemented by like-minded organizations and practitioners across regions.<br><br><strong class='text-arid-terracotta'>Key outcomes relevant to our work include:</strong><ul class='list-disc pl-5 mt-2 space-y-2 text-arid-body'><li><strong class='text-arid-terracotta'>Stronger recognition of community rights and participation</strong> in climate action, especially through improved safeguards under Article 6 of the Paris Agreement. These advances emphasize community consent, land rights and meaningful participation across the project cycle.</li><li><strong class='text-arid-terracotta'>Increased visibility of locally led adaptation</strong>, with the Global Goal on Adaptation acknowledging community-based systems, sub-national resilience and traditional knowledge as central to climate solutions.</li><li><strong class='text-arid-terracotta'>Agroecology elevated as a climate solution</strong>, particularly for food security and adaptation in vulnerable regions, aligning with Northern Vision's farm-based, circular model in ASAL contexts, even though global adoption remains pending.</li><li><strong class='text-arid-terracotta'>Growing scrutiny of unilateral climate measures</strong>, with developing countries advocating for just transitions that do not harm pastoralist and smallholder livelihoods.</li><li><strong class='text-arid-terracotta'>Continued gaps in climate finance</strong>, reinforcing the need to scale adaptation funding and ensure direct access for community-led initiatives.</li></ul>",
+                quote: "\"Grassroots voices must be at the center of global climate action.\"",
+                color: "text-arid-heading",
+                isAridEarth: true
             },
             economy: {
-                title: "Cooperatives & Empowerment",
-                text: "Solar lanterns in the 'Sons of Gold' community extend the workday for artisans and study time for children. Fuel savings fund community cooperatives and strengthen local economies.",
+                title: "Light in the Darkness",
+                text: "Families in Gotu now have safer, smoke-free light after dark, improving study conditions, household safety, and evening productivity. Building on thorough community-led research to clearly identify needs and priorities, Northern Vision CBO distributed 300 solar lanterns in Gotu (Sands of Gold community), replacing hazardous kerosene lamps with clean, renewable energy solutions. Fuel savings now fund community cooperatives and strengthen local economies.",
                 quote: "“Clean light builds the foundation for economic growth.”",
                 color: "text-nv-gold"
+            },            exchange: {
+                title: "Global Exchange & Learning (Kenya-Sweden)",
+                text: "Our team's exchange in Sweden and Kenya was a two-way learning process: sharing Northern Kenya's realities while also learning from global best practices. Education is central to Northern Vision CBO's work and we are committed to being a bridge for learning between our organization, the students and communities we serve, and international partners, particularly in Sweden, where there is strong potential for meaningful, long-term collaboration.",
+                quote: "\"Education is central to Northern Vision CBO's work.\"",
+                color: "text-blue-500"
+            },            srhr: {
+                title: "Sexual & Reproductive Health Rights",
+                text: "In 2025, Northern Vision CBO conducted SRHR sessions with young adolescents in schools, focusing on menstrual health awareness, hygiene, and addressing stigma. Activities were held at Gotu Primary School, Yaqbarsathi Primary School, and St. Kizito Primary School, and included the distribution of sanitary products to support dignity, school attendance, and health among adolescent girls.",
+                quote: "\"Supporting dignity, school attendance, and health among adolescent girls.\"",
+                color: "text-pink-600"
+            },
+            farm: {
+                title: "The NV Farm: Climate Adaptation & Food Security",
+                text: "Northern Vision CBO runs a community farm that serves as a learning center and a practical example of climate adaptation in ASAL regions. The farm demonstrates that agriculture can complement pastoralism while strengthening food security. The initiative supports children, pregnant and lactating mothers, the elderly and the wider community through access to nutritious food and learning opportunities. In 2025, the farm advanced a circular economy model: solar energy pumps water into fish ponds; nutrient-rich pond water is then reused on the farm, enabling organic farming. Through the CJIFA grant by the Pan African Climate Justice Alliance, received in 2025, we expanded operations, incorporated azolla breeding as a sustainable alternative to commercial fish feed, and undertook key renovations—strengthening resilience, reducing costs, and improving long-term sustainability.",
+                quote: "\"Agriculture can complement pastoralism while strengthening food security.\"",
+                color: "text-emerald-600"
             }
         };
 
@@ -420,11 +499,11 @@
         // Note: colors/gradients are simplified in the Sepia view but kept for reference
         const stories = [
             {
-                tag: "#ClimateAction",
-                intro: "This year, we planted...",
+                tag: "#Regreening",
+                intro: "Convened by NEMA Isiolo, we planted...",
                 number: "150+",
                 title: "Trees in Isiolo",
-                desc: "Combating desertification one seedling at a time. The Acacia roots run deep.",
+                desc: "Mobilizing communities for World Environment Day, National Tree Planting Day, and regreening campaigns with 30+ civil society partners including Gotu Primary School.",
                 img: "https://images.unsplash.com/photo-1542601906990-b4d3fb7d5b43?q=80&w=1000&auto=format&fit=crop"
             },
             {
@@ -437,54 +516,102 @@
             },
             {
                 tag: "#EnergyAccess",
-                intro: "We illuminated...",
+                intro: "Families now have...",
                 number: "300",
-                title: "Homes in Gotu",
-                desc: "Replacing kerosene with solar lanterns. Brighter nights, safer homes.",
+                title: "Safer Homes in Gotu",
+                desc: "Safer, smoke-free light after dark, improving study conditions, household safety, and evening productivity through solar lanterns.",
                 img: "https://images.unsplash.com/photo-1513258496098-882605922721?q=80&w=1000&auto=format&fit=crop"
             },
             {
-                tag: "#YouthVoice",
-                intro: "We spoke up at...",
+                tag: "#GrassrootsVoices",
+                intro: "Representing grassroots voices at...",
                 number: "COP30",
                 title: "Global Stage",
-                desc: "Challenging exclusion and raising feminist voices at the climate summit.",
+                desc: "Sharing community-based findings to ensure lived realities from ASAL regions are reflected in climate outcomes. Learning from like-minded organizations across regions.",
                 img: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1000&auto=format&fit=crop"
             },
             {
-                tag: "#GlobalBond",
-                intro: "We connected in...",
+                tag: "#MutualLearning",
+                intro: "A two-way learning process...",
                 number: "SWE",
                 title: "Sweden Exchange",
-                desc: "Strengthening international solidarity and sharing our grassroots story.",
+                desc: "Sharing Northern Kenya's realities while learning from global best practices. We are committed to being a bridge for learning with international partners, particularly in Sweden.",
                 img: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1000&auto=format&fit=crop"
             },
             {
-                tag: "#CommunityHealing",
-                intro: "We launched...",
-                number: "Heal",
-                title: "Healing Circles",
-                desc: "Cultural sessions addressing land-related trauma for our women.",
+                tag: "#WomensLandRights",
+                intro: "We produced...",
+                number: "Film",
+                title: "Laftin Haad Namma",
+                desc: "A documentary telling the Northern Kenya story as it is—centering lived experiences, cultural context, and structural challenges. Followed by advocacy in Seattle, USA.",
                 img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1000&auto=format&fit=crop"
+            },
+            {
+                tag: "#SRHR",
+                intro: "Sessions with young adolescents at...",
+                number: "3",
+                title: "Schools Reached",
+                desc: "Menstrual health awareness, hygiene, and addressing stigma at Gotu Primary, Yaqbarsathi Primary, and St. Kizito Primary—with sanitary product distribution.",
+                img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1000&auto=format&fit=crop"
+            },
+            {
+                tag: "#FoodSecurity",
+                intro: "A learning center demonstrating...",
+                number: "Farm",
+                title: "NV Farm",
+                desc: "Climate adaptation in ASAL regions: circular economy model with solar, fish ponds, azolla breeding, organic farming. CJIFA/PACJA grant enabled 2025 expansion.",
+                img: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?q=80&w=1000&auto=format&fit=crop"
             }
         ];
 
         // --- 3. CHART & UI LOGIC ---
         let polarChart, radarChart;
 
+        // Mapping chart labels to tab IDs
+        const chartLabelToTab = {
+            '300 Families': 'economy',
+            '150 Trees': 'climate',
+            'COP30 Advocacy': 'youth',
+            'Sweden Exchange': 'exchange',
+            'SRHR Schools': 'srhr',
+            'NV Farm': 'farm',
+            'Documentary': 'rights'
+        };
+
         function initCharts() {
             const ctx1 = document.getElementById('impactPolar').getContext('2d');
             polarChart = new Chart(ctx1, {
                 type: 'polarArea',
                 data: {
-                    labels: ['300 Families', '150 Trees', 'Advocacy', 'Global Stage'],
+                    labels: ['300 Families', '150 Trees', 'COP30 Advocacy', 'Sweden Exchange', 'SRHR Schools', 'NV Farm', 'Documentary'],
                     datasets: [{
-                        data: [90, 75, 80, 50],
-                        backgroundColor: ['rgba(230,175,46,0.7)', 'rgba(61,90,53,0.7)', 'rgba(142,58,31,0.7)', 'rgba(26,26,26,0.7)'],
+                        data: [90, 75, 80, 70, 60, 70, 65],
+                        backgroundColor: ['rgba(230,175,46,0.7)', 'rgba(61,90,53,0.7)', 'rgba(142,58,31,0.7)', 'rgba(59,130,246,0.7)', 'rgba(219,39,119,0.7)', 'rgba(16,185,129,0.7)', 'rgba(26,26,26,0.7)'],
                         borderColor: '#fff', borderWidth: 2
                     }]
                 },
-                options: { responsive: true, maintainAspectRatio: false, scales: { r: { ticks: { display: false }, grid: { color: 'rgba(0,0,0,0.05)' } } }, plugins: { legend: { position: 'bottom', labels: { font: { size: 9 } } } } }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { r: { ticks: { display: false }, grid: { color: 'rgba(0,0,0,0.05)' } } },
+                    plugins: { legend: { position: 'bottom', labels: { font: { size: 9 } } } },
+                    onClick: (event, elements) => {
+                        if (elements.length > 0) {
+                            const index = elements[0].index;
+                            const label = polarChart.data.labels[index];
+                            const tabId = chartLabelToTab[label];
+                            if (tabId) {
+                                // Switch to the corresponding tab
+                                switchTab(tabId);
+                                // Scroll to the pillars section
+                                document.getElementById('pillars').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        }
+                    },
+                    onHover: (event, elements) => {
+                        event.native.target.style.cursor = elements.length > 0 ? 'pointer' : 'default';
+                    }
+                }
             });
 
             const ctx2 = document.getElementById('gotuRadar').getContext('2d');
@@ -502,26 +629,51 @@
         }
 
         function switchTab(id) {
-            const btns = ['climate', 'rights', 'youth', 'economy'];
+            const btns = ['climate', 'rights', 'youth', 'economy', 'exchange', 'srhr', 'farm'];
             btns.forEach(b => {
                 const btn = document.getElementById(`tab-${b}`);
                 btn.className = "px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] border-b-2 border-transparent text-gray-400";
             });
             const activeBtn = document.getElementById(`tab-${id}`);
             const data = contentPillars[id];
-            activeBtn.className = `px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] border-b-2 border-nv-${id === 'climate' ? 'green' : (id === 'rights' ? 'accent' : (id === 'youth' ? 'text' : 'gold'))} ${data.color}`;
+            
+            // Determine border color based on tab
+            const borderColors = {
+                climate: 'nv-green',
+                rights: 'nv-accent',
+                youth: 'eco-mint',
+                economy: 'nv-gold',
+                exchange: 'blue-500',
+                srhr: 'pink-600',
+                farm: 'emerald-600'
+            };
+            const borderColor = borderColors[id] || 'nv-accent';
+            activeBtn.className = `px-5 py-3 text-[10px] font-bold uppercase tracking-[0.2em] border-b-2 border-${borderColor} ${data.color}`;
 
             const container = document.getElementById('tab-content');
             container.style.opacity = '0';
             setTimeout(() => {
+                // Special Arid Earth styling for COP30 section
+                const isAridEarth = data.isAridEarth || false;
+                const containerBg = isAridEarth ? 'bg-arid-bone rounded-lg p-4' : '';
+                const bodyTextClass = isAridEarth ? 'text-arid-body' : 'text-gray-700';
+                const quoteBoxClass = isAridEarth 
+                    ? 'bg-white p-6 border-l-4 border-eco-mint shadow-md rounded' 
+                    : `bg-white p-6 border-l-4 border-${borderColor} shadow-sm`;
+                const quoteTitleClass = isAridEarth 
+                    ? 'article-title text-xl sm:text-2xl font-bold italic text-arid-heading' 
+                    : `article-title text-lg sm:text-xl font-bold italic ${data.color}`;
+                
                 container.innerHTML = `
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-6">
-                        <div>
-                            <h4 class="article-title text-2xl sm:text-3xl mb-4 italic ${data.color}">${data.title}</h4>
-                            <p class="font-serif text-gray-700 leading-relaxed mb-6 text-sm sm:text-base">${data.text}</p>
-                        </div>
-                        <div class="bg-white p-6 border-l-4 border-nv-${id === 'climate' ? 'green' : (id === 'rights' ? 'accent' : (id === 'youth' ? 'text' : 'gold'))} shadow-sm">
-                            <p class="article-title text-lg sm:text-xl font-bold italic ${data.color}">${data.quote}</p>
+                    <div class="${containerBg}">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start py-6">
+                            <div>
+                                <h4 class="article-title text-2xl sm:text-3xl mb-4 italic ${data.color}">${data.title}</h4>
+                                <p class="font-serif ${bodyTextClass} leading-relaxed mb-6 text-sm sm:text-base">${data.text}</p>
+                            </div>
+                            <div class="${quoteBoxClass}">
+                                <p class="${quoteTitleClass}">${data.quote}</p>
+                            </div>
                         </div>
                     </div>
                 `;
