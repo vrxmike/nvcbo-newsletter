@@ -103,6 +103,22 @@
             0% { background-position: 200% center; }
             100% { background-position: -200% center; }
         }
+        
+        /* Breathing animation for CBO superscript */
+        @keyframes breathe {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        .cbo-superscript {
+            font-size: 0.55em;
+            vertical-align: super;
+            color: #FF8C00;
+            font-weight: 700;
+            animation: breathe 2.5s ease-in-out infinite;
+            display: inline-block;
+            margin-left: 2px;
+        }
 
         .logo-icon {
             width: 45px;
@@ -676,6 +692,12 @@
             background: rgba(0,0,0,0.3);
             color: white;
         }
+        
+        /* Past Issues Grid Hover */
+        .past-issue-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.15) !important;
+        }
 
         .archive-icon {
             width: 70px;
@@ -1125,9 +1147,9 @@
                         <div class="news-card-body">
                             <span class="news-card-date"><i class="fa fa-calendar me-2"></i>November 28, 2025</span>
                             <h3 class="news-card-title">
-                                <a href="stories.html">150+ Trees Planted in Reforestation Drive</a>
+                                <a href="stories.html">150+ Trees Planted with NEMA Isiolo Partners</a>
                             </h3>
-                            <p class="news-card-excerpt">Community-led reforestation efforts are restoring degraded lands and creating sustainable ecosystems in Isiolo County.</p>
+                            <p class="news-card-excerpt">Regreening Northern Kenya with 30+ civil society partners including Gotu Primary School, convened by NEMA Isiolo.</p>
                             <a href="stories.html" class="news-card-link">Read More <i class="fa fa-angle-right"></i></a>
                         </div>
                     </article>
@@ -1137,15 +1159,15 @@
                 <div class="col-lg-4 col-md-6">
                     <article class="news-card">
                         <div class="news-card-img">
-                            <span class="news-card-tag">Advocacy</span>
+                            <span class="news-card-tag">Climate</span>
                             <img src="assets/img/IMG_4320.png" alt="COP30 advocacy">
                         </div>
                         <div class="news-card-body">
                             <span class="news-card-date"><i class="fa fa-calendar me-2"></i>November 10, 2025</span>
                             <h3 class="news-card-title">
-                                <a href="stories.html">NVCBO Advocates at COP30 for Indigenous Rights</a>
+                                <a href="stories.html">Grassroots Representation at COP30 Climate Summit</a>
                             </h3>
-                            <p class="news-card-excerpt">Our delegation represented pastoralist communities at the global climate summit, championing indigenous land rights.</p>
+                            <p class="news-card-excerpt">Engaging on Article 6 safeguards, locally led adaptation, and agroecology—bringing pastoralist women's voices to the global climate stage.</p>
                             <a href="stories.html" class="news-card-link">Read More <i class="fa fa-angle-right"></i></a>
                         </div>
                     </article>
@@ -1168,7 +1190,7 @@
                 <div class="campaign-content">
                     <span class="campaign-badge"><i class="fa fa-bolt me-2"></i>Active Campaign</span>
                     <h3 class="campaign-title">Light in the Darkness: Gotu Solar Project</h3>
-                    <p class="campaign-description">Providing solar lanterns to 300 off-grid pastoralist families in the "Sons of Gold" community. Each lantern means safer nights, extended study hours for children, and reduced reliance on kerosene.</p>
+                    <p class="campaign-description">Providing solar lanterns to 300+ off-grid pastoralist families in the "Sands of Gold" community. Each lantern means safer, smoke-free nights, extended study hours for children, and reduced reliance on hazardous kerosene.</p>
                     
                     <div class="campaign-progress">
                         <div class="progress-header">
@@ -1202,16 +1224,25 @@
                     <span class="newsletter-label"><i class="fa fa-newspaper-o me-2"></i>January 2026 Issue</span>
                     <h3 class="newsletter-title">2025 Year in Review: A Year of Transformation</h3>
                     <p class="newsletter-meta"><i class="fa fa-calendar me-2"></i>Published: January 1, 2026 | <i class="fa fa-clock-o ms-2 me-2"></i>8 min read</p>
-                    <p class="newsletter-excerpt">Reflecting on a transformative year: 300+ families empowered, 150+ trees planted, global climate advocacy at COP30, and cultural bridges built with Sweden. Experience our interactive Wrapped-style annual report.</p>
+                    <p class="newsletter-excerpt">Reflecting on a transformative year: 300+ families with smoke-free light, 150+ trees planted with NEMA Isiolo, grassroots representation at COP30, SRHR sessions at 3 schools, and the Kenya-Sweden cultural exchange.</p>
                     <a href="year-in-review-2025-v3.html" class="btn-read-newsletter">
                         Read Newsletter <i class="fa fa-arrow-right"></i>
                     </a>
                 </div>
-                <a href="stories.html" class="newsletter-archive-link">
-                    <div class="archive-icon"><i class="fa fa-archive"></i></div>
-                    <span class="archive-text">Browse Archive</span>
-                    <span class="archive-count">12+ Past Issues</span>
-                </a>
+                
+                <!-- Past Issues Grid -->
+                <div class="past-issues-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                    <a href="year-in-review-2025.html" class="past-issue-card" style="background: white; border-radius: 10px; padding: 1rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #FF8C00; font-weight: 700;">Classic Edition</span>
+                        <h4 style="font-size: 1rem; font-weight: 700; color: #333; margin: 0.5rem 0;">2025 Annual Report</h4>
+                        <p style="font-size: 0.8rem; color: #666; margin: 0;">Traditional layout format</p>
+                    </a>
+                    <a href="stories.html" class="past-issue-card" style="background: linear-gradient(135deg, #FFF5E6 0%, #fff 100%); border-radius: 10px; padding: 1rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 2px dashed #FF8C00;">
+                        <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #CC5500; font-weight: 700;"><i class="fa fa-archive me-1"></i> Archive</span>
+                        <h4 style="font-size: 1rem; font-weight: 700; color: #333; margin: 0.5rem 0;">Browse All Issues</h4>
+                        <p style="font-size: 0.8rem; color: #666; margin: 0;">4+ past newsletters</p>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1247,7 +1278,7 @@
                     <div class="footer-brand">
                         <a href="index.html" class="footer-logo">
                             <img src="nvcbo-logo.webp" alt="NVCBO Logo" style="height: 40px; width: auto;">
-                            NVCBO Newsletter
+                            Northern Vision<sup class="cbo-superscript">CBO</sup>
                         </a>
                         <p class="footer-description">Empowering Northern Kenya's pastoralist communities through climate justice, sustainable agriculture, education, and cultural exchange.</p>
                     </div>
