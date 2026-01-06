@@ -19,9 +19,21 @@
     <link rel="stylesheet" href="assets/css/bss-overrides.css">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <style>
+        /* SIDEBAR & MENU TOGGLE: Orange Theme to match gallery.html */
+        .menu-toggle {
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%) !important;
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+        #sidebar-wrapper {
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 50%, #CC5500 100%) !important;
+        }
+        .scroll-to-top {
+            background: linear-gradient(135deg, #FF8C00 0%, #FF7F00 100%) !important;
+        }
+        
         .year-review-header {
             min-height: 60vh;
-            background: linear-gradient(135deg, rgba(29, 128, 159, 0.95) 0%, rgba(21, 93, 116, 0.95) 100%), url('assets/img/year-review-2025-hero.jpg');
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.95) 0%, rgba(204, 85, 0, 0.95) 100%), url('assets/img/year-review-2025-hero.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -97,7 +109,7 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--nvcbo-blue);
+            color: #CC5500;
             margin-bottom: 0.5rem;
         }
         
@@ -124,7 +136,7 @@
             box-shadow: 0 3px 15px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
             height: 100%;
-            border-top: 4px solid var(--nvcbo-orange);
+            border-top: 4px solid #FF8C00;
         }
         
         .pillar-card:hover {
@@ -134,7 +146,7 @@
         
         .pillar-icon {
             font-size: 2.5rem;
-            color: var(--nvcbo-blue);
+            color: #CC5500;
             margin-bottom: 1rem;
         }
         
@@ -154,7 +166,7 @@
         }
         
         .initiative-title {
-            color: var(--nvcbo-blue);
+            color: #CC5500;
             font-weight: 700;
             font-size: 2rem;
             margin-bottom: 1.5rem;
@@ -169,7 +181,7 @@
             left: 0;
             width: 60px;
             height: 4px;
-            background: var(--nvcbo-orange);
+            background: #FF8C00;
             border-radius: 2px;
         }
         
@@ -185,15 +197,15 @@
         }
         
         .initiative-content h4 {
-            color: var(--nvcbo-dark-blue);
+            color: #B7410E;
             font-weight: 600;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
         }
         
         .blockquote-featured {
-            background: linear-gradient(135deg, var(--nvcbo-cream) 0%, #fff8f0 100%);
-            border-left: 5px solid var(--nvcbo-orange);
+            background: linear-gradient(135deg, #FFF8F0 0%, #fff5e6 100%);
+            border-left: 5px solid #FF8C00;
             padding: 2rem;
             border-radius: 0 15px 15px 0;
             margin: 2rem 0;
@@ -206,7 +218,7 @@
         .blockquote-featured::before {
             content: '"';
             font-size: 4rem;
-            color: var(--nvcbo-orange);
+            color: #FF8C00;
             opacity: 0.3;
             position: absolute;
             top: 0;
@@ -240,7 +252,7 @@
         
         .highlight-card-title {
             font-weight: 700;
-            color: var(--nvcbo-blue);
+            color: #CC5500;
             margin-bottom: 0.75rem;
         }
         
@@ -339,7 +351,7 @@
         }
         
         .gratitude-section {
-            background: var(--nvcbo-cream);
+            background: #FFF5E6;
             padding: 4rem 0;
             text-align: center;
         }
@@ -353,7 +365,7 @@
         }
         
         .social-share h4 {
-            color: var(--nvcbo-blue);
+            color: #CC5500;
             font-weight: 700;
             margin-bottom: 1.5rem;
         }
@@ -403,7 +415,7 @@
         }
         
         .share-btn.email {
-            background: var(--nvcbo-blue);
+            background: #CC5500;
             color: white;
         }
         
@@ -425,8 +437,8 @@
         
         .hashtags span {
             display: inline-block;
-            background: var(--nvcbo-cream);
-            color: var(--nvcbo-dark-orange);
+            background: #FFF5E6;
+            color: #CC5500;
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             margin: 0.25rem;
@@ -435,7 +447,7 @@
         }
         
         .cta-section {
-            background: linear-gradient(135deg, var(--nvcbo-blue) 0%, var(--nvcbo-dark-blue) 100%);
+            background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%);
             color: white;
             padding: 4rem 0;
             text-align: center;
@@ -460,7 +472,7 @@
         }
         
         .impact-story-box {
-            background: linear-gradient(135deg, var(--nvcbo-blue) 0%, var(--nvcbo-dark-blue) 100%);
+            background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%);
             color: white;
             border-radius: 20px;
             padding: 3rem;
@@ -557,7 +569,7 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="initiative-title text-center mx-auto" style="display: inline-block;">Our Path, Our Purpose</h2>
-                <p class="lead mt-4" style="max-width: 800px; margin: 0 auto;">Northern Vision CBO is a grassroots organization building a just and sustainable future for pastoralist communities. We champion:</p>
+                <p class="lead mt-4" style="max-width: 900px; margin: 0 auto;">In 2025, Northern Vision strengthened community resilience across Northern Kenya—supporting over 300 families with clean, smoke-free energy, planting more than 150 trees through community-led regreening efforts, and expanding access to education, food security, and women-centered climate solutions.</p>
             </div>
             
             <div class="row g-4 mb-5">
@@ -576,13 +588,13 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="pillar-card">
                         <i class="icon-graduation pillar-icon"></i>
-                        <h4 class="pillar-title">Youth Empowerment & Tech Innovation</h4>
+                        <h4 class="pillar-title">SRHR & Youth Empowerment</h4>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="pillar-card">
                         <i class="icon-people pillar-icon"></i>
-                        <h4 class="pillar-title">Community Resilience & Cooperatives</h4>
+                        <h4 class="pillar-title">NV Farm & Food Security</h4>
                     </div>
                 </div>
             </div>
@@ -607,8 +619,8 @@
                             <i class="icon-bulb"></i>
                         </div>
                         <div class="stat-number">300+</div>
-                        <div class="stat-label">Families Empowered</div>
-                        <p class="stat-description">Provided clean energy through solar lanterns in Gotu, bringing light, security, and dignity.</p>
+                        <div class="stat-label">Families, Smoke-Free Light</div>
+                        <p class="stat-description">Safer, smoke-free light after dark in Gotu (Sands of Gold), improving study conditions and household safety.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -617,8 +629,8 @@
                             <i class="icon-leaf"></i>
                         </div>
                         <div class="stat-number">150+</div>
-                        <div class="stat-label">Trees Planted</div>
-                        <p class="stat-description">Sowing seeds of hope and combating desertification through community-led regreening initiatives.</p>
+                        <div class="stat-label">Trees, Regreening Kenya</div>
+                        <p class="stat-description">Planted with 30+ civil society partners including Gotu Primary School, convened by NEMA Isiolo.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -627,18 +639,18 @@
                             <i class="icon-microphone"></i>
                         </div>
                         <div class="stat-number">Global</div>
-                        <div class="stat-label">& National Stages</div>
-                        <p class="stat-description">Advocating for women's land rights and youth inclusion in climate talks like COP30.</p>
+                        <div class="stat-label">Grassroots at COP30</div>
+                        <p class="stat-description">Engaging on Article 6 safeguards, locally led adaptation, agroecology, and climate finance.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="stat-card">
                         <div class="stat-icon">
-                            <i class="icon-plane"></i>
+                            <i class="icon-heart"></i>
                         </div>
-                        <div class="stat-number">1</div>
-                        <div class="stat-label">Cultural Exchange</div>
-                        <p class="stat-description">Strengthened global partnerships during an immersive cultural exchange in Sweden.</p>
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Schools, SRHR Sessions</div>
+                        <p class="stat-description">Menstrual health awareness, hygiene, and sanitary product distribution for adolescent girls.</p>
                     </div>
                 </div>
             </div>
@@ -653,10 +665,10 @@
                     <h2 class="initiative-title">Climate Action in Our Hands</h2>
                     <div class="initiative-content">
                         <h4>Regreening Northern Kenya</h4>
-                        <p>Mobilized the community for World Environment Day, National Tree Planting Day, and our dedicated regreening campaign, planting over 150 trees in partnership with Isiolo Scouts, Rovers, and Journey for Hope.</p>
+                        <p>Planted 150+ trees with 30+ civil society partners including Gotu Primary School, Isiolo Scouts, Rovers, and Journey for Hope—convened by NEMA Isiolo for World Environment Day and National Tree Planting Day.</p>
                         
                         <h4>'Light in the Darkness'</h4>
-                        <p>Distributed 300 solar lanterns in Gotu, replacing hazardous kerosene lamps and providing families with safe, clean light for studying and evening activities.</p>
+                        <p>Distributed 300 solar lanterns in Gotu (Sands of Gold), replacing hazardous kerosene lamps and providing families with safe, smoke-free light for studying and evening activities.</p>
                     </div>
                     <div class="blockquote-featured">
                         "He who plants a tree, plants a hope."
@@ -667,7 +679,7 @@
                         <img src="assets/img/portfolio-1.jpg" alt="Tree planting initiative" style="height: 350px;">
                         <div class="highlight-card-body">
                             <h4 class="highlight-card-title">Community-Led Regreening</h4>
-                            <p class="text-muted">Over 150 trees planted in partnership with local scouts and community organizations.</p>
+                            <p class="text-muted">Over 150 trees planted with 30+ civil society partners, convened by NEMA Isiolo.</p>
                         </div>
                     </div>
                 </div>
@@ -685,8 +697,8 @@
                         <h4>Shifting National Dialogue</h4>
                         <p>Co-led the session "Shifting Power, Voice and Agency to Grassroot Women in Land Governance" at the National Land Commission's conference, ensuring our voices were central to Kenya's land reform.</p>
                         
-                        <h4>Indigenous Healing Circles</h4>
-                        <p>Launched 'Laaf Haadha Teenna' (The Land Is Our Mother), a groundbreaking initiative using cultural healing to address trauma and empower women to claim their land rights.</p>
+                        <h4>Indigenous Healing & Documentary</h4>
+                        <p>Premiered 'Laftin Haad Namma' (The Land Is Our Mother) documentary, elevating cultural healing and empowering women to claim their land rights through community screenings.</p>
                     </div>
                     <div class="blockquote-featured">
                         "The fight for women's land rights is a fight for justice, resilience, and sustainable development for grassroots women all over the world."
@@ -710,24 +722,24 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h2 class="initiative-title">The Fire of Young African Feminists (COP30)</h2>
+                    <h2 class="initiative-title">Grassroots Representation at COP30</h2>
                     <div class="initiative-content">
-                        <h4>Challenging Exclusion at COP30</h4>
-                        <p>Joined a vital conversation to raise awareness about the barriers (visas, costs, access) that prevent young African feminists from participating in global climate negotiations.</p>
+                        <h4>Global Climate Advocacy</h4>
+                        <p>Engaged on Article 6 safeguards, locally led adaptation, agroecology, and climate finance—bringing pastoralist women's voices to the global climate stage.</p>
                         
-                        <h4>Building Sisterhood & Strategy</h4>
-                        <p>Fostered networks of support among young women activists, proving that collective action can overcome systemic obstacles.</p>
+                        <h4>Building Coalitions</h4>
+                        <p>Connected with grassroots organizations worldwide to strengthen advocacy for community-led climate solutions and indigenous knowledge systems.</p>
                     </div>
                     <div class="blockquote-featured">
-                        "We may not have all the access, but we have the fire and each other. Our voices are part of the climate story and without us, there is no justice."
+                        "Without grassroots women at the table, there is no climate justice. Our voices, our solutions, our future."
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="highlight-card">
                         <img src="assets/img/portfolio-3.jpg" alt="Youth at COP30" style="height: 350px;">
                         <div class="highlight-card-body">
-                            <h4 class="highlight-card-title">Youth Climate Advocacy</h4>
-                            <p class="text-muted">Young African feminists demanding inclusion in global climate negotiations.</p>
+                            <h4 class="highlight-card-title">Grassroots Climate Advocacy</h4>
+                            <p class="text-muted">Pastoralist women engaging on climate finance and locally led adaptation at COP30.</p>
                         </div>
                     </div>
                 </div>
@@ -750,7 +762,7 @@
                                 <i class="icon-bulb"></i>
                             </div>
                             <h4 class="highlight-card-title">Unlocking Evening Potential</h4>
-                            <p class="text-muted">The 300 solar lanterns provided to the "Sons of Gold" community in Gotu extend the workday, allowing artisans to continue their craft and children to study without interruption.</p>
+                            <p class="text-muted">The 300 solar lanterns provided to the "Sands of Gold" community in Gotu extend the workday, allowing artisans to continue their craft and children to study without interruption.</p>
                         </div>
                     </div>
                 </div>
@@ -780,6 +792,51 @@
         </div>
     </section>
 
+    <!-- NV Farm & Food Security -->
+    <section class="initiative-section" style="background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="initiative-title text-center mx-auto" style="display: inline-block;">🌾 NV Farm: Climate-Smart Agriculture</h2>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="highlight-card h-100">
+                        <div class="highlight-card-body">
+                            <div class="stat-icon mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="icon-energy"></i>
+                            </div>
+                            <h4 class="highlight-card-title">Circular Economy Model</h4>
+                            <p class="text-muted">Integrating solar power, fish ponds, and organic farming into a sustainable closed-loop system that adapts to Northern Kenya's arid conditions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="highlight-card h-100">
+                        <div class="highlight-card-body">
+                            <div class="stat-icon mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="icon-drop"></i>
+                            </div>
+                            <h4 class="highlight-card-title">Azolla Breeding Program</h4>
+                            <p class="text-muted">CJIFA grant enabled our azolla breeding initiative—a water fern that provides sustainable fish feed and natural soil fertilizer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="highlight-card h-100">
+                        <div class="highlight-card-body">
+                            <div class="stat-icon mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="icon-people"></i>
+                            </div>
+                            <h4 class="highlight-card-title">Community Food Security</h4>
+                            <p class="text-muted">Building local capacity for food sovereignty through training, demonstration sites, and community-owned agricultural infrastructure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Community Events & Partnerships -->
     <section class="initiative-section" style="background: var(--nvcbo-light-bg);">
         <div class="container">
@@ -793,7 +850,7 @@
                         <img src="assets/img/portfolio-4.jpg" alt="Local partnerships" style="height: 250px;">
                         <div class="highlight-card-body">
                             <h4 class="highlight-card-title">Local Action, Collective Strength</h4>
-                            <p class="text-muted">Our tree planting events were made possible by strong local partnerships with Isiolo Scouts, Isiolo Rovers, Journey For Hope, NIDO, and Move North.</p>
+                            <p class="text-muted">Regreening events convened by NEMA Isiolo with 30+ civil society partners including Isiolo Scouts, Rovers, Journey For Hope, and Gotu Primary School.</p>
                         </div>
                     </div>
                 </div>
@@ -801,8 +858,8 @@
                     <div class="highlight-card h-100">
                         <img src="assets/img/IMG_7016.jpg" alt="Sweden cultural exchange" style="height: 250px;">
                         <div class="highlight-card-body">
-                            <h4 class="highlight-card-title">Global Exchange & Learning</h4>
-                            <p class="text-muted">Our team's cultural immersion in Sweden allowed us to connect with new perspectives, share our story on an international stage, and build lasting global partnerships.</p>
+                            <h4 class="highlight-card-title">Global Exchange & Learning (Kenya-Sweden)</h4>
+                            <p class="text-muted">Two-way cultural exchange: NVCBO's immersion in Sweden for global partnership building, and hosting Swedish visitors in Isiolo County for grassroots learning.</p>
                         </div>
                     </div>
                 </div>
@@ -815,7 +872,7 @@
         <div class="container">
             <div class="impact-story-box">
                 <h3 class="text-center"><i class="icon-bulb me-2"></i> Impact Story: Light, Dignity, and Hope in Gotu</h3>
-                <p class="text-center mb-4" style="opacity: 0.95; font-size: 1.1rem;">For hundreds of pastoralist families in the 'Sons of Gold' community, nightfall brought challenges: the risk of animal encounters, the danger of kerosene, and the end of the day's productivity. By providing 300 solar lanterns, we provided:</p>
+                <p class="text-center mb-4" style="opacity: 0.95; font-size: 1.1rem;">For hundreds of pastoralist families in the 'Sands of Gold' community, nightfall brought challenges: the risk of animal encounters, the danger of kerosene, and the end of the day's productivity. By providing 300 solar lanterns, we provided:</p>
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <ul>
@@ -952,7 +1009,38 @@
                 "Every like, share, comment, save, and DM... helps amplify the movement for women's land rights around the world."
             </div>
             
-            <p class="lead mt-4" style="font-weight: 700; color: var(--nvcbo-blue);">Let's build the future together.</p>
+            <!-- Thank You Partners Grid -->
+            <div class="mt-5">
+                <h4 class="text-center mb-4" style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: var(--nvcbo-gray);">Our Partners & Supporters</h4>
+                <div class="row g-4 justify-content-center align-items-center">
+                    <div class="col-6 col-md-3 text-center">
+                        <img src="assets/img/partners/nema.png" alt="NEMA Isiolo" style="max-height: 60px; max-width: 100%; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';">
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <img src="assets/img/partners/cjifa.png" alt="CJIFA" style="max-height: 60px; max-width: 100%; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';">
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <img src="assets/img/partners/nlc.png" alt="National Land Commission" style="max-height: 60px; max-width: 100%; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';">
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <img src="assets/img/partners/s4hl.png" alt="Stand For Her Land" style="max-height: 60px; max-width: 100%; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';">
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <img src="assets/img/partners/gotu-primary.png" alt="Gotu Primary School" style="max-height: 60px; max-width: 100%; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';">
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <img src="assets/img/partners/j4h.png" alt="Journey for Hope" style="max-height: 60px; max-width: 100%; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';">
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <img src="assets/img/partners/isiolo-scouts.png" alt="Isiolo Scouts & Rovers" style="max-height: 60px; max-width: 100%; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';">
+                    </div>
+                    <div class="col-6 col-md-3 text-center">
+                        <img src="assets/img/partners/sweden-exchange.png" alt="Sweden Cultural Exchange Partners" style="max-height: 60px; max-width: 100%; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;" onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.7';">
+                    </div>
+                </div>
+            </div>
+            
+            <p class="lead mt-5" style="font-weight: 700; color: #CC5500;">Let's build the future together.</p>
             
             <!-- Social Share Section -->
             <div class="social-share">
@@ -1011,16 +1099,16 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer text-center">
+    <footer class="footer text-center" style="background: linear-gradient(135deg, #CC5500 0%, #B7410E 100%); color: #FFF5E6; padding: 3rem 0;">
         <div class="container">
             <ul class="list-inline mb-5">
                 <li class="list-inline-item">&nbsp;
-                    <a class="social-link rounded-circle text-white mr-3" href="https://www.instagram.com/northernvisioncbo/" target="_blank" rel="noopener">
+                    <a class="social-link rounded-circle" href="https://www.instagram.com/northernvisioncbo/" target="_blank" rel="noopener" style="background-color: rgba(255,255,255,0.15); border: 2px solid #FFAB76; color: #FFF5E6; display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px;">
                         <i class="icon-social-instagram"></i>
                     </a>
                 </li>
             </ul>
-            <p class="small mb-0" style="color: rgb(154,154,154);">Copyright&nbsp;© Northern Vision Community Based Organization 2025</p>
+            <p class="small mb-0" style="color: #FFAB76; font-weight: 500; opacity: 0.9;">Copyright&nbsp;© Northern Vision Community Based Organization 2025</p>
         </div>
     </footer>
 
