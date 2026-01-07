@@ -343,18 +343,281 @@
         .option-btn {
             position: relative;
         }
+
+        /* ========== MOBILE RESPONSIVE STYLES ========== */
+        
+        /* Extra small devices (phones, 480px and below) */
+        @media (max-width: 480px) {
+            body {
+                padding: 0.5rem;
+            }
+            
+            .gate-card {
+                padding: 1.5rem;
+                border-radius: 16px;
+            }
+            
+            .gate-card h2 {
+                font-size: 1.25rem;
+            }
+            
+            .gate-input {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+                letter-spacing: 2px;
+            }
+            
+            .gate-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Internal banner */
+            .internal-badge {
+                display: none;
+            }
+            
+            .fixed.top-0 span.text-sm {
+                font-size: 0.7rem;
+            }
+            
+            /* Header */
+            .max-w-6xl {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            
+            h1.text-4xl {
+                font-size: 1.5rem !important;
+            }
+            
+            h1 sup {
+                font-size: 0.65rem !important;
+            }
+            
+            h2.text-2xl {
+                font-size: 1.1rem !important;
+            }
+            
+            .text-center.mb-12 p {
+                font-size: 0.8rem;
+                padding: 0 0.5rem;
+            }
+            
+            /* Config cards */
+            .config-card {
+                padding: 1rem;
+                border-radius: 16px;
+            }
+            
+            .config-card h3 {
+                font-size: 1rem;
+            }
+            
+            /* Option buttons - compact for mobile */
+            .option-btn {
+                padding: 0.625rem !important;
+                gap: 0.5rem !important;
+                border-radius: 0.5rem !important;
+            }
+            
+            .option-btn > div:first-of-type {
+                width: 1.75rem !important;
+                height: 1.75rem !important;
+                min-width: 1.75rem !important;
+                flex-shrink: 0;
+            }
+            
+            .option-btn > div:first-of-type i {
+                font-size: 0.7rem !important;
+            }
+            
+            .option-btn .font-medium {
+                font-size: 0.8rem;
+            }
+            
+            .option-btn p,
+            .option-btn .text-xs:not(.tag-badge) {
+                font-size: 0.6rem !important;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 100px;
+            }
+            
+            .option-btn .flex-1 {
+                min-width: 0;
+                overflow: hidden;
+            }
+            
+            .tag-badge {
+                font-size: 0.5rem !important;
+                padding: 0.1rem 0.3rem !important;
+                white-space: nowrap;
+            }
+            
+            /* Output section */
+            .output-box {
+                padding: 0.75rem;
+            }
+            
+            .output-box pre {
+                font-size: 0.65rem;
+            }
+            
+            /* Action buttons - stack vertically */
+            .flex.gap-2 button {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.75rem;
+            }
+            
+            .flex.gap-2 button span,
+            .flex.gap-2 button .hidden-mobile {
+                display: none;
+            }
+            
+            /* Modal */
+            .modal-card {
+                padding: 1.25rem;
+                margin: 0.5rem;
+                max-height: 85vh;
+            }
+            
+            .modal-card h3 {
+                font-size: 1rem;
+            }
+            
+            #modal-icon {
+                width: 2.5rem !important;
+                height: 2.5rem !important;
+            }
+            
+            #modal-icon i {
+                font-size: 1rem !important;
+            }
+            
+            .modal-input {
+                padding: 0.6rem 0.75rem;
+                font-size: 0.85rem;
+            }
+            
+            .modal-label {
+                font-size: 0.75rem;
+            }
+            
+            .modal-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            /* Config status indicator */
+            .config-status {
+                width: 16px;
+                height: 16px;
+                font-size: 8px;
+                top: -3px;
+                right: -3px;
+            }
+        }
+        
+        /* Small devices (landscape phones, 481px to 640px) */
+        @media (min-width: 481px) and (max-width: 640px) {
+            body {
+                padding: 0.75rem;
+            }
+            
+            .config-card {
+                padding: 1.25rem;
+            }
+            
+            .option-btn {
+                padding: 0.875rem !important;
+            }
+            
+            .option-btn .text-xs.text-gray-400 {
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            
+            .modal-card {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Medium devices (tablets, 641px to 768px) */
+        @media (min-width: 641px) and (max-width: 768px) {
+            .grid.md\:grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .config-card {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .option-btn {
+                min-height: 56px;
+            }
+            
+            .gate-btn,
+            .modal-btn,
+            .copy-btn,
+            .manifest-btn {
+                min-height: 48px;
+            }
+            
+            /* Larger touch targets */
+            button {
+                cursor: pointer;
+                -webkit-tap-highlight-color: rgba(255, 140, 0, 0.2);
+            }
+        }
+        
+        /* Landscape phone orientation */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .modal-card {
+                max-height: 95vh;
+                padding: 1rem;
+            }
+            
+            .modal-card .space-y-4 {
+                gap: 0.5rem;
+            }
+            
+            #password-gate .gate-card {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Safe area for notched phones */
+        @supports (padding-top: env(safe-area-inset-top)) {
+            .fixed.top-0 {
+                padding-top: env(safe-area-inset-top);
+            }
+            
+            body {
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
     </style>
 </head>
-<body class="text-white p-6">
+<body class="text-white p-3 sm:p-4 md:p-6">
     
     <!-- ========== PASSWORD GATE (Layer 2) ========== -->
     <div id="password-gate">
         <div class="gate-card">
-            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-lock text-white text-2xl"></i>
+            <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <i class="fas fa-lock text-white text-lg sm:text-2xl"></i>
             </div>
-            <h2 class="text-2xl font-bold text-white mb-2">Restricted Access</h2>
-            <p class="text-gray-400 text-sm mb-6">
+            <h2 class="text-xl sm:text-2xl font-bold text-white mb-1.5 sm:mb-2">Restricted Access</h2>
+            <p class="text-gray-400 text-xs sm:text-sm mb-4 sm:mb-6">
                 This internal tool requires authorization.<br>
                 Enter the PROJECT_SECRET to continue.
             </p>
@@ -382,79 +645,79 @@
     <div id="main-content">
     
     <!-- Internal Use Banner -->
-    <div class="fixed top-0 left-0 right-0 bg-red-900/90 text-white text-center py-2 z-50 backdrop-blur-sm">
-        <span class="internal-badge px-3 py-1 rounded-full text-xs font-bold mr-2">INTERNAL</span>
-        <span class="text-sm">This configurator is for NVCBO staff planning only — Q9/2026 Edition</span>
+    <div class="fixed top-0 left-0 right-0 bg-red-900/90 text-white text-center py-1.5 sm:py-2 z-50 backdrop-blur-sm px-2">
+        <span class="internal-badge px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold mr-1 sm:mr-2 hidden xs:inline">INTERNAL</span>
+        <span class="text-[11px] sm:text-sm truncate">NVCBO Staff Only — Q9/2026</span>
     </div>
 
-    <div class="max-w-6xl mx-auto pt-12">
+    <div class="max-w-6xl mx-auto pt-10 sm:pt-12 px-1 sm:px-2">
         
         <!-- Header -->
-        <div class="text-center mb-12">
-            <div class="flex items-center justify-center gap-3 mb-4">
-                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center">
-                    <i class="fas fa-hand-holding-heart text-white text-xl"></i>
+        <div class="text-center mb-6 sm:mb-8 md:mb-12">
+            <div class="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <div class="w-9 h-9 sm:w-10 md:w-12 sm:h-10 md:h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-hand-holding-heart text-white text-base sm:text-lg md:text-xl"></i>
                 </div>
-                <h1 class="text-4xl font-bold">
-                    <span class="text-white">Northern Vision</span><sup class="logo-cbo text-orange-400 text-lg ml-1">CBO</sup>
+                <h1 class="text-xl sm:text-2xl md:text-4xl font-bold">
+                    <span class="text-white">Northern Vision</span><sup class="logo-cbo text-orange-400 text-[10px] sm:text-sm md:text-lg ml-0.5 sm:ml-1">CBO</sup>
                 </h1>
             </div>
-            <h2 class="section-header text-2xl font-semibold mb-2">Donations Setup Configurator</h2>
-            <p class="text-gray-400 max-w-2xl mx-auto">
+            <h2 class="section-header text-base sm:text-xl md:text-2xl font-semibold mb-1 sm:mb-2">Donations Setup Configurator</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto text-xs sm:text-sm md:text-base px-2">
                 Internal planning tool for configuring our donation infrastructure. 
-                Select your preferred options below to generate a configuration manifest for development.
+                <span class="hidden sm:inline">Select your preferred options below to generate a configuration manifest for development.</span>
             </p>
         </div>
 
         <!-- Configuration Sections -->
-        <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-6 md:mb-8">
             
             <!-- Payment Gateways -->
-            <div class="config-card rounded-2xl p-6 transition-all duration-300">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
-                        <i class="fas fa-credit-card text-orange-400"></i>
+            <div class="config-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 transition-all duration-300">
+                <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-credit-card text-orange-400 text-sm sm:text-base"></i>
                     </div>
                     <div>
-                        <h3 class="text-lg font-semibold text-white">Payment Gateways</h3>
-                        <p class="text-xs text-gray-400">Select all that apply (14 options)</p>
+                        <h3 class="text-sm sm:text-base md:text-lg font-semibold text-white">Payment Gateways</h3>
+                        <p class="text-[10px] sm:text-xs text-gray-400">Select all that apply (14 options)</p>
                     </div>
                 </div>
                 <div class="space-y-3">
                     <button onclick="toggleOption(this, 'gateways', 'mpesa')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-mobile-alt text-green-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-mobile-alt text-green-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">M-Pesa</span>
-                            <p class="text-xs text-gray-400">Safaricom mobile money (Kenya primary)</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">M-Pesa</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Safaricom mobile money</p>
                         </div>
-                        <span class="tag-badge px-2 py-1 rounded text-xs">Recommended</span>
+                        <span class="tag-badge px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs flex-shrink-0">Recommended</span>
                     </button>
                     
                     <button onclick="toggleOption(this, 'gateways', 'paypal')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fab fa-paypal text-blue-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-paypal text-blue-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">PayPal</span>
-                            <p class="text-xs text-gray-400">International donors & diaspora</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">PayPal</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">International donors & diaspora</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'gateways', 'stripe')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fab fa-stripe-s text-purple-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-stripe-s text-purple-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Stripe</span>
-                            <p class="text-xs text-gray-400">Cards, Apple Pay, Google Pay</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Stripe</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Cards, Apple Pay, Google Pay</p>
                         </div>
                     </button>
                     
@@ -808,27 +1071,27 @@
         </div>
 
         <!-- Output Section -->
-        <div class="config-card rounded-2xl p-6 mb-8">
-            <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
-                        <i class="fas fa-code text-orange-400"></i>
+        <div class="config-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 mb-4 sm:mb-6 md:mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3 sm:mb-4">
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-code text-orange-400 text-sm sm:text-base"></i>
                     </div>
                     <div>
-                        <h3 class="text-lg font-semibold text-white">Configuration Output</h3>
-                        <p class="text-xs text-gray-400">JSON manifest for development team</p>
+                        <h3 class="text-sm sm:text-base md:text-lg font-semibold text-white">Configuration Output</h3>
+                        <p class="text-[10px] sm:text-xs text-gray-400">JSON manifest for dev team</p>
                     </div>
                 </div>
-                <div class="flex gap-2">
+                <div class="flex gap-2 w-full sm:w-auto">
                     <button onclick="copyConfig()" 
-                            class="copy-btn px-4 py-2 rounded-lg text-white font-medium text-sm transition-all duration-300 flex items-center gap-2">
+                            class="copy-btn flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg text-white font-medium text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-1 sm:gap-2">
                         <i class="fas fa-copy"></i>
-                        Copy JSON
+                        <span>Copy</span>
                     </button>
                     <button onclick="downloadManifest()" 
-                            class="manifest-btn px-4 py-2 rounded-lg text-white font-medium text-sm transition-all duration-300 flex items-center gap-2">
+                            class="manifest-btn flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg text-white font-medium text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-1 sm:gap-2">
                         <i class="fas fa-download"></i>
-                        Download
+                        <span class="hidden xs:inline">Download</span>
                     </button>
                 </div>
             </div>
@@ -849,14 +1112,14 @@
         </div>
 
         <!-- Footer -->
-        <div class="text-center text-gray-500 text-sm pb-8">
+        <div class="text-center text-gray-500 text-xs sm:text-sm pb-6 sm:pb-8 px-2">
             <p>
-                <span class="text-orange-400">Northern Vision</span><sup class="logo-cbo text-orange-500 text-xs">CBO</sup> 
-                — Internal Planning Tool
+                <span class="text-orange-400">Northern Vision</span><sup class="logo-cbo text-orange-500 text-[8px] sm:text-xs">CBO</sup> 
+                — Internal Tool
             </p>
-            <p class="mt-1">Configuration saved locally. Share JSON with dev team for implementation.</p>
-            <p class="mt-2 text-xs text-gray-600">
-                <i class="fas fa-lock mr-1"></i> This tool does not transmit data externally
+            <p class="mt-1 hidden sm:block">Configuration saved locally. Share JSON with dev team for implementation.</p>
+            <p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs text-gray-600">
+                <i class="fas fa-lock mr-1"></i> No external data transmission
             </p>
         </div>
     </div>
@@ -865,27 +1128,27 @@
     <!-- ========== CONFIGURATION MODAL ========== -->
     <div id="config-modal" class="modal-overlay" onclick="if(event.target === this) closeModal()">
         <div class="modal-card">
-            <div class="flex items-center justify-between mb-6">
-                <div class="flex items-center gap-3">
-                    <div id="modal-icon" class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center">
-                        <i class="fas fa-cog text-orange-400 text-xl"></i>
+            <div class="flex items-center justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <div id="modal-icon" class="w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-cog text-orange-400 text-base sm:text-xl"></i>
                     </div>
-                    <div>
-                        <h3 id="modal-title" class="text-xl font-bold text-white">Configure Option</h3>
-                        <p id="modal-subtitle" class="text-sm text-gray-400">Enter details below</p>
+                    <div class="min-w-0">
+                        <h3 id="modal-title" class="text-base sm:text-xl font-bold text-white truncate">Configure Option</h3>
+                        <p id="modal-subtitle" class="text-xs sm:text-sm text-gray-400 truncate">Enter details below</p>
                     </div>
                 </div>
-                <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-colors">
-                    <i class="fas fa-times text-xl"></i>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-colors p-2 -mr-2">
+                    <i class="fas fa-times text-lg sm:text-xl"></i>
                 </button>
             </div>
             
-            <div id="modal-content" class="space-y-4 mb-6">
+            <div id="modal-content" class="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                 <!-- Dynamic form fields will be injected here -->
             </div>
             
-            <div class="flex gap-3">
-                <button onclick="closeModal()" class="modal-btn modal-btn-cancel flex-1">
+            <div class="flex gap-2 sm:gap-3">
+                <button onclick="closeModal()" class="modal-btn modal-btn-cancel flex-1 text-sm sm:text-base">
                     Cancel
                 </button>
                 <button onclick="saveModalConfig()" class="modal-btn flex-1">
