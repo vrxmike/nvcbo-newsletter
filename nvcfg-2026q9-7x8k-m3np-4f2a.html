@@ -1207,6 +1207,275 @@
             </div>
         </div>
 
+        <!-- ========== FEATURE DOCUMENTATION ========== -->
+        <div class="config-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 mb-4 sm:mb-6 md:mb-8">
+            <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-book text-orange-400 text-sm sm:text-base"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm sm:text-base md:text-lg font-semibold text-white">Feature Documentation</h3>
+                    <p class="text-[10px] sm:text-xs text-gray-400">Click any feature to view detailed documentation</p>
+                </div>
+            </div>
+            
+            <!-- Documentation Accordion -->
+            <div class="space-y-2" id="docs-accordion">
+                <!-- Payment Gateways Docs -->
+                <div class="doc-section">
+                    <button onclick="toggleDocSection('docs-gateways')" class="w-full p-3 sm:p-4 rounded-lg bg-gradient-to-r from-green-500/10 to-transparent border border-green-500/20 flex items-center justify-between text-left hover:border-green-500/40 transition-all">
+                        <div class="flex items-center gap-2 sm:gap-3">
+                            <i class="fas fa-credit-card text-green-400 text-sm sm:text-base"></i>
+                            <span class="font-medium text-white text-sm sm:text-base">Payment Gateways</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">(14 options)</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-400 text-xs transition-transform doc-chevron" id="chevron-docs-gateways"></i>
+                    </button>
+                    <div id="docs-gateways" class="doc-content hidden mt-2 p-3 sm:p-4 rounded-lg bg-black/20 border border-gray-700/50 text-xs sm:text-sm text-gray-300 space-y-3">
+                        <div class="grid gap-2">
+                            <div class="p-2 rounded bg-green-500/10 border-l-2 border-green-500">
+                                <strong class="text-green-400">M-Pesa</strong> — Safaricom mobile money. Most popular in Kenya. Requires Paybill/Till number. Instant confirmation via STK push.
+                            </div>
+                            <div class="p-2 rounded bg-blue-500/10 border-l-2 border-blue-500">
+                                <strong class="text-blue-400">PayPal</strong> — International donors & diaspora. Supports credit cards. 2.9% + $0.30 per transaction. Good for USD donations.
+                            </div>
+                            <div class="p-2 rounded bg-purple-500/10 border-l-2 border-purple-500">
+                                <strong class="text-purple-400">Stripe</strong> — Cards, Apple Pay, Google Pay. Modern API. 2.9% + $0.30 fee. Best for web integration.
+                            </div>
+                            <div class="p-2 rounded bg-orange-500/10 border-l-2 border-orange-500">
+                                <strong class="text-orange-400">Flutterwave</strong> — Pan-African gateway. Supports M-Pesa, cards, bank transfers across Africa. Good for regional expansion.
+                            </div>
+                            <div class="p-2 rounded bg-teal-500/10 border-l-2 border-teal-500">
+                                <strong class="text-teal-400">M-Changa</strong> — Kenyan crowdfunding platform. Social sharing features. Good for community campaigns.
+                            </div>
+                            <div class="p-2 rounded bg-indigo-500/10 border-l-2 border-indigo-500">
+                                <strong class="text-indigo-400">PayHero Kenya</strong> — Local aggregator. Combines M-Pesa, cards, bank. Single integration for multiple methods.
+                            </div>
+                            <div class="p-2 rounded bg-red-500/10 border-l-2 border-red-500">
+                                <strong class="text-red-400">Pesapal</strong> — East African multi-channel gateway. Supports Kenya, Uganda, Tanzania. Good regional coverage.
+                            </div>
+                            <div class="p-2 rounded bg-emerald-500/10 border-l-2 border-emerald-500">
+                                <strong class="text-emerald-400">GlobalGiving</strong> — Vetted nonprofit platform. Adds credibility. Access to corporate matching. 15% platform fee.
+                            </div>
+                            <div class="p-2 rounded bg-lime-500/10 border-l-2 border-lime-500">
+                                <strong class="text-lime-400">GoFundMe</strong> — Global crowdfunding. High visibility. Social sharing built-in. 2.9% + $0.30 fee.
+                            </div>
+                            <div class="p-2 rounded bg-pink-500/10 border-l-2 border-pink-500">
+                                <strong class="text-pink-400">Chuffed.org</strong> — Social enterprise focused. 0% platform fee (tips optional). Good for cause-driven campaigns.
+                            </div>
+                            <div class="p-2 rounded bg-amber-500/10 border-l-2 border-amber-500">
+                                <strong class="text-amber-400">Thundafund</strong> — African crowdfunding. Supports creative/social projects. Good local visibility.
+                            </div>
+                            <div class="p-2 rounded bg-slate-500/10 border-l-2 border-slate-500">
+                                <strong class="text-slate-400">Bank Transfer</strong> — Direct wire/EFT. No fees. Best for large donations. Requires manual reconciliation.
+                            </div>
+                            <div class="p-2 rounded bg-rose-500/10 border-l-2 border-rose-500">
+                                <strong class="text-rose-400">In-Kind Donations</strong> — Goods, services, volunteering. Requires coordination. Good for local community support.
+                            </div>
+                            <div class="p-2 rounded bg-gray-500/10 border-l-2 border-gray-500">
+                                <strong class="text-gray-400">Other/Custom</strong> — Additional methods like crypto, checks, or regional options not listed above.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CRM Docs -->
+                <div class="doc-section">
+                    <button onclick="toggleDocSection('docs-crm')" class="w-full p-3 sm:p-4 rounded-lg bg-gradient-to-r from-blue-500/10 to-transparent border border-blue-500/20 flex items-center justify-between text-left hover:border-blue-500/40 transition-all">
+                        <div class="flex items-center gap-2 sm:gap-3">
+                            <i class="fas fa-database text-blue-400 text-sm sm:text-base"></i>
+                            <span class="font-medium text-white text-sm sm:text-base">Donor Management (CRM)</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">(10 options)</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-400 text-xs transition-transform doc-chevron" id="chevron-docs-crm"></i>
+                    </button>
+                    <div id="docs-crm" class="doc-content hidden mt-2 p-3 sm:p-4 rounded-lg bg-black/20 border border-gray-700/50 text-xs sm:text-sm text-gray-300 space-y-3">
+                        <p class="text-orange-300 italic text-xs">Sync selection determines automated follow-up logic and newsletter routing.</p>
+                        <div class="grid gap-2">
+                            <div class="p-2 rounded bg-yellow-500/10 border-l-2 border-yellow-500">
+                                <strong class="text-yellow-400">Givebutter</strong> — Modern all-in-one fundraising + CRM. Free to start. Includes forms, events, peer-to-peer. 1-5% optional tip model.
+                            </div>
+                            <div class="p-2 rounded bg-teal-500/10 border-l-2 border-teal-500">
+                                <strong class="text-teal-400">Donorbox</strong> — Purpose-built for nonprofits. Embeddable forms. Recurring donations. 1.75% platform fee.
+                            </div>
+                            <div class="p-2 rounded bg-purple-500/10 border-l-2 border-purple-500">
+                                <strong class="text-purple-400">Zeffy</strong> — 100% free! Tip-based model. Full CRM included. Great for small nonprofits starting out.
+                            </div>
+                            <div class="p-2 rounded bg-blue-500/10 border-l-2 border-blue-500">
+                                <strong class="text-blue-400">Salesforce NPSP</strong> — Enterprise-grade CRM. Free for nonprofits (10 licenses). Powerful but complex. Best for large orgs.
+                            </div>
+                            <div class="p-2 rounded bg-orange-500/10 border-l-2 border-orange-500">
+                                <strong class="text-orange-400">HubSpot</strong> — Marketing automation + CRM. Free tier available. Good for email campaigns and donor journeys.
+                            </div>
+                            <div class="p-2 rounded bg-cyan-500/10 border-l-2 border-cyan-500">
+                                <strong class="text-cyan-400">Airtable</strong> — Flexible database. Easy to customize. Good for teams familiar with spreadsheets. Free tier available.
+                            </div>
+                            <div class="p-2 rounded bg-green-500/10 border-l-2 border-green-500">
+                                <strong class="text-green-400">Google Sheets</strong> — Simple & accessible. Free. Easy collaboration. Good starting point. Limited automation.
+                            </div>
+                            <div class="p-2 rounded bg-amber-500/10 border-l-2 border-amber-500">
+                                <strong class="text-amber-400">Mailchimp</strong> — Email marketing focused. Free tier (500 contacts). Good for newsletters. Limited CRM features.
+                            </div>
+                            <div class="p-2 rounded bg-rose-500/10 border-l-2 border-rose-500">
+                                <strong class="text-rose-400">Zapier</strong> — Automation hub. Connects 5000+ apps. Build custom workflows. Free tier (100 tasks/month).
+                            </div>
+                            <div class="p-2 rounded bg-gray-500/10 border-l-2 border-gray-500">
+                                <strong class="text-gray-400">None/Manual</strong> — Track donations manually. Use Excel/paper. No sync. Suitable for very small volume.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Docs -->
+                <div class="doc-section">
+                    <button onclick="toggleDocSection('docs-features')" class="w-full p-3 sm:p-4 rounded-lg bg-gradient-to-r from-purple-500/10 to-transparent border border-purple-500/20 flex items-center justify-between text-left hover:border-purple-500/40 transition-all">
+                        <div class="flex items-center gap-2 sm:gap-3">
+                            <i class="fas fa-puzzle-piece text-purple-400 text-sm sm:text-base"></i>
+                            <span class="font-medium text-white text-sm sm:text-base">Functional Features</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">(10 options)</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-400 text-xs transition-transform doc-chevron" id="chevron-docs-features"></i>
+                    </button>
+                    <div id="docs-features" class="doc-content hidden mt-2 p-3 sm:p-4 rounded-lg bg-black/20 border border-gray-700/50 text-xs sm:text-sm text-gray-300 space-y-3">
+                        <div class="grid gap-2">
+                            <div class="p-2 rounded bg-teal-500/10 border-l-2 border-teal-500">
+                                <strong class="text-teal-400">Recurring Support</strong> — Monthly/annual giving options. Increases donor lifetime value by 42%. Auto-charge on schedule. Critical for sustainability.
+                            </div>
+                            <div class="p-2 rounded bg-violet-500/10 border-l-2 border-violet-500">
+                                <strong class="text-violet-400">Project Earmarking</strong> — Let donors designate funds for specific projects (e.g., "Education", "Healthcare"). Increases trust and engagement.
+                            </div>
+                            <div class="p-2 rounded bg-gray-500/10 border-l-2 border-gray-500">
+                                <strong class="text-gray-400">Anonymous Donations</strong> — Allow donors to remain private. Some prefer not to be listed. Respects privacy while accepting support.
+                            </div>
+                            <div class="p-2 rounded bg-green-500/10 border-l-2 border-green-500">
+                                <strong class="text-green-400">Multi-Currency (KES, USD, EUR)</strong> — Accept donations in multiple currencies. Auto-conversion. Essential for international donors and diaspora giving.
+                            </div>
+                            <div class="p-2 rounded bg-amber-500/10 border-l-2 border-amber-500">
+                                <strong class="text-amber-400">Instant Thank-You Receipt</strong> — Automated email with PDF receipt immediately after donation. Includes tax info. Professional touch.
+                            </div>
+                            <div class="p-2 rounded bg-blue-500/10 border-l-2 border-blue-500">
+                                <strong class="text-blue-400">Donor History Portal</strong> — Self-service portal where donors view their giving history, download receipts, update payment methods. Reduces admin work.
+                            </div>
+                            <div class="p-2 rounded bg-pink-500/10 border-l-2 border-pink-500">
+                                <strong class="text-pink-400">Campaign Tracking</strong> — Link donations to specific campaigns/initiatives. Track performance by campaign. Useful for targeted fundraising.
+                            </div>
+                            <div class="p-2 rounded bg-emerald-500/10 border-l-2 border-emerald-500">
+                                <strong class="text-emerald-400">Impact Updates</strong> — Automated progress reports to donors. Show how their money is used. Increases repeat donations by 60%.
+                            </div>
+                            <div class="p-2 rounded bg-rose-500/10 border-l-2 border-rose-500">
+                                <strong class="text-rose-400">Tribute/Memorial Gifts</strong> — Donate in honor or memory of someone. Send notification to honoree's family. Meaningful giving option.
+                            </div>
+                            <div class="p-2 rounded bg-indigo-500/10 border-l-2 border-indigo-500">
+                                <strong class="text-indigo-400">Social Sharing</strong> — One-click share to Facebook, Twitter, WhatsApp after donating. Amplifies reach. Peer-to-peer potential.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assets Docs -->
+                <div class="doc-section">
+                    <button onclick="toggleDocSection('docs-assets')" class="w-full p-3 sm:p-4 rounded-lg bg-gradient-to-r from-amber-500/10 to-transparent border border-amber-500/20 flex items-center justify-between text-left hover:border-amber-500/40 transition-all">
+                        <div class="flex items-center gap-2 sm:gap-3">
+                            <i class="fas fa-folder-open text-amber-400 text-sm sm:text-base"></i>
+                            <span class="font-medium text-white text-sm sm:text-base">Assets Required</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">(5 items)</span>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-400 text-xs transition-transform doc-chevron" id="chevron-docs-assets"></i>
+                    </button>
+                    <div id="docs-assets" class="doc-content hidden mt-2 p-3 sm:p-4 rounded-lg bg-black/20 border border-gray-700/50 text-xs sm:text-sm text-gray-300 space-y-3">
+                        <div class="grid gap-2">
+                            <div class="p-2 rounded bg-violet-500/10 border-l-2 border-violet-500">
+                                <strong class="text-violet-400">High-Res Logo</strong> — PNG (transparent) or SVG format. Min 500x500px. Used on payment pages, receipts, emails. Professional appearance.
+                            </div>
+                            <div class="p-2 rounded bg-cyan-500/10 border-l-2 border-cyan-500">
+                                <strong class="text-cyan-400">Impact Photos</strong> — High-quality images of community, projects, beneficiaries. 5-10 photos minimum. Tells your story visually.
+                            </div>
+                            <div class="p-2 rounded bg-slate-500/10 border-l-2 border-slate-500">
+                                <strong class="text-slate-400">Legal Documents</strong> — CBO registration certificate, KRA PIN certificate, tax exemption letter (if applicable). Required for gateway verification.
+                            </div>
+                            <div class="p-2 rounded bg-lime-500/10 border-l-2 border-lime-500">
+                                <strong class="text-lime-400">Bank Account Details</strong> — Account name, number, bank name, branch, SWIFT code. Required for payouts from payment gateways.
+                            </div>
+                            <div class="p-2 rounded bg-fuchsia-500/10 border-l-2 border-fuchsia-500">
+                                <strong class="text-fuchsia-400">Campaign Copy</strong> — Headlines, descriptions, CTAs for donation page. Compelling story. Clear impact statement. Call to action.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== STAKEHOLDER COMMENTS ========== -->
+        <div class="config-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 mb-4 sm:mb-6 md:mb-8">
+            <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-comments text-orange-400 text-sm sm:text-base"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm sm:text-base md:text-lg font-semibold text-white">Stakeholder Comments & Suggestions</h3>
+                    <p class="text-[10px] sm:text-xs text-gray-400">Add notes, questions, or feature requests not captured above</p>
+                </div>
+            </div>
+            
+            <!-- Comments List -->
+            <div id="comments-list" class="space-y-3 mb-4">
+                <!-- Comments will be added here dynamically -->
+            </div>
+            
+            <!-- Add Comment Form -->
+            <div class="border border-dashed border-orange-500/30 rounded-xl p-3 sm:p-4 bg-orange-500/5">
+                <div class="grid gap-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[10px] sm:text-xs text-orange-400 font-semibold mb-1 block">Your Name</label>
+                            <input type="text" id="comment-author" placeholder="e.g., John Doe" 
+                                   class="w-full bg-black/30 border border-orange-500/20 rounded-lg px-3 py-2 text-white text-xs sm:text-sm placeholder-gray-500 focus:outline-none focus:border-orange-500">
+                        </div>
+                        <div>
+                            <label class="text-[10px] sm:text-xs text-orange-400 font-semibold mb-1 block">Category</label>
+                            <select id="comment-category" 
+                                    class="w-full bg-black/30 border border-orange-500/20 rounded-lg px-3 py-2 text-white text-xs sm:text-sm focus:outline-none focus:border-orange-500">
+                                <option value="suggestion">💡 Feature Suggestion</option>
+                                <option value="question">❓ Question</option>
+                                <option value="concern">⚠️ Concern/Risk</option>
+                                <option value="resource">📎 Resource/Link</option>
+                                <option value="priority">🎯 Priority Request</option>
+                                <option value="other">📝 General Note</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-[10px] sm:text-xs text-orange-400 font-semibold mb-1 block">Your Comment</label>
+                        <textarea id="comment-text" rows="3" placeholder="Share your thoughts, suggestions, questions, or concerns about the donation infrastructure..." 
+                                  class="w-full bg-black/30 border border-orange-500/20 rounded-lg px-3 py-2 text-white text-xs sm:text-sm placeholder-gray-500 focus:outline-none focus:border-orange-500 resize-none"></textarea>
+                    </div>
+                    <div class="flex gap-2 justify-end">
+                        <button onclick="clearCommentForm()" 
+                                class="px-3 sm:px-4 py-2 rounded-lg border border-gray-600 text-gray-400 text-xs sm:text-sm hover:border-gray-500 hover:text-gray-300 transition-all">
+                            Clear
+                        </button>
+                        <button onclick="addComment()" 
+                                class="px-3 sm:px-4 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-orange-700 text-white text-xs sm:text-sm font-medium hover:shadow-lg hover:shadow-orange-500/25 transition-all flex items-center gap-2">
+                            <i class="fas fa-plus"></i>
+                            Add Comment
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Export Comments -->
+            <div class="mt-4 pt-4 border-t border-gray-700/50 flex flex-wrap gap-2 justify-between items-center">
+                <p class="text-[10px] sm:text-xs text-gray-500">
+                    <i class="fas fa-info-circle mr-1"></i> Comments are saved locally and included in the JSON export
+                </p>
+                <button onclick="exportComments()" 
+                        class="px-3 py-1.5 rounded-lg bg-gray-700/50 text-gray-300 text-[10px] sm:text-xs hover:bg-gray-700 transition-all flex items-center gap-1">
+                    <i class="fas fa-file-export"></i>
+                    Export Comments
+                </button>
+            </div>
+        </div>
+
         <!-- Output Section -->
         <div class="config-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 mb-4 sm:mb-6 md:mb-8">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3 sm:mb-4">
@@ -1904,10 +2173,12 @@
                 crm: config.crm ? { provider: config.crm, ...config.crmData[config.crm] } : null,
                 features: config.features,
                 assets: config.assets,
+                stakeholderComments: stakeholderComments.length > 0 ? stakeholderComments : null,
                 metadata: {
                     totalGateways: Object.keys(config.gateways).length,
                     featuresEnabled: config.features.length,
                     assetsReady: Object.keys(config.assets).length,
+                    commentsCount: stakeholderComments.length,
                     completionPercent: calculateCompletion()
                 }
             };
@@ -1956,7 +2227,161 @@
             URL.revokeObjectURL(url);
         }
 
-        // Initialize output
+        // ========== DOCUMENTATION ACCORDION ==========
+        function toggleDocSection(sectionId) {
+            const content = document.getElementById(sectionId);
+            const chevron = document.getElementById('chevron-' + sectionId);
+            
+            if (content.classList.contains('hidden')) {
+                // Close all other sections first
+                document.querySelectorAll('.doc-content').forEach(el => {
+                    el.classList.add('hidden');
+                });
+                document.querySelectorAll('.doc-chevron').forEach(el => {
+                    el.style.transform = 'rotate(0deg)';
+                });
+                
+                // Open this section
+                content.classList.remove('hidden');
+                chevron.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                chevron.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // ========== STAKEHOLDER COMMENTS SYSTEM ==========
+        let stakeholderComments = [];
+
+        // Load comments from localStorage on init
+        function loadComments() {
+            const saved = localStorage.getItem('nvcbo-stakeholder-comments');
+            if (saved) {
+                stakeholderComments = JSON.parse(saved);
+                renderComments();
+            }
+        }
+
+        function saveCommentsToStorage() {
+            localStorage.setItem('nvcbo-stakeholder-comments', JSON.stringify(stakeholderComments));
+        }
+
+        function addComment() {
+            const author = document.getElementById('comment-author').value.trim();
+            const category = document.getElementById('comment-category').value;
+            const text = document.getElementById('comment-text').value.trim();
+            
+            if (!author || !text) {
+                alert('Please enter your name and comment.');
+                return;
+            }
+            
+            const categoryLabels = {
+                'suggestion': '💡 Feature Suggestion',
+                'question': '❓ Question',
+                'concern': '⚠️ Concern/Risk',
+                'resource': '📎 Resource/Link',
+                'priority': '🎯 Priority Request',
+                'other': '📝 General Note'
+            };
+            
+            const comment = {
+                id: Date.now(),
+                author: author,
+                category: category,
+                categoryLabel: categoryLabels[category],
+                text: text,
+                timestamp: new Date().toISOString(),
+                date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+            };
+            
+            stakeholderComments.push(comment);
+            saveCommentsToStorage();
+            renderComments();
+            clearCommentForm();
+            updateOutput();
+        }
+
+        function deleteComment(id) {
+            if (confirm('Delete this comment?')) {
+                stakeholderComments = stakeholderComments.filter(c => c.id !== id);
+                saveCommentsToStorage();
+                renderComments();
+                updateOutput();
+            }
+        }
+
+        function clearCommentForm() {
+            document.getElementById('comment-author').value = '';
+            document.getElementById('comment-category').value = 'suggestion';
+            document.getElementById('comment-text').value = '';
+        }
+
+        function renderComments() {
+            const container = document.getElementById('comments-list');
+            
+            if (stakeholderComments.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-6 text-gray-500">
+                        <i class="fas fa-comment-slash text-2xl mb-2 opacity-50"></i>
+                        <p class="text-xs sm:text-sm">No comments yet. Be the first to share your thoughts!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const categoryColors = {
+                'suggestion': 'border-yellow-500/30 bg-yellow-500/5',
+                'question': 'border-blue-500/30 bg-blue-500/5',
+                'concern': 'border-red-500/30 bg-red-500/5',
+                'resource': 'border-purple-500/30 bg-purple-500/5',
+                'priority': 'border-orange-500/30 bg-orange-500/5',
+                'other': 'border-gray-500/30 bg-gray-500/5'
+            };
+            
+            container.innerHTML = stakeholderComments.map(comment => `
+                <div class="p-3 sm:p-4 rounded-lg border ${categoryColors[comment.category]} transition-all hover:shadow-lg">
+                    <div class="flex items-start justify-between gap-2 mb-2">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="text-[10px] sm:text-xs px-2 py-0.5 rounded-full bg-black/30 text-gray-300">${comment.categoryLabel}</span>
+                            <span class="text-[10px] sm:text-xs text-gray-500">${comment.date}</span>
+                        </div>
+                        <button onclick="deleteComment(${comment.id})" class="text-gray-500 hover:text-red-400 transition-colors p-1" title="Delete comment">
+                            <i class="fas fa-trash-alt text-xs"></i>
+                        </button>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-200 mb-2">${comment.text.replace(/\n/g, '<br>')}</p>
+                    <p class="text-[10px] sm:text-xs text-gray-500">— ${comment.author}</p>
+                </div>
+            `).join('');
+        }
+
+        function exportComments() {
+            if (stakeholderComments.length === 0) {
+                alert('No comments to export.');
+                return;
+            }
+            
+            const exportData = {
+                exportDate: new Date().toISOString(),
+                organization: "Northern Vision CBO",
+                totalComments: stakeholderComments.length,
+                comments: stakeholderComments
+            };
+            
+            const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `nvcbo-stakeholder-comments-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Initialize output and load comments
+        loadComments();
         updateOutput();
     </script>
 </body>
