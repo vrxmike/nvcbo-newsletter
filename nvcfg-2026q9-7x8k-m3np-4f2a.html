@@ -722,348 +722,485 @@
                     </button>
                     
                     <button onclick="toggleOption(this, 'gateways', 'flutterwave')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-bolt text-orange-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bolt text-orange-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Flutterwave</span>
-                            <p class="text-xs text-gray-400">Pan-African payment gateway</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Flutterwave</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Pan-African payment gateway</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'gateways', 'mchanga')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-teal-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-hand-holding-heart text-teal-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-teal-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-hand-holding-heart text-teal-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">M-Changa</span>
-                            <p class="text-xs text-gray-400">Kenyan crowdfunding platform</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">M-Changa</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Kenyan crowdfunding platform</p>
                         </div>
-                        <span class="tag-badge px-2 py-1 rounded text-xs">Local</span>
+                        <span class="tag-badge px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs flex-shrink-0">Local</span>
                     </button>
                     
                     <button onclick="toggleOption(this, 'gateways', 'payhero')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-rocket text-indigo-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-rocket text-indigo-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">PayHero Kenya</span>
-                            <p class="text-xs text-gray-400">Local payment aggregator</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">PayHero Kenya</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Local payment aggregator</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'gateways', 'pesapal')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-shield-alt text-red-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-red-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-shield-alt text-red-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Pesapal</span>
-                            <p class="text-xs text-gray-400">Multi-channel East African gateway</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Pesapal</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Multi-channel East African gateway</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'gateways', 'globalgiving')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-globe-africa text-emerald-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-globe-africa text-emerald-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">GlobalGiving</span>
-                            <p class="text-xs text-gray-400">Vetted nonprofit fundraising</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">GlobalGiving</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Vetted nonprofit fundraising</p>
                         </div>
-                        <span class="tag-badge px-2 py-1 rounded text-xs">International</span>
+                        <span class="tag-badge px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs flex-shrink-0">International</span>
                     </button>
                     
                     <button onclick="toggleOption(this, 'gateways', 'gofundme')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-lime-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-heart text-lime-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-lime-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-heart text-lime-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">GoFundMe</span>
-                            <p class="text-xs text-gray-400">Global crowdfunding campaigns</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">GoFundMe</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Global crowdfunding campaigns</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'gateways', 'chuffed')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-gift text-pink-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-pink-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-gift text-pink-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Chuffed.org</span>
-                            <p class="text-xs text-gray-400">Social enterprise crowdfunding</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Chuffed.org</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Social enterprise crowdfunding</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'gateways', 'thundafund')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-amber-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-bolt text-amber-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-amber-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bolt text-amber-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Thundafund</span>
-                            <p class="text-xs text-gray-400">African crowdfunding platform</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Thundafund</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">African crowdfunding platform</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'gateways', 'bank')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-slate-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-university text-slate-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-slate-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-university text-slate-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Bank Transfer</span>
-                            <p class="text-xs text-gray-400">Direct wire/EFT deposits</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Bank Transfer</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Direct wire/EFT deposits</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'gateways', 'inkind')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-rose-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-box-open text-rose-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-rose-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-box-open text-rose-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">In-Kind Donations</span>
-                            <p class="text-xs text-gray-400">Goods, services & volunteering</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">In-Kind Donations</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Goods, services & volunteering</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'gateways', 'other')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-gray-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-ellipsis-h text-gray-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gray-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-ellipsis-h text-gray-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Other/Custom</span>
-                            <p class="text-xs text-gray-400">Additional payment methods</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Other/Custom</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Additional payment methods</p>
                         </div>
                     </button>
                 </div>
             </div>
 
             <!-- CRM Integration -->
-            <div class="config-card rounded-2xl p-6 transition-all duration-300">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
-                        <i class="fas fa-database text-orange-400"></i>
+            <div class="config-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 transition-all duration-300">
+                <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-database text-orange-400 text-sm sm:text-base"></i>
                     </div>
                     <div>
-                        <h3 class="text-lg font-semibold text-white">Donor CRM</h3>
-                        <p class="text-xs text-gray-400">Choose one primary system</p>
+                        <h3 class="text-sm sm:text-base md:text-lg font-semibold text-white">Donor Management (CRM)</h3>
+                        <p class="text-[10px] sm:text-xs text-gray-400">Choose primary system (10 options)</p>
                     </div>
                 </div>
-                <div class="space-y-3">
-                    <button onclick="toggleOption(this, 'crm', 'salesforce', true)" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                <p class="text-[10px] sm:text-xs text-gray-500 mb-3 italic">Sync selection determines automated follow-up logic and newsletter routing.</p>
+                <div class="space-y-2 sm:space-y-3">
+                    <button onclick="toggleOption(this, 'crm', 'givebutter', true)" 
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fab fa-salesforce text-blue-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-yellow-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-heart text-yellow-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Salesforce NPSP</span>
-                            <p class="text-xs text-gray-400">Nonprofit Success Pack</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Givebutter</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Modern fundraising + CRM</p>
+                        </div>
+                        <span class="tag-badge px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs flex-shrink-0">Popular</span>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'crm', 'donorbox', true)" 
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-teal-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-box text-teal-400 text-sm sm:text-base"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Donorbox</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Nonprofit donation platform</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'crm', 'zeffy', true)" 
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-gift text-purple-400 text-sm sm:text-base"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Zeffy</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">100% free nonprofit platform</p>
+                        </div>
+                        <span class="tag-badge px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs flex-shrink-0">Free</span>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'crm', 'salesforce', true)" 
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-salesforce text-blue-400 text-sm sm:text-base"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Salesforce NPSP</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Nonprofit Success Pack</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'crm', 'hubspot', true)" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fab fa-hubspot text-orange-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-hubspot text-orange-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">HubSpot for Nonprofits</span>
-                            <p class="text-xs text-gray-400">Free tier available</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">HubSpot</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">CRM & marketing automation</p>
                         </div>
-                        <span class="tag-badge px-2 py-1 rounded text-xs">Budget-Friendly</span>
+                        <span class="tag-badge px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs flex-shrink-0">Free Tier</span>
                     </button>
                     
                     <button onclick="toggleOption(this, 'crm', 'airtable', true)" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-yellow-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-table text-yellow-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-table text-cyan-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Airtable</span>
-                            <p class="text-xs text-gray-400">Flexible database solution</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Airtable</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Flexible database solution</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'crm', 'sheets', true)" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fab fa-google text-green-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-google text-green-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Google Sheets</span>
-                            <p class="text-xs text-gray-400">Simple & accessible</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Google Sheets</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Simple & accessible</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'crm', 'mailchimp', true)" 
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-amber-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-mailchimp text-amber-400 text-sm sm:text-base"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Mailchimp</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Email marketing + donor lists</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'crm', 'zapier', true)" 
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-rose-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bolt text-rose-400 text-sm sm:text-base"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Zapier</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Automation & integrations</p>
+                        </div>
+                        <span class="tag-badge px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs flex-shrink-0">Flexible</span>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'crm', 'none', true)" 
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gray-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user-edit text-gray-400 text-sm sm:text-base"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">None/Manual</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Track donations manually</p>
                         </div>
                     </button>
                 </div>
             </div>
 
-            <!-- Features -->
-            <div class="config-card rounded-2xl p-6 transition-all duration-300">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
-                        <i class="fas fa-puzzle-piece text-orange-400"></i>
+            <!-- Functional Features -->
+            <div class="config-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 transition-all duration-300">
+                <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-puzzle-piece text-orange-400 text-sm sm:text-base"></i>
                     </div>
                     <div>
-                        <h3 class="text-lg font-semibold text-white">Features</h3>
-                        <p class="text-xs text-gray-400">Select desired functionality (simple toggle)</p>
+                        <h3 class="text-sm sm:text-base md:text-lg font-semibold text-white">Functional Features</h3>
+                        <p class="text-[10px] sm:text-xs text-gray-400">Select desired functionality (10 options)</p>
                     </div>
                 </div>
-                <div class="space-y-3">
+                <div class="space-y-2 sm:space-y-3">
                     <button onclick="toggleOption(this, 'features', 'recurring')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-teal-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-sync-alt text-teal-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-teal-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-sync-alt text-teal-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Recurring Donations</span>
-                            <p class="text-xs text-gray-400">Monthly/annual giving options</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Recurring Support</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Monthly/annual giving options</p>
                         </div>
-                        <span class="tag-badge px-2 py-1 rounded text-xs">High Impact</span>
+                        <span class="tag-badge px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs flex-shrink-0">High Impact</span>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'features', 'project-earmarking')" 
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-violet-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bookmark text-violet-400 text-sm sm:text-base"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Project Earmarking</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Designate funds for specific projects</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'features', 'anonymous')" 
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gray-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user-secret text-gray-400 text-sm sm:text-base"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Anonymous Donations</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Allow donors to remain private</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'features', 'multi-currency')" 
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-coins text-green-400 text-sm sm:text-base"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Multi-Currency</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Accept KES, USD, EUR</p>
+                        </div>
+                        <span class="tag-badge px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs flex-shrink-0">Recommended</span>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'features', 'instant-receipt')" 
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-amber-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-receipt text-amber-400 text-sm sm:text-base"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Instant Thank-You Receipt</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Auto email with PDF receipt</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'features', 'donor-portal')" 
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user-circle text-blue-400 text-sm sm:text-base"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Donor History Portal</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Self-service donation history access</p>
+                        </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'features', 'campaign-tracking')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-bullseye text-pink-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-pink-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bullseye text-pink-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Campaign Tracking</span>
-                            <p class="text-xs text-gray-400">Link donations to specific initiatives</p>
-                        </div>
-                    </button>
-                    
-                    <button onclick="toggleOption(this, 'features', 'receipts')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
-                        <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-amber-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-receipt text-amber-400"></i>
-                        </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Auto Tax Receipts</span>
-                            <p class="text-xs text-gray-400">PDF generation & email delivery</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Campaign Tracking</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Link donations to specific initiatives</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'features', 'impact-updates')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-chart-line text-emerald-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-chart-line text-emerald-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Impact Updates</span>
-                            <p class="text-xs text-gray-400">Automated donor progress reports</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Impact Updates</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Automated donor progress reports</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'features', 'tribute-gifts')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-rose-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-gift text-rose-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-rose-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-gift text-rose-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Tribute/Memorial Gifts</span>
-                            <p class="text-xs text-gray-400">Donate in honor of someone</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Tribute/Memorial Gifts</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Donate in honor of someone</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'features', 'social-sharing')" 
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-share-alt text-indigo-400 text-sm sm:text-base"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Social Sharing</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Share donations on social media</p>
                         </div>
                     </button>
                 </div>
             </div>
 
             <!-- Assets Required -->
-            <div class="config-card rounded-2xl p-6 transition-all duration-300">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
-                        <i class="fas fa-folder-open text-orange-400"></i>
+            <div class="config-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 transition-all duration-300">
+                <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-folder-open text-orange-400 text-sm sm:text-base"></i>
                     </div>
                     <div>
-                        <h3 class="text-lg font-semibold text-white">Assets Required</h3>
-                        <p class="text-xs text-gray-400">Mark items you have ready</p>
+                        <h3 class="text-sm sm:text-base md:text-lg font-semibold text-white">Assets Required</h3>
+                        <p class="text-[10px] sm:text-xs text-gray-400">Mark items you have ready</p>
                     </div>
                 </div>
-                <div class="space-y-3">
+                <div class="space-y-2 sm:space-y-3">
                     <button onclick="toggleOption(this, 'assets', 'logo-hires')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-violet-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-image text-violet-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-violet-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-image text-violet-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">High-Res Logo</span>
-                            <p class="text-xs text-gray-400">PNG/SVG for payment page</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">High-Res Logo</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">PNG/SVG for payment page</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'assets', 'impact-photos')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-camera text-cyan-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-camera text-cyan-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Impact Photos</span>
-                            <p class="text-xs text-gray-400">Community/project imagery</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Impact Photos</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Community/project imagery</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'assets', 'legal-docs')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-slate-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-file-contract text-slate-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-slate-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-file-contract text-slate-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Legal Documents</span>
-                            <p class="text-xs text-gray-400">Registration, tax exemption certs</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Legal Documents</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Registration, tax exemption certs</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'assets', 'bank-details')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-lime-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-university text-lime-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-lime-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-university text-lime-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Bank Account Details</span>
-                            <p class="text-xs text-gray-400">For gateway verification</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Bank Account Details</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">For gateway verification</p>
                         </div>
                     </button>
                     
                     <button onclick="toggleOption(this, 'assets', 'campaign-copy')" 
-                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                            class="option-btn w-full p-2.5 sm:p-3 md:p-4 rounded-lg sm:rounded-xl flex items-center gap-2 sm:gap-3 md:gap-4 text-left">
                         <span class="config-status"><i class="fas fa-check"></i></span>
-                        <div class="w-10 h-10 bg-fuchsia-500/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-pen-fancy text-fuchsia-400"></i>
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-fuchsia-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-pen-fancy text-fuchsia-400 text-sm sm:text-base"></i>
                         </div>
-                        <div class="flex-1">
-                            <span class="font-medium text-white">Campaign Copy</span>
-                            <p class="text-xs text-gray-400">Donation page text & CTAs</p>
+                        <div class="flex-1 min-w-0">
+                            <span class="font-medium text-white text-sm sm:text-base">Campaign Copy</span>
+                            <p class="text-[10px] sm:text-xs text-gray-400 truncate">Donation page text & CTAs</p>
                         </div>
                     </button>
                 </div>
@@ -1380,6 +1517,41 @@
 
         // CRM configuration templates
         const crmConfigs = {
+            givebutter: {
+                title: 'Givebutter',
+                subtitle: 'Modern fundraising + CRM',
+                icon: 'fa-heart',
+                iconBg: 'bg-yellow-500/20',
+                iconColor: 'text-yellow-400',
+                fields: [
+                    { id: 'account_id', label: 'Account ID', placeholder: 'Your Givebutter account ID', type: 'text' },
+                    { id: 'campaign_url', label: 'Campaign URL', placeholder: 'https://givebutter.com/...', type: 'url' },
+                    { id: 'api_key', label: 'API Key (optional)', placeholder: 'For webhook integration', type: 'text' }
+                ]
+            },
+            donorbox: {
+                title: 'Donorbox',
+                subtitle: 'Nonprofit donation platform',
+                icon: 'fa-box',
+                iconBg: 'bg-teal-500/20',
+                iconColor: 'text-teal-400',
+                fields: [
+                    { id: 'org_slug', label: 'Organization Slug', placeholder: 'Your Donorbox org name', type: 'text' },
+                    { id: 'campaign_url', label: 'Donation Form URL', placeholder: 'https://donorbox.org/...', type: 'url' },
+                    { id: 'api_key', label: 'API Key (optional)', placeholder: 'For automation', type: 'text' }
+                ]
+            },
+            zeffy: {
+                title: 'Zeffy',
+                subtitle: '100% free nonprofit platform',
+                icon: 'fa-gift',
+                iconBg: 'bg-purple-500/20',
+                iconColor: 'text-purple-400',
+                fields: [
+                    { id: 'org_name', label: 'Organization Name', placeholder: 'Northern Vision CBO', type: 'text' },
+                    { id: 'donation_page', label: 'Donation Page URL', placeholder: 'https://www.zeffy.com/...', type: 'url' }
+                ]
+            },
             salesforce: {
                 title: 'Salesforce NPSP',
                 subtitle: 'Nonprofit Success Pack setup',
@@ -1392,7 +1564,7 @@
                 ]
             },
             hubspot: {
-                title: 'HubSpot for Nonprofits',
+                title: 'HubSpot',
                 subtitle: 'CRM & marketing automation',
                 icon: 'fa-hubspot',
                 iconBg: 'bg-orange-500/20',
@@ -1406,8 +1578,8 @@
                 title: 'Airtable Database',
                 subtitle: 'Flexible donor tracking',
                 icon: 'fa-table',
-                iconBg: 'bg-yellow-500/20',
-                iconColor: 'text-yellow-400',
+                iconBg: 'bg-cyan-500/20',
+                iconColor: 'text-cyan-400',
                 fields: [
                     { id: 'base_id', label: 'Base ID', placeholder: 'app...', type: 'text' },
                     { id: 'table_name', label: 'Donors Table Name', placeholder: 'e.g., Donors', type: 'text' }
@@ -1422,6 +1594,42 @@
                 fields: [
                     { id: 'sheet_url', label: 'Spreadsheet URL', placeholder: 'https://docs.google.com/spreadsheets/d/...', type: 'url' },
                     { id: 'sheet_name', label: 'Sheet Tab Name', placeholder: 'e.g., 2026 Donations', type: 'text' }
+                ]
+            },
+            mailchimp: {
+                title: 'Mailchimp',
+                subtitle: 'Email marketing + donor lists',
+                icon: 'fa-mailchimp',
+                iconBg: 'bg-amber-500/20',
+                iconColor: 'text-amber-400',
+                fields: [
+                    { id: 'list_id', label: 'Audience/List ID', placeholder: 'Your Mailchimp list ID', type: 'text' },
+                    { id: 'api_key', label: 'API Key', placeholder: 'Your Mailchimp API key', type: 'password' },
+                    { id: 'server_prefix', label: 'Server Prefix', placeholder: 'e.g., us19', type: 'text' }
+                ]
+            },
+            zapier: {
+                title: 'Zapier',
+                subtitle: 'Automation & integrations',
+                icon: 'fa-bolt',
+                iconBg: 'bg-rose-500/20',
+                iconColor: 'text-rose-400',
+                fields: [
+                    { id: 'webhook_url', label: 'Webhook URL', placeholder: 'https://hooks.zapier.com/...', type: 'url' },
+                    { id: 'trigger_event', label: 'Trigger Event', placeholder: 'e.g., New Donation, Recurring Payment', type: 'text' },
+                    { id: 'notes', label: 'Integration Notes', placeholder: 'Describe the automation workflow', type: 'textarea' }
+                ]
+            },
+            none: {
+                title: 'None/Manual Tracking',
+                subtitle: 'No automated CRM sync',
+                icon: 'fa-user-edit',
+                iconBg: 'bg-gray-500/20',
+                iconColor: 'text-gray-400',
+                fields: [
+                    { id: 'responsible_person', label: 'Responsible Person', placeholder: 'Who manages donor records?', type: 'text' },
+                    { id: 'tracking_method', label: 'Tracking Method', placeholder: 'e.g., Excel file, paper records', type: 'text' },
+                    { id: 'notes', label: 'Additional Notes', placeholder: 'Any special instructions', type: 'textarea' }
                 ]
             }
         };
@@ -1490,11 +1698,16 @@
 
         // Feature descriptions
         const featureConfigs = {
-            recurring: { title: 'Recurring Donations', desc: 'Monthly/annual giving options' },
+            recurring: { title: 'Recurring Support', desc: 'Monthly/annual giving options' },
+            'project-earmarking': { title: 'Project Earmarking', desc: 'Designate funds for specific projects' },
+            anonymous: { title: 'Anonymous Donations', desc: 'Allow donors to remain private' },
+            'multi-currency': { title: 'Multi-Currency', desc: 'Accept KES, USD, EUR' },
+            'instant-receipt': { title: 'Instant Thank-You Receipt', desc: 'Auto email with PDF receipt' },
+            'donor-portal': { title: 'Donor History Portal', desc: 'Self-service donation history access' },
             'campaign-tracking': { title: 'Campaign Tracking', desc: 'Link donations to specific initiatives' },
-            receipts: { title: 'Auto Tax Receipts', desc: 'PDF generation & email delivery' },
             'impact-updates': { title: 'Impact Updates', desc: 'Automated donor progress reports' },
-            'tribute-gifts': { title: 'Tribute/Memorial Gifts', desc: 'Donate in honor of someone' }
+            'tribute-gifts': { title: 'Tribute/Memorial Gifts', desc: 'Donate in honor of someone' },
+            'social-sharing': { title: 'Social Sharing', desc: 'Share donations on social media' }
         };
 
         function toggleOption(btn, category, value, singleSelect = false) {
