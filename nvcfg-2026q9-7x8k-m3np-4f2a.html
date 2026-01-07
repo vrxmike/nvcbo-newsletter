@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVCBO Donations Setup Configurator | Internal Tool</title>
+    <!-- Prevent indexing -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* NVCBO Orange Theme Variables */
+        :root {
+            --nv-orange-primary: #FF8C00;
+            --nv-orange-mid: #FF7F00;
+            --nv-orange-burnt: #CC5500;
+            --nv-orange-rust: #B7410E;
+            --nv-cream: #FFF5E6;
+            --nv-dark: #1a1a2e;
+            --nv-darker: #16162b;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--nv-dark) 0%, var(--nv-darker) 100%);
+            min-height: 100vh;
+        }
+
+        /* Password Gate Styles */
+        #password-gate {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, var(--nv-dark) 0%, var(--nv-darker) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #password-gate.hidden {
+            display: none;
+        }
+
+        .gate-card {
+            background: rgba(255, 140, 0, 0.08);
+            border: 2px solid rgba(255, 140, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .gate-input {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            width: 100%;
+            font-size: 1rem;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        .gate-input:focus {
+            outline: none;
+            border-color: var(--nv-orange-primary);
+            box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
+        }
+
+        .gate-btn {
+            background: linear-gradient(135deg, var(--nv-orange-primary) 0%, var(--nv-orange-burnt) 100%);
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .gate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.4);
+        }
+
+        .gate-error {
+            color: #ef4444;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .gate-error.show {
+            display: block;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        /* Hide main content until authenticated */
+        #main-content {
+            display: none;
+        }
+
+        #main-content.unlocked {
+            display: block;
+        }
+
+        .config-card {
+            background: rgba(255, 140, 0, 0.08);
+            border: 1px solid rgba(255, 140, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .config-card:hover {
+            border-color: var(--nv-orange-primary);
+            box-shadow: 0 0 20px rgba(255, 140, 0, 0.15);
+        }
+
+        .option-btn {
+            background: rgba(255, 140, 0, 0.1);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .option-btn:hover {
+            background: rgba(255, 140, 0, 0.2);
+            border-color: var(--nv-orange-primary);
+        }
+
+        .option-btn.selected {
+            background: linear-gradient(135deg, var(--nv-orange-primary) 0%, var(--nv-orange-burnt) 100%);
+            border-color: var(--nv-orange-primary);
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+        }
+
+        .section-header {
+            background: linear-gradient(90deg, var(--nv-orange-primary), var(--nv-orange-burnt));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .output-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, var(--nv-orange-primary) 0%, var(--nv-orange-burnt) 100%);
+        }
+
+        .copy-btn:hover {
+            background: linear-gradient(135deg, var(--nv-orange-mid) 0%, var(--nv-orange-rust) 100%);
+            box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
+        }
+
+        .manifest-btn {
+            background: linear-gradient(135deg, var(--nv-orange-burnt) 0%, var(--nv-orange-rust) 100%);
+        }
+
+        .manifest-btn:hover {
+            background: linear-gradient(135deg, var(--nv-orange-primary) 0%, var(--nv-orange-burnt) 100%);
+        }
+
+        .tag-badge {
+            background: rgba(255, 140, 0, 0.2);
+            color: var(--nv-orange-primary);
+        }
+
+        .tooltip-custom {
+            background: var(--nv-darker);
+            border: 1px solid var(--nv-orange-primary);
+        }
+
+        /* Logo breathing animation */
+        .logo-cbo {
+            animation: cbo-breathe 3s ease-in-out infinite;
+        }
+
+        @keyframes cbo-breathe {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--nv-darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--nv-orange-burnt);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--nv-orange-primary);
+        }
+
+        /* Internal badge */
+        .internal-badge {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { box-shadow: 0 0 5px rgba(220, 38, 38, 0.5); }
+            50% { box-shadow: 0 0 15px rgba(220, 38, 38, 0.8); }
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-card {
+            background: linear-gradient(135deg, var(--nv-dark) 0%, var(--nv-darker) 100%);
+            border: 2px solid var(--nv-orange-primary);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-input {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            width: 100%;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .modal-input:focus {
+            outline: none;
+            border-color: var(--nv-orange-primary);
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
+        }
+
+        .modal-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .modal-label {
+            color: var(--nv-orange-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .modal-btn {
+            background: linear-gradient(135deg, var(--nv-orange-primary) 0%, var(--nv-orange-burnt) 100%);
+            border: none;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4);
+        }
+
+        .modal-btn-cancel {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .modal-btn-cancel:hover {
+            border-color: #ef4444;
+            color: #ef4444;
+            box-shadow: none;
+            transform: none;
+        }
+
+        /* Status indicator on selected items */
+        .config-status {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: white;
+            border: 2px solid var(--nv-dark);
+        }
+
+        .option-btn.configured .config-status {
+            display: flex;
+        }
+
+        .option-btn {
+            position: relative;
+        }
+    </style>
+</head>
+<body class="text-white p-6">
+    
+    <!-- ========== PASSWORD GATE (Layer 2) ========== -->
+    <div id="password-gate">
+        <div class="gate-card">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-lock text-white text-2xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-white mb-2">Restricted Access</h2>
+            <p class="text-gray-400 text-sm mb-6">
+                This internal tool requires authorization.<br>
+                Enter the PROJECT_SECRET to continue.
+            </p>
+            <input 
+                type="password" 
+                id="gate-password" 
+                class="gate-input" 
+                placeholder="• • • • • • • •"
+                autocomplete="off"
+                onkeypress="if(event.key==='Enter') checkPassword()"
+            >
+            <p id="gate-error" class="gate-error">
+                <i class="fas fa-exclamation-triangle mr-1"></i> Invalid secret. Access denied.
+            </p>
+            <button class="gate-btn" onclick="checkPassword()">
+                <i class="fas fa-unlock-alt mr-2"></i> Unlock Configurator
+            </button>
+            <p class="text-gray-600 text-xs mt-4">
+                <i class="fas fa-shield-alt mr-1"></i> All access attempts are logged
+            </p>
+        </div>
+    </div>
+
+    <!-- ========== MAIN CONTENT (hidden until authenticated) ========== -->
+    <div id="main-content">
+    
+    <!-- Internal Use Banner -->
+    <div class="fixed top-0 left-0 right-0 bg-red-900/90 text-white text-center py-2 z-50 backdrop-blur-sm">
+        <span class="internal-badge px-3 py-1 rounded-full text-xs font-bold mr-2">INTERNAL</span>
+        <span class="text-sm">This configurator is for NVCBO staff planning only — Q9/2026 Edition</span>
+    </div>
+
+    <div class="max-w-6xl mx-auto pt-12">
+        
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center">
+                    <i class="fas fa-hand-holding-heart text-white text-xl"></i>
+                </div>
+                <h1 class="text-4xl font-bold">
+                    <span class="text-white">Northern Vision</span><sup class="logo-cbo text-orange-400 text-lg ml-1">CBO</sup>
+                </h1>
+            </div>
+            <h2 class="section-header text-2xl font-semibold mb-2">Donations Setup Configurator</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Internal planning tool for configuring our donation infrastructure. 
+                Select your preferred options below to generate a configuration manifest for development.
+            </p>
+        </div>
+
+        <!-- Configuration Sections -->
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+            
+            <!-- Payment Gateways -->
+            <div class="config-card rounded-2xl p-6 transition-all duration-300">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                        <i class="fas fa-credit-card text-orange-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white">Payment Gateways</h3>
+                        <p class="text-xs text-gray-400">Select all that apply (14 options)</p>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <button onclick="toggleOption(this, 'gateways', 'mpesa')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-green-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">M-Pesa</span>
+                            <p class="text-xs text-gray-400">Safaricom mobile money (Kenya primary)</p>
+                        </div>
+                        <span class="tag-badge px-2 py-1 rounded text-xs">Recommended</span>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'gateways', 'paypal')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fab fa-paypal text-blue-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">PayPal</span>
+                            <p class="text-xs text-gray-400">International donors & diaspora</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'gateways', 'stripe')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fab fa-stripe-s text-purple-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Stripe</span>
+                            <p class="text-xs text-gray-400">Cards, Apple Pay, Google Pay</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'gateways', 'flutterwave')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-bolt text-orange-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Flutterwave</span>
+                            <p class="text-xs text-gray-400">Pan-African payment gateway</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'gateways', 'mchanga')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-teal-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-hand-holding-heart text-teal-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">M-Changa</span>
+                            <p class="text-xs text-gray-400">Kenyan crowdfunding platform</p>
+                        </div>
+                        <span class="tag-badge px-2 py-1 rounded text-xs">Local</span>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'gateways', 'payhero')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-rocket text-indigo-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">PayHero Kenya</span>
+                            <p class="text-xs text-gray-400">Local payment aggregator</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'gateways', 'pesapal')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-red-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Pesapal</span>
+                            <p class="text-xs text-gray-400">Multi-channel East African gateway</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'gateways', 'globalgiving')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-globe-africa text-emerald-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">GlobalGiving</span>
+                            <p class="text-xs text-gray-400">Vetted nonprofit fundraising</p>
+                        </div>
+                        <span class="tag-badge px-2 py-1 rounded text-xs">International</span>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'gateways', 'gofundme')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-lime-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-heart text-lime-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">GoFundMe</span>
+                            <p class="text-xs text-gray-400">Global crowdfunding campaigns</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'gateways', 'chuffed')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-gift text-pink-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Chuffed.org</span>
+                            <p class="text-xs text-gray-400">Social enterprise crowdfunding</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'gateways', 'thundafund')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-amber-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-bolt text-amber-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Thundafund</span>
+                            <p class="text-xs text-gray-400">African crowdfunding platform</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'gateways', 'bank')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-slate-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-university text-slate-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Bank Transfer</span>
+                            <p class="text-xs text-gray-400">Direct wire/EFT deposits</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'gateways', 'inkind')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-rose-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-box-open text-rose-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">In-Kind Donations</span>
+                            <p class="text-xs text-gray-400">Goods, services & volunteering</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'gateways', 'other')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-gray-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-ellipsis-h text-gray-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Other/Custom</span>
+                            <p class="text-xs text-gray-400">Additional payment methods</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CRM Integration -->
+            <div class="config-card rounded-2xl p-6 transition-all duration-300">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                        <i class="fas fa-database text-orange-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white">Donor CRM</h3>
+                        <p class="text-xs text-gray-400">Choose one primary system</p>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <button onclick="toggleOption(this, 'crm', 'salesforce', true)" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fab fa-salesforce text-blue-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Salesforce NPSP</span>
+                            <p class="text-xs text-gray-400">Nonprofit Success Pack</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'crm', 'hubspot', true)" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fab fa-hubspot text-orange-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">HubSpot for Nonprofits</span>
+                            <p class="text-xs text-gray-400">Free tier available</p>
+                        </div>
+                        <span class="tag-badge px-2 py-1 rounded text-xs">Budget-Friendly</span>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'crm', 'airtable', true)" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-yellow-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-table text-yellow-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Airtable</span>
+                            <p class="text-xs text-gray-400">Flexible database solution</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'crm', 'sheets', true)" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fab fa-google text-green-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Google Sheets</span>
+                            <p class="text-xs text-gray-400">Simple & accessible</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="config-card rounded-2xl p-6 transition-all duration-300">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                        <i class="fas fa-puzzle-piece text-orange-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white">Features</h3>
+                        <p class="text-xs text-gray-400">Select desired functionality (simple toggle)</p>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <button onclick="toggleOption(this, 'features', 'recurring')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-teal-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-sync-alt text-teal-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Recurring Donations</span>
+                            <p class="text-xs text-gray-400">Monthly/annual giving options</p>
+                        </div>
+                        <span class="tag-badge px-2 py-1 rounded text-xs">High Impact</span>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'features', 'campaign-tracking')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-bullseye text-pink-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Campaign Tracking</span>
+                            <p class="text-xs text-gray-400">Link donations to specific initiatives</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'features', 'receipts')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-amber-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-receipt text-amber-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Auto Tax Receipts</span>
+                            <p class="text-xs text-gray-400">PDF generation & email delivery</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'features', 'impact-updates')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-chart-line text-emerald-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Impact Updates</span>
+                            <p class="text-xs text-gray-400">Automated donor progress reports</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'features', 'tribute-gifts')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-rose-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-gift text-rose-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Tribute/Memorial Gifts</span>
+                            <p class="text-xs text-gray-400">Donate in honor of someone</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Assets Required -->
+            <div class="config-card rounded-2xl p-6 transition-all duration-300">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                        <i class="fas fa-folder-open text-orange-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white">Assets Required</h3>
+                        <p class="text-xs text-gray-400">Mark items you have ready</p>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <button onclick="toggleOption(this, 'assets', 'logo-hires')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-violet-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-image text-violet-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">High-Res Logo</span>
+                            <p class="text-xs text-gray-400">PNG/SVG for payment page</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'assets', 'impact-photos')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-camera text-cyan-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Impact Photos</span>
+                            <p class="text-xs text-gray-400">Community/project imagery</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'assets', 'legal-docs')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-slate-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-file-contract text-slate-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Legal Documents</span>
+                            <p class="text-xs text-gray-400">Registration, tax exemption certs</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'assets', 'bank-details')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-lime-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-university text-lime-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Bank Account Details</span>
+                            <p class="text-xs text-gray-400">For gateway verification</p>
+                        </div>
+                    </button>
+                    
+                    <button onclick="toggleOption(this, 'assets', 'campaign-copy')" 
+                            class="option-btn w-full p-4 rounded-xl flex items-center gap-4 text-left">
+                        <span class="config-status"><i class="fas fa-check"></i></span>
+                        <div class="w-10 h-10 bg-fuchsia-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-pen-fancy text-fuchsia-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="font-medium text-white">Campaign Copy</span>
+                            <p class="text-xs text-gray-400">Donation page text & CTAs</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Output Section -->
+        <div class="config-card rounded-2xl p-6 mb-8">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                        <i class="fas fa-code text-orange-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white">Configuration Output</h3>
+                        <p class="text-xs text-gray-400">JSON manifest for development team</p>
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="copyConfig()" 
+                            class="copy-btn px-4 py-2 rounded-lg text-white font-medium text-sm transition-all duration-300 flex items-center gap-2">
+                        <i class="fas fa-copy"></i>
+                        Copy JSON
+                    </button>
+                    <button onclick="downloadManifest()" 
+                            class="manifest-btn px-4 py-2 rounded-lg text-white font-medium text-sm transition-all duration-300 flex items-center gap-2">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </button>
+                </div>
+            </div>
+            <div class="output-box rounded-xl p-4 font-mono text-sm overflow-x-auto">
+                <pre id="configOutput" class="text-orange-300">{
+  "organization": "Northern Vision CBO",
+  "configVersion": "2026-Q9",
+  "generated": "<span class="text-gray-500">Select options above...</span>",
+  "gateways": [],
+  "crm": null,
+  "features": [],
+  "assets": {
+    "ready": [],
+    "needed": []
+  }
+}</pre>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-gray-500 text-sm pb-8">
+            <p>
+                <span class="text-orange-400">Northern Vision</span><sup class="logo-cbo text-orange-500 text-xs">CBO</sup> 
+                — Internal Planning Tool
+            </p>
+            <p class="mt-1">Configuration saved locally. Share JSON with dev team for implementation.</p>
+            <p class="mt-2 text-xs text-gray-600">
+                <i class="fas fa-lock mr-1"></i> This tool does not transmit data externally
+            </p>
+        </div>
+    </div>
+    </div> <!-- END main-content -->
+
+    <!-- ========== CONFIGURATION MODAL ========== -->
+    <div id="config-modal" class="modal-overlay" onclick="if(event.target === this) closeModal()">
+        <div class="modal-card">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-3">
+                    <div id="modal-icon" class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center">
+                        <i class="fas fa-cog text-orange-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 id="modal-title" class="text-xl font-bold text-white">Configure Option</h3>
+                        <p id="modal-subtitle" class="text-sm text-gray-400">Enter details below</p>
+                    </div>
+                </div>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="modal-content" class="space-y-4 mb-6">
+                <!-- Dynamic form fields will be injected here -->
+            </div>
+            
+            <div class="flex gap-3">
+                <button onclick="closeModal()" class="modal-btn modal-btn-cancel flex-1">
+                    Cancel
+                </button>
+                <button onclick="saveModalConfig()" class="modal-btn flex-1">
+                    <i class="fas fa-check mr-2"></i> Save Configuration
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========== PASSWORD GATE LOGIC ==========
+        // PROJECT_SECRET: Change this to your secure passphrase
+        const PROJECT_SECRET = 'nv-2026';
+        
+        function checkPassword() {
+            const input = document.getElementById('gate-password').value;
+            const errorEl = document.getElementById('gate-error');
+            
+            if (input === PROJECT_SECRET) {
+                // Successful authentication
+                document.getElementById('password-gate').classList.add('hidden');
+                document.getElementById('main-content').classList.add('unlocked');
+                
+                // Store session (expires when tab closes)
+                sessionStorage.setItem('nvcbo-auth', 'true');
+            } else {
+                // Failed attempt
+                errorEl.classList.add('show');
+                document.getElementById('gate-password').value = '';
+                document.getElementById('gate-password').focus();
+                
+                // Log failed attempt (for security audit)
+                console.warn('[SECURITY] Failed auth attempt at', new Date().toISOString());
+                
+                setTimeout(() => {
+                    errorEl.classList.remove('show');
+                }, 3000);
+            }
+        }
+        
+        // Check if already authenticated in this session
+        if (sessionStorage.getItem('nvcbo-auth') === 'true') {
+            document.getElementById('password-gate').classList.add('hidden');
+            document.getElementById('main-content').classList.add('unlocked');
+        }
+
+        // ========== CONFIGURATOR LOGIC ==========
+        // Configuration state with detailed data
+        const config = {
+            gateways: {},
+            crm: null,
+            crmData: {},
+            features: [],
+            assets: {}
+        };
+
+        // All possible assets for tracking "needed" items
+        const allAssets = ['logo-hires', 'impact-photos', 'legal-docs', 'bank-details', 'campaign-copy'];
+
+        // Modal state
+        let currentModalContext = null;
+
+        // Gateway configuration templates
+        const gatewayConfigs = {
+            mpesa: {
+                title: 'M-Pesa Configuration',
+                subtitle: 'Safaricom mobile money setup',
+                icon: 'fa-mobile-alt',
+                iconBg: 'bg-green-500/20',
+                iconColor: 'text-green-400',
+                fields: [
+                    { id: 'paybill', label: 'Paybill Number', placeholder: 'e.g., 123456', type: 'text' },
+                    { id: 'till', label: 'Till Number (optional)', placeholder: 'e.g., 7890123', type: 'text' },
+                    { id: 'account', label: 'Account Name', placeholder: 'e.g., Donations', type: 'text' }
+                ]
+            },
+            paypal: {
+                title: 'PayPal Configuration',
+                subtitle: 'International payment setup',
+                icon: 'fa-paypal',
+                iconBg: 'bg-blue-500/20',
+                iconColor: 'text-blue-400',
+                fields: [
+                    { id: 'email', label: 'Business Email', placeholder: 'payments@northernvision.org', type: 'email' },
+                    { id: 'client_id', label: 'Client ID (optional)', placeholder: 'For API integration', type: 'text' }
+                ]
+            },
+            stripe: {
+                title: 'Stripe Configuration',
+                subtitle: 'Card payments & digital wallets',
+                icon: 'fa-stripe-s',
+                iconBg: 'bg-purple-500/20',
+                iconColor: 'text-purple-400',
+                fields: [
+                    { id: 'publishable_key', label: 'Publishable Key', placeholder: 'pk_live_...', type: 'text' },
+                    { id: 'secret_key', label: 'Secret Key (for dev team)', placeholder: 'sk_live_...', type: 'password' }
+                ]
+            },
+            flutterwave: {
+                title: 'Flutterwave Configuration',
+                subtitle: 'Pan-African payment gateway',
+                icon: 'fa-bolt',
+                iconBg: 'bg-orange-500/20',
+                iconColor: 'text-orange-400',
+                fields: [
+                    { id: 'public_key', label: 'Public Key', placeholder: 'FLWPUBK-...', type: 'text' },
+                    { id: 'secret_key', label: 'Secret Key (for dev team)', placeholder: 'FLWSECK-...', type: 'password' }
+                ]
+            },
+            mchanga: {
+                title: 'M-Changa Configuration',
+                subtitle: 'Kenyan crowdfunding platform',
+                icon: 'fa-hand-holding-heart',
+                iconBg: 'bg-teal-500/20',
+                iconColor: 'text-teal-400',
+                fields: [
+                    { id: 'campaign_url', label: 'Campaign Page URL', placeholder: 'https://changa.co.ke/fundraiser/...', type: 'url' },
+                    { id: 'fundraiser_name', label: 'Fundraiser Name', placeholder: 'e.g., Northern Vision 2026 Appeal', type: 'text' }
+                ]
+            },
+            payhero: {
+                title: 'PayHero Kenya Configuration',
+                subtitle: 'Local payment aggregator',
+                icon: 'fa-rocket',
+                iconBg: 'bg-indigo-500/20',
+                iconColor: 'text-indigo-400',
+                fields: [
+                    { id: 'merchant_id', label: 'Merchant ID', placeholder: 'Your PayHero merchant ID', type: 'text' },
+                    { id: 'api_key', label: 'API Key', placeholder: 'PayHero API key', type: 'password' },
+                    { id: 'channel', label: 'Payment Channel', placeholder: 'e.g., MPESA, Card, Bank', type: 'text' }
+                ]
+            },
+            pesapal: {
+                title: 'Pesapal Configuration',
+                subtitle: 'Multi-channel East African gateway',
+                icon: 'fa-shield-alt',
+                iconBg: 'bg-red-500/20',
+                iconColor: 'text-red-400',
+                fields: [
+                    { id: 'consumer_key', label: 'Consumer Key', placeholder: 'Your Pesapal consumer key', type: 'text' },
+                    { id: 'consumer_secret', label: 'Consumer Secret', placeholder: 'Your Pesapal consumer secret', type: 'password' },
+                    { id: 'ipn_url', label: 'IPN Callback URL (optional)', placeholder: 'https://yoursite.com/ipn', type: 'url' }
+                ]
+            },
+            globalgiving: {
+                title: 'GlobalGiving Configuration',
+                subtitle: 'Vetted nonprofit fundraising',
+                icon: 'fa-globe-africa',
+                iconBg: 'bg-emerald-500/20',
+                iconColor: 'text-emerald-400',
+                fields: [
+                    { id: 'project_id', label: 'Project ID', placeholder: 'e.g., 12345', type: 'text' },
+                    { id: 'project_url', label: 'Project Page URL', placeholder: 'https://www.globalgiving.org/projects/...', type: 'url' },
+                    { id: 'api_key', label: 'API Key (optional)', placeholder: 'For donation tracking', type: 'text' }
+                ]
+            },
+            gofundme: {
+                title: 'GoFundMe Configuration',
+                subtitle: 'Global crowdfunding campaigns',
+                icon: 'fa-heart',
+                iconBg: 'bg-lime-500/20',
+                iconColor: 'text-lime-400',
+                fields: [
+                    { id: 'campaign_url', label: 'Campaign URL', placeholder: 'https://gofundme.com/f/...', type: 'url' },
+                    { id: 'campaign_title', label: 'Campaign Title', placeholder: 'e.g., Support Northern Kenya Communities', type: 'text' }
+                ]
+            },
+            chuffed: {
+                title: 'Chuffed.org Configuration',
+                subtitle: 'Social enterprise crowdfunding',
+                icon: 'fa-gift',
+                iconBg: 'bg-pink-500/20',
+                iconColor: 'text-pink-400',
+                fields: [
+                    { id: 'campaign_url', label: 'Campaign URL', placeholder: 'https://chuffed.org/project/...', type: 'url' },
+                    { id: 'campaign_name', label: 'Campaign Name', placeholder: 'Your campaign name on Chuffed', type: 'text' }
+                ]
+            },
+            thundafund: {
+                title: 'Thundafund Configuration',
+                subtitle: 'African crowdfunding platform',
+                icon: 'fa-bolt',
+                iconBg: 'bg-amber-500/20',
+                iconColor: 'text-amber-400',
+                fields: [
+                    { id: 'project_url', label: 'Project URL', placeholder: 'https://www.thundafund.com/project/...', type: 'url' },
+                    { id: 'project_name', label: 'Project Name', placeholder: 'Your Thundafund project name', type: 'text' }
+                ]
+            },
+            bank: {
+                title: 'Bank Transfer Details',
+                subtitle: 'Direct wire/EFT deposits',
+                icon: 'fa-university',
+                iconBg: 'bg-slate-500/20',
+                iconColor: 'text-slate-400',
+                fields: [
+                    { id: 'bank_name', label: 'Bank Name', placeholder: 'e.g., Equity Bank Kenya', type: 'text' },
+                    { id: 'account_name', label: 'Account Name', placeholder: 'Northern Vision CBO', type: 'text' },
+                    { id: 'account_number', label: 'Account Number', placeholder: '0123456789012', type: 'text' },
+                    { id: 'branch_code', label: 'Branch / SWIFT Code', placeholder: 'e.g., EABORBIXX', type: 'text' },
+                    { id: 'currency', label: 'Currency', placeholder: 'KES / USD / EUR', type: 'text' }
+                ]
+            },
+            inkind: {
+                title: 'In-Kind Donations',
+                subtitle: 'Goods, services & volunteering',
+                icon: 'fa-box-open',
+                iconBg: 'bg-rose-500/20',
+                iconColor: 'text-rose-400',
+                fields: [
+                    { id: 'contact_email', label: 'Coordination Email', placeholder: 'inkind@northernvision.org', type: 'email' },
+                    { id: 'accepted_types', label: 'Accepted Donation Types', placeholder: 'e.g., School supplies, medical equipment, vehicles...', type: 'textarea' },
+                    { id: 'dropoff_location', label: 'Drop-off Location', placeholder: 'Physical address for item donations', type: 'text' }
+                ]
+            },
+            other: {
+                title: 'Other/Custom Payment Method',
+                subtitle: 'Additional payment channels',
+                icon: 'fa-ellipsis-h',
+                iconBg: 'bg-gray-500/20',
+                iconColor: 'text-gray-400',
+                fields: [
+                    { id: 'method_name', label: 'Payment Method Name', placeholder: 'e.g., Cryptocurrency, Wire Transfer', type: 'text' },
+                    { id: 'description', label: 'Description', placeholder: 'Describe this payment method', type: 'textarea' },
+                    { id: 'contact_info', label: 'Contact/Instructions', placeholder: 'How donors can use this method', type: 'textarea' }
+                ]
+            }
+        };
+
+        // CRM configuration templates
+        const crmConfigs = {
+            salesforce: {
+                title: 'Salesforce NPSP',
+                subtitle: 'Nonprofit Success Pack setup',
+                icon: 'fa-salesforce',
+                iconBg: 'bg-blue-500/20',
+                iconColor: 'text-blue-400',
+                fields: [
+                    { id: 'org_id', label: 'Organization ID', placeholder: '00D...', type: 'text' },
+                    { id: 'username', label: 'Integration Username', placeholder: 'api@northernvision.org', type: 'email' }
+                ]
+            },
+            hubspot: {
+                title: 'HubSpot for Nonprofits',
+                subtitle: 'CRM & marketing automation',
+                icon: 'fa-hubspot',
+                iconBg: 'bg-orange-500/20',
+                iconColor: 'text-orange-400',
+                fields: [
+                    { id: 'portal_id', label: 'Portal ID', placeholder: 'e.g., 12345678', type: 'text' },
+                    { id: 'api_key', label: 'API Key (optional)', placeholder: 'For automation', type: 'text' }
+                ]
+            },
+            airtable: {
+                title: 'Airtable Database',
+                subtitle: 'Flexible donor tracking',
+                icon: 'fa-table',
+                iconBg: 'bg-yellow-500/20',
+                iconColor: 'text-yellow-400',
+                fields: [
+                    { id: 'base_id', label: 'Base ID', placeholder: 'app...', type: 'text' },
+                    { id: 'table_name', label: 'Donors Table Name', placeholder: 'e.g., Donors', type: 'text' }
+                ]
+            },
+            sheets: {
+                title: 'Google Sheets',
+                subtitle: 'Simple spreadsheet tracking',
+                icon: 'fa-google',
+                iconBg: 'bg-green-500/20',
+                iconColor: 'text-green-400',
+                fields: [
+                    { id: 'sheet_url', label: 'Spreadsheet URL', placeholder: 'https://docs.google.com/spreadsheets/d/...', type: 'url' },
+                    { id: 'sheet_name', label: 'Sheet Tab Name', placeholder: 'e.g., 2026 Donations', type: 'text' }
+                ]
+            }
+        };
+
+        // Asset configuration templates
+        const assetConfigs = {
+            'logo-hires': {
+                title: 'High-Resolution Logo',
+                subtitle: 'Branding for payment pages',
+                icon: 'fa-image',
+                iconBg: 'bg-violet-500/20',
+                iconColor: 'text-violet-400',
+                fields: [
+                    { id: 'url', label: 'Logo URL (PNG/SVG)', placeholder: 'https://drive.google.com/...', type: 'url' },
+                    { id: 'notes', label: 'Notes', placeholder: 'Preferred dimensions, variants, etc.', type: 'textarea' }
+                ]
+            },
+            'impact-photos': {
+                title: 'Impact Photos',
+                subtitle: 'Community & project imagery',
+                icon: 'fa-camera',
+                iconBg: 'bg-cyan-500/20',
+                iconColor: 'text-cyan-400',
+                fields: [
+                    { id: 'folder_url', label: 'Photos Folder URL', placeholder: 'https://drive.google.com/drive/folders/...', type: 'url' },
+                    { id: 'count', label: 'Number of Photos Ready', placeholder: 'e.g., 15', type: 'number' }
+                ]
+            },
+            'legal-docs': {
+                title: 'Legal Documents',
+                subtitle: 'Registration & tax certificates',
+                icon: 'fa-file-contract',
+                iconBg: 'bg-slate-500/20',
+                iconColor: 'text-slate-400',
+                fields: [
+                    { id: 'registration_url', label: 'CBO Registration Certificate', placeholder: 'https://...', type: 'url' },
+                    { id: 'tax_url', label: 'KRA PIN / Tax Exemption', placeholder: 'https://...', type: 'url' }
+                ]
+            },
+            'bank-details': {
+                title: 'Bank Account Details',
+                subtitle: 'For gateway verification',
+                icon: 'fa-university',
+                iconBg: 'bg-lime-500/20',
+                iconColor: 'text-lime-400',
+                fields: [
+                    { id: 'bank_name', label: 'Bank Name', placeholder: 'e.g., Equity Bank', type: 'text' },
+                    { id: 'account_name', label: 'Account Name', placeholder: 'Northern Vision CBO', type: 'text' },
+                    { id: 'account_number', label: 'Account Number', placeholder: '0123456789', type: 'text' },
+                    { id: 'branch', label: 'Branch', placeholder: 'e.g., Isiolo Branch', type: 'text' }
+                ]
+            },
+            'campaign-copy': {
+                title: 'Campaign Copy',
+                subtitle: 'Donation page text & CTAs',
+                icon: 'fa-pen-fancy',
+                iconBg: 'bg-fuchsia-500/20',
+                iconColor: 'text-fuchsia-400',
+                fields: [
+                    { id: 'headline', label: 'Main Headline', placeholder: 'Support Northern Kenya Communities', type: 'text' },
+                    { id: 'description', label: 'Description', placeholder: 'Your donation helps...', type: 'textarea' },
+                    { id: 'cta_text', label: 'Button Text', placeholder: 'e.g., Donate Now', type: 'text' }
+                ]
+            }
+        };
+
+        // Feature descriptions
+        const featureConfigs = {
+            recurring: { title: 'Recurring Donations', desc: 'Monthly/annual giving options' },
+            'campaign-tracking': { title: 'Campaign Tracking', desc: 'Link donations to specific initiatives' },
+            receipts: { title: 'Auto Tax Receipts', desc: 'PDF generation & email delivery' },
+            'impact-updates': { title: 'Impact Updates', desc: 'Automated donor progress reports' },
+            'tribute-gifts': { title: 'Tribute/Memorial Gifts', desc: 'Donate in honor of someone' }
+        };
+
+        function toggleOption(btn, category, value, singleSelect = false) {
+            if (category === 'gateways' && gatewayConfigs[value]) {
+                // Open modal for gateway configuration
+                openModal('gateway', value, btn);
+            } else if (category === 'crm' && crmConfigs[value]) {
+                // For CRM, handle single select first
+                if (singleSelect) {
+                    const container = btn.parentElement;
+                    container.querySelectorAll('.option-btn').forEach(b => {
+                        b.classList.remove('selected', 'configured');
+                    });
+                }
+                openModal('crm', value, btn);
+            } else if (category === 'assets' && assetConfigs[value]) {
+                // Open modal for asset configuration
+                openModal('asset', value, btn);
+            } else if (category === 'features') {
+                // Features are simple toggles (no modal needed)
+                btn.classList.toggle('selected');
+                btn.classList.toggle('configured');
+                if (btn.classList.contains('selected')) {
+                    if (!config.features.includes(value)) {
+                        config.features.push(value);
+                    }
+                } else {
+                    config.features = config.features.filter(v => v !== value);
+                }
+                updateOutput();
+            }
+        }
+
+        function openModal(type, value, btn) {
+            let configTemplate;
+            let category;
+            
+            if (type === 'gateway') {
+                configTemplate = gatewayConfigs[value];
+                category = 'gateways';
+            } else if (type === 'crm') {
+                configTemplate = crmConfigs[value];
+                category = 'crm';
+            } else if (type === 'asset') {
+                configTemplate = assetConfigs[value];
+                category = 'assets';
+            }
+            
+            if (!configTemplate) return;
+            
+            currentModalContext = { type, value, btn, category };
+            
+            // Update modal header
+            document.getElementById('modal-title').textContent = configTemplate.title;
+            document.getElementById('modal-subtitle').textContent = configTemplate.subtitle;
+            
+            const iconEl = document.getElementById('modal-icon');
+            iconEl.className = `w-12 h-12 rounded-xl ${configTemplate.iconBg} flex items-center justify-center`;
+            
+            // Determine if it's a brand icon (fab) or solid icon (fas)
+            const brandIcons = ['fa-paypal', 'fa-stripe-s', 'fa-salesforce', 'fa-hubspot', 'fa-google'];
+            const iconPrefix = brandIcons.includes(configTemplate.icon) ? 'fab' : 'fas';
+            iconEl.innerHTML = `<i class="${iconPrefix} ${configTemplate.icon} ${configTemplate.iconColor} text-xl"></i>`;
+            
+            // Build form fields
+            const contentEl = document.getElementById('modal-content');
+            let fieldsHTML = '';
+            
+            // Get existing data if any
+            let existingData = {};
+            if (type === 'gateway' && config.gateways[value]) {
+                existingData = config.gateways[value];
+            } else if (type === 'crm' && config.crmData[value]) {
+                existingData = config.crmData[value];
+            } else if (type === 'asset' && config.assets[value]) {
+                existingData = config.assets[value];
+            }
+            
+            configTemplate.fields.forEach(field => {
+                const existingValue = existingData[field.id] || '';
+                if (field.type === 'textarea') {
+                    fieldsHTML += `
+                        <div>
+                            <label class="modal-label">${field.label}</label>
+                            <textarea 
+                                id="modal-field-${field.id}" 
+                                class="modal-input" 
+                                placeholder="${field.placeholder}"
+                                rows="3"
+                            >${existingValue}</textarea>
+                        </div>
+                    `;
+                } else {
+                    fieldsHTML += `
+                        <div>
+                            <label class="modal-label">${field.label}</label>
+                            <input 
+                                type="${field.type}" 
+                                id="modal-field-${field.id}" 
+                                class="modal-input" 
+                                placeholder="${field.placeholder}"
+                                value="${existingValue}"
+                            >
+                        </div>
+                    `;
+                }
+            });
+            
+            contentEl.innerHTML = fieldsHTML;
+            
+            // Show modal
+            document.getElementById('config-modal').classList.add('active');
+            
+            // Focus first field
+            const firstInput = contentEl.querySelector('input, textarea');
+            if (firstInput) setTimeout(() => firstInput.focus(), 100);
+        }
+
+        function closeModal() {
+            document.getElementById('config-modal').classList.remove('active');
+            currentModalContext = null;
+        }
+
+        function saveModalConfig() {
+            if (!currentModalContext) return;
+            
+            const { type, value, btn, category } = currentModalContext;
+            let configTemplate;
+            
+            if (type === 'gateway') {
+                configTemplate = gatewayConfigs[value];
+            } else if (type === 'crm') {
+                configTemplate = crmConfigs[value];
+            } else if (type === 'asset') {
+                configTemplate = assetConfigs[value];
+            }
+            
+            // Collect form data
+            const data = {};
+            let hasData = false;
+            
+            configTemplate.fields.forEach(field => {
+                const el = document.getElementById(`modal-field-${field.id}`);
+                if (el && el.value.trim()) {
+                    data[field.id] = el.value.trim();
+                    hasData = true;
+                }
+            });
+            
+            // Save to config
+            if (type === 'gateway') {
+                if (hasData) {
+                    config.gateways[value] = data;
+                    btn.classList.add('selected', 'configured');
+                } else {
+                    delete config.gateways[value];
+                    btn.classList.remove('selected', 'configured');
+                }
+            } else if (type === 'crm') {
+                if (hasData) {
+                    config.crm = value;
+                    config.crmData[value] = data;
+                    btn.classList.add('selected', 'configured');
+                } else {
+                    config.crm = null;
+                    delete config.crmData[value];
+                    btn.classList.remove('selected', 'configured');
+                }
+            } else if (type === 'asset') {
+                if (hasData) {
+                    config.assets[value] = data;
+                    btn.classList.add('selected', 'configured');
+                } else {
+                    delete config.assets[value];
+                    btn.classList.remove('selected', 'configured');
+                }
+            }
+            
+            closeModal();
+            updateOutput();
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        function updateOutput() {
+            const output = {
+                organization: "Northern Vision CBO",
+                configVersion: "2026-Q9",
+                generated: new Date().toISOString(),
+                gateways: config.gateways,
+                crm: config.crm ? { provider: config.crm, ...config.crmData[config.crm] } : null,
+                features: config.features,
+                assets: config.assets,
+                metadata: {
+                    totalGateways: Object.keys(config.gateways).length,
+                    featuresEnabled: config.features.length,
+                    assetsReady: Object.keys(config.assets).length,
+                    completionPercent: calculateCompletion()
+                }
+            };
+
+            document.getElementById('configOutput').textContent = JSON.stringify(output, null, 2);
+        }
+
+        function calculateCompletion() {
+            let score = 0;
+            let total = 4;
+            
+            if (Object.keys(config.gateways).length > 0) score++;
+            if (config.crm) score++;
+            if (config.features.length > 0) score++;
+            if (Object.keys(config.assets).length >= 3) score++;
+            
+            return Math.round((score / total) * 100);
+        }
+
+        function copyConfig() {
+            const output = document.getElementById('configOutput').textContent;
+            navigator.clipboard.writeText(output).then(() => {
+                // Visual feedback
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btn.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            });
+        }
+
+        function downloadManifest() {
+            const output = document.getElementById('configOutput').textContent;
+            const blob = new Blob([output], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `nvcbo-donate-config-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Initialize output
+        updateOutput();
+    </script>
+</body>
+</html>

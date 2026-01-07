@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVCBO | Donations Setup Configurator</title>
+    <!-- Prevent indexing -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    
+    <!-- Bootstrap 5 (Matching your repo stack) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --nvcbo-primary: #1d809f; /* Deep teal from NVCBO Stylish Portfolio */
+            --nvcbo-secondary: #ecb807; /* Gold accent */
+            --nvcbo-dark: #212529;
+            --nvcbo-light: #f8f9fa;
+        }
+
+        body { 
+            padding-bottom: 80px;
+            background-color: var(--nvcbo-light);
+            font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Password Gate Styles */
+        #password-gate {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: linear-gradient(135deg, var(--nvcbo-dark) 0%, #0a1628 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #password-gate.hidden {
+            display: none;
+        }
+
+        .gate-card {
+            background: white;
+            border: 3px solid var(--nvcbo-primary);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 25px 80px rgba(29, 128, 159, 0.3);
+        }
+
+        .gate-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--nvcbo-primary), #155d74);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .gate-input {
+            background: var(--nvcbo-light);
+            border: 2px solid #dee2e6;
+            color: var(--nvcbo-dark);
+            padding: 1rem;
+            border-radius: 10px;
+            width: 100%;
+            font-size: 1rem;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        .gate-input:focus {
+            outline: none;
+            border-color: var(--nvcbo-primary);
+            box-shadow: 0 0 20px rgba(29, 128, 159, 0.2);
+        }
+
+        .gate-btn {
+            background: linear-gradient(135deg, var(--nvcbo-primary), #155d74);
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .gate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(29, 128, 159, 0.4);
+        }
+
+        .gate-error {
+            color: #dc3545;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .gate-error.show {
+            display: block;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        /* Hide main content until authenticated */
+        #main-content {
+            display: none;
+        }
+
+        #main-content.unlocked {
+            display: block;
+        }
+
+        .hero-banner {
+            background: linear-gradient(rgba(29, 128, 159, 0.9), rgba(29, 128, 159, 0.9)), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 20px;
+            border-bottom: 5px solid var(--nvcbo-secondary);
+            margin-bottom: 40px;
+        }
+
+        .config-section { 
+            background: #ffffff; 
+            padding: 30px; 
+            border-radius: 12px; 
+            border: 1px solid #dee2e6;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .section-header {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--nvcbo-primary);
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .gateway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .option-card {
+            border: 2px solid #f1f1f1;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .option-card:hover {
+            border-color: #ddd;
+            background-color: #fcfcfc;
+        }
+
+        .option-card.active {
+            border-color: var(--nvcbo-primary);
+            background-color: #e9f4f7;
+            font-weight: 600;
+        }
+
+        .conditional-box { 
+            display: none; 
+            margin-top: 15px; 
+            padding: 20px; 
+            background: #fdfdfd; 
+            border-left: 4px solid var(--nvcbo-primary);
+            border-radius: 4px; 
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #json-display { 
+            background: #1e1e1e; 
+            color: #4af626;
+            padding: 25px; 
+            border-radius: 8px; 
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.85rem;
+            position: relative;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .copy-trigger {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        .btn-nvcbo {
+            background-color: var(--nvcbo-primary);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nvcbo:hover {
+            background-color: #155d74;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(29, 128, 159, 0.2);
+        }
+
+        .asset-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #666;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== PASSWORD GATE (Layer 2) ========== -->
+<div id="password-gate">
+    <div class="gate-card">
+        <div class="gate-icon">
+            <i class="fas fa-lock text-white fa-2x"></i>
+        </div>
+        <h2 class="h4 fw-bold text-dark mb-2">Restricted Access</h2>
+        <p class="text-muted small mb-4">
+            This internal tool requires authorization.<br>
+            Enter the PROJECT_SECRET to continue.
+        </p>
+        <input 
+            type="password" 
+            id="gate-password" 
+            class="gate-input" 
+            placeholder="• • • • • • • •"
+            autocomplete="off"
+            onkeypress="if(event.key==='Enter') checkPassword()"
+        >
+        <p id="gate-error" class="gate-error">
+            <i class="fas fa-exclamation-triangle me-1"></i> Invalid secret. Access denied.
+        </p>
+        <button class="gate-btn" onclick="checkPassword()">
+            <i class="fas fa-unlock-alt me-2"></i> Unlock Configurator
+        </button>
+        <p class="text-muted small mt-4">
+            <i class="fas fa-shield-alt me-1"></i> All access attempts are logged
+        </p>
+    </div>
+</div>
+
+<!-- ========== MAIN CONTENT (hidden until authenticated) ========== -->
+<div id="main-content">
+
+<header class="hero-banner text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Northern Vision CBO</h1>
+        <p class="lead">Donations Setup Configurator</p>
+        <div class="alert bg-white text-dark border-0 shadow-sm mt-4 d-inline-block px-4">
+            <small>Stakeholders: Map the 2026 Payment Stack below to generate the Technical Payload.</small>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-11">
+            
+            <!-- 1. Payment & Donation Gateways -->
+            <div class="config-section">
+                <h3 class="section-header"><i class="fa fa-credit-card"></i> 1. Payment & Donation Gateways</h3>
+                <p class="text-muted small mb-4">Select all active or desired channels. Specific credentials will be required for integration.</p>
+                
+                <div class="gateway-grid">
+                    <!-- Local & Mobile -->
+                    <div class="option-card" onclick="toggleOption('mpesa')">
+                        <input type="checkbox" id="check-mpesa" class="form-check-input">
+                        <span>M-Pesa (Paybill/Till)</span>
+                    </div>
+                    <div class="option-card" onclick="toggleOption('mchanga')">
+                        <input type="checkbox" id="check-mchanga" class="form-check-input">
+                        <span>M-Changa</span>
+                    </div>
+                    <div class="option-card" onclick="toggleOption('payhero')">
+                        <input type="checkbox" id="check-payhero" class="form-check-input">
+                        <span>PayHero Kenya</span>
+                    </div>
+                    <div class="option-card" onclick="toggleOption('pesapal')">
+                        <input type="checkbox" id="check-pesapal" class="form-check-input">
+                        <span>Pesapal</span>
+                    </div>
+                    
+                    <!-- International & Card -->
+                    <div class="option-card" onclick="toggleOption('flutterwave')">
+                        <input type="checkbox" id="check-flutterwave" class="form-check-input">
+                        <span>Flutterwave</span>
+                    </div>
+                    <div class="option-card" onclick="toggleOption('paypal')">
+                        <input type="checkbox" id="check-paypal" class="form-check-input">
+                        <span>PayPal</span>
+                    </div>
+                    <div class="option-card" onclick="toggleOption('stripe')">
+                        <input type="checkbox" id="check-stripe" class="form-check-input">
+                        <span>Stripe</span>
+                    </div>
+                    
+                    <!-- Global Platforms -->
+                    <div class="option-card" onclick="toggleOption('globalgiving')">
+                        <input type="checkbox" id="check-globalgiving" class="form-check-input">
+                        <span>GlobalGiving</span>
+                    </div>
+                    <div class="option-card" onclick="toggleOption('gofundme')">
+                        <input type="checkbox" id="check-gofundme" class="form-check-input">
+                        <span>GoFundMe</span>
+                    </div>
+                    <div class="option-card" onclick="toggleOption('chuffed')">
+                        <input type="checkbox" id="check-chuffed" class="form-check-input">
+                        <span>Chuffed.org</span>
+                    </div>
+                    <div class="option-card" onclick="toggleOption('thundafund')">
+                        <input type="checkbox" id="check-thundafund" class="form-check-input">
+                        <span>Thundafund</span>
+                    </div>
+                    
+                    <!-- Direct/Other -->
+                    <div class="option-card" onclick="toggleOption('bank')">
+                        <input type="checkbox" id="check-bank" class="form-check-input">
+                        <span>Bank Transfer</span>
+                    </div>
+                    <div class="option-card" onclick="toggleOption('inkind')">
+                        <input type="checkbox" id="check-inkind" class="form-check-input">
+                        <span>In-Kind Donations</span>
+                    </div>
+                    <div class="option-card" onclick="toggleOption('other')">
+                        <input type="checkbox" id="check-other" class="form-check-input">
+                        <span>Other/Custom</span>
+                    </div>
+                </div>
+
+                <!-- Conditional Details Inputs -->
+                <div id="box-mpesa" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fa fa-mobile-alt text-success me-2"></i>M-Pesa Setup</label>
+                    <div class="row g-2">
+                        <div class="col-sm-4"><input type="text" class="form-control" id="mp-paybill" placeholder="Paybill No"></div>
+                        <div class="col-sm-4"><input type="text" class="form-control" id="mp-till" placeholder="Till No"></div>
+                        <div class="col-sm-4"><input type="text" class="form-control" id="mp-acc" placeholder="Account Name"></div>
+                    </div>
+                </div>
+                <div id="box-mchanga" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fa fa-hand-holding-heart text-danger me-2"></i>M-Changa Setup</label>
+                    <input type="text" class="form-control" id="mc-url" placeholder="M-Changa Page Link (e.g. https://mchanga.africa/fundraiser/...)">
+                </div>
+                <div id="box-payhero" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fa fa-shield-alt text-primary me-2"></i>PayHero Kenya</label>
+                    <div class="row g-2">
+                        <div class="col-sm-6"><input type="text" class="form-control" id="ph-merchant" placeholder="Merchant ID"></div>
+                        <div class="col-sm-6"><input type="text" class="form-control" id="ph-apikey" placeholder="API Key (for dev team)"></div>
+                    </div>
+                </div>
+                <div id="box-pesapal" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fa fa-credit-card text-info me-2"></i>Pesapal Integration</label>
+                    <div class="row g-2">
+                        <div class="col-sm-6"><input type="text" class="form-control" id="ps-consumer" placeholder="Consumer Key"></div>
+                        <div class="col-sm-6"><input type="text" class="form-control" id="ps-secret" placeholder="Consumer Secret"></div>
+                    </div>
+                </div>
+                <div id="box-flutterwave" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fa fa-bolt text-warning me-2"></i>Flutterwave Setup</label>
+                    <div class="row g-2">
+                        <div class="col-sm-6"><input type="text" class="form-control" id="fw-pubkey" placeholder="Public Key"></div>
+                        <div class="col-sm-6"><input type="text" class="form-control" id="fw-seckey" placeholder="Secret Key (for dev team)"></div>
+                    </div>
+                </div>
+                <div id="box-paypal" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fab fa-paypal text-primary me-2"></i>PayPal Merchant</label>
+                    <div class="row g-2">
+                        <div class="col-sm-6"><input type="email" class="form-control" id="pp-email" placeholder="Business Email"></div>
+                        <div class="col-sm-6"><input type="text" class="form-control" id="pp-clientid" placeholder="Client ID (optional)"></div>
+                    </div>
+                </div>
+                <div id="box-stripe" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fab fa-stripe text-purple me-2"></i>Stripe Setup</label>
+                    <div class="row g-2">
+                        <div class="col-sm-6"><input type="text" class="form-control" id="st-pubkey" placeholder="Publishable Key"></div>
+                        <div class="col-sm-6"><input type="text" class="form-control" id="st-seckey" placeholder="Secret Key (for dev team)"></div>
+                    </div>
+                </div>
+                <div id="box-globalgiving" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fa fa-globe text-success me-2"></i>GlobalGiving</label>
+                    <div class="row g-2">
+                        <div class="col-sm-6"><input type="text" class="form-control" id="gg-orgid" placeholder="Organization ID"></div>
+                        <div class="col-sm-6"><input type="url" class="form-control" id="gg-url" placeholder="Project Page URL"></div>
+                    </div>
+                </div>
+                <div id="box-gofundme" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fa fa-heart text-danger me-2"></i>GoFundMe</label>
+                    <input type="url" class="form-control" id="gfm-url" placeholder="GoFundMe Campaign URL">
+                </div>
+                <div id="box-chuffed" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fa fa-hands-helping text-info me-2"></i>Chuffed.org</label>
+                    <input type="url" class="form-control" id="ch-url" placeholder="Chuffed Campaign URL">
+                </div>
+                <div id="box-thundafund" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fa fa-cloud text-secondary me-2"></i>Thundafund</label>
+                    <input type="url" class="form-control" id="tf-url" placeholder="Thundafund Project URL">
+                </div>
+                <div id="box-bank" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fa fa-university text-dark me-2"></i>Bank Transfer Details</label>
+                    <textarea class="form-control" id="bn-details" rows="3" placeholder="Bank Name, Branch, Account Name, Account No, Swift/BIC Code..."></textarea>
+                </div>
+                <div id="box-inkind" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fa fa-gift text-warning me-2"></i>In-Kind Donations</label>
+                    <textarea class="form-control" id="ik-details" rows="2" placeholder="Types of in-kind donations accepted (equipment, supplies, services, etc.)"></textarea>
+                </div>
+                <div id="box-other" class="conditional-box">
+                    <label class="fw-bold mb-2"><i class="fa fa-plus-circle text-muted me-2"></i>Custom Gateway</label>
+                    <div class="row g-2">
+                        <div class="col-sm-6"><input type="text" class="form-control" id="ot-name" placeholder="Gateway Name (e.g. Crypto/Airtel Money)"></div>
+                        <div class="col-sm-6"><input type="text" class="form-control" id="ot-details" placeholder="Wallet/Account Details"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Donor Management (CRM) -->
+            <div class="config-section">
+                <h3 class="section-header"><i class="fa fa-users"></i> 2. Donor Management (CRM)</h3>
+                <p class="text-muted small mb-3">Sync selection determines automated follow-up logic and newsletter routing.</p>
+                <div class="row row-cols-2 row-cols-md-4 g-3">
+                    <div class="col"><div class="option-card" onclick="toggleOption('crm-butter')"><input type="checkbox" id="check-crm-butter" class="form-check-input"><span>Givebutter</span></div></div>
+                    <div class="col"><div class="option-card" onclick="toggleOption('crm-box')"><input type="checkbox" id="check-crm-box" class="form-check-input"><span>Donorbox</span></div></div>
+                    <div class="col"><div class="option-card" onclick="toggleOption('crm-zeffy')"><input type="checkbox" id="check-crm-zeffy" class="form-check-input"><span>Zeffy</span></div></div>
+                    <div class="col"><div class="option-card" onclick="toggleOption('crm-sheets')"><input type="checkbox" id="check-crm-sheets" class="form-check-input"><span>Google Sheets</span></div></div>
+                    <div class="col"><div class="option-card" onclick="toggleOption('crm-mailchimp')"><input type="checkbox" id="check-crm-mailchimp" class="form-check-input"><span>Mailchimp</span></div></div>
+                    <div class="col"><div class="option-card" onclick="toggleOption('crm-hubspot')"><input type="checkbox" id="check-crm-hubspot" class="form-check-input"><span>HubSpot</span></div></div>
+                    <div class="col"><div class="option-card" onclick="toggleOption('crm-zapier')"><input type="checkbox" id="check-crm-zapier" class="form-check-input"><span>Zapier</span></div></div>
+                    <div class="col"><div class="option-card" onclick="toggleOption('crm-none')"><input type="checkbox" id="check-crm-none" class="form-check-input"><span>None/Manual</span></div></div>
+                </div>
+            </div>
+
+            <!-- 3. Functional Features -->
+            <div class="config-section">
+                <h3 class="section-header"><i class="fa fa-toggle-on"></i> 3. Functional Features</h3>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="form-check mb-2"><input class="form-check-input" type="checkbox" id="feat-recurring"><label class="form-check-label ms-2" for="feat-recurring">Recurring Support</label></div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="feat-earmark"><label class="form-check-label ms-2" for="feat-earmark">Project Earmarking</label></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-check mb-2"><input class="form-check-input" type="checkbox" id="feat-anon"><label class="form-check-label ms-2" for="feat-anon">Anonymous Donations</label></div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="feat-multi"><label class="form-check-label ms-2" for="feat-multi">Multi-currency (KES, USD, EUR)</label></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-check mb-2"><input class="form-check-input" type="checkbox" id="feat-receipt"><label class="form-check-label ms-2" for="feat-receipt">Instant Thank-You Receipt</label></div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="feat-portal"><label class="form-check-label ms-2" for="feat-portal">Donor History Portal</label></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Essential Assets -->
+            <div class="config-section">
+                <h3 class="section-header"><i class="fa fa-folder-open"></i> 4. Essential Assets & Links</h3>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="asset-label">Branding Assets (Logo/Guide)</div>
+                        <input type="url" class="form-control" id="url-brand" placeholder="URL to Assets Folder">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="asset-label">KRA PIN / Tax Docs</div>
+                        <input type="url" class="form-control" id="url-kra" placeholder="URL to Google Drive PDF">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="asset-label">CBO Registration Cert</div>
+                        <input type="url" class="form-control" id="url-reg" placeholder="URL to Google Drive PDF">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generate Action -->
+            <div class="text-center mt-5 mb-5">
+                <button class="btn btn-nvcbo shadow" id="btn-generate">
+                    Generate Configuration Bundle
+                </button>
+            </div>
+
+            <!-- Output Block -->
+            <div id="output-block" style="display:none;">
+                <div class="config-section bg-dark border-0 p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="text-white mb-0">Configuration Payload</h5>
+                        <button class="btn btn-sm btn-outline-light" onclick="copyConfig()">
+                            <i class="fa fa-copy me-1"></i> Copy to Clipboard
+                        </button>
+                    </div>
+                    <div id="json-display"><code id="json-content"></code></div>
+                    <div class="mt-3 text-info small">
+                        <i class="fa fa-shield-alt me-2"></i> This JSON should be sent to the Dev-Team for site integration.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Notification -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">Configuration successfully copied!</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    </div>
+</div>
+
+</div> <!-- END main-content -->
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // 1. Unified Option Toggle Logic (with explicit event parameter)
+    function toggleOption(id, evt) {
+        const check = document.getElementById('check-' + id);
+        const card = check.closest('.option-card');
+        const box = document.getElementById('box-' + id);
+        
+        // Get the actual event (handles both inline onclick and addEventListener)
+        const e = evt || window.event;
+        
+        // Toggle checkbox if click wasn't directly on the input
+        if (e && e.target !== check) {
+            check.checked = !check.checked;
+        }
+
+        // Update visual state
+        if (check.checked) {
+            card.classList.add('active');
+            if (box) {
+                box.style.display = 'block';
+                // Smooth scroll to show the conditional box
+                setTimeout(() => {
+                    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        } else {
+            card.classList.remove('active');
+            if (box) {
+                box.style.display = 'none';
+            }
+        }
+    }
+
+    // Add click handlers to checkboxes to prevent double-toggle
+    document.querySelectorAll('.option-card input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const id = this.id.replace('check-', '');
+            const card = this.closest('.option-card');
+            const box = document.getElementById('box-' + id);
+            
+            if (this.checked) {
+                card.classList.add('active');
+                if (box) {
+                    box.style.display = 'block';
+                    setTimeout(() => {
+                        box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 100);
+                }
+            } else {
+                card.classList.remove('active');
+                if (box) {
+                    box.style.display = 'none';
+                }
+            }
+        });
+    });
+
+    // 2. Clipboard Handler
+    function copyConfig() {
+        const text = document.getElementById('json-content').textContent;
+        const el = document.createElement('textarea');
+        el.value = text;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+
+        const toast = new bootstrap.Toast(document.getElementById('liveToast'));
+        toast.show();
+    }
+
+    // 3. Manifest Builder
+    document.getElementById('btn-generate').addEventListener('click', () => {
+        const manifest = {
+            metadata: {
+                organization: "Northern Vision CBO",
+                deployment_version: "2026.1",
+                timestamp: new Date().toISOString()
+            },
+            gateways: {},
+            crm_integration: {},
+            feature_set: {
+                recurring: document.getElementById('feat-recurring').checked,
+                earmarking: document.getElementById('feat-earmark').checked,
+                anonymous: document.getElementById('feat-anon').checked,
+                multi_currency: document.getElementById('feat-multi').checked,
+                automated_receipts: document.getElementById('feat-receipt').checked,
+                donor_portal: document.getElementById('feat-portal').checked
+            },
+            assets: {
+                branding_url: document.getElementById('url-brand').value,
+                tax_pin_url: document.getElementById('url-kra').value,
+                registration_url: document.getElementById('url-reg').value
+            }
+        };
+
+        // Gateway Mapping (with all detail fields)
+        const gIds = ['mpesa','mchanga','flutterwave','pesapal','payhero','paypal','stripe','globalgiving','gofundme','chuffed','thundafund','bank','inkind','other'];
+        gIds.forEach(id => {
+            if(document.getElementById('check-'+id).checked) {
+                const data = { status: "active" };
+                
+                // Capture specific gateway details
+                switch(id) {
+                    case 'mpesa':
+                        data.paybill = document.getElementById('mp-paybill').value;
+                        data.till = document.getElementById('mp-till').value;
+                        data.account = document.getElementById('mp-acc').value;
+                        break;
+                    case 'mchanga':
+                        data.page_url = document.getElementById('mc-url').value;
+                        break;
+                    case 'payhero':
+                        data.merchant_id = document.getElementById('ph-merchant').value;
+                        data.api_key = document.getElementById('ph-apikey').value;
+                        break;
+                    case 'pesapal':
+                        data.consumer_key = document.getElementById('ps-consumer').value;
+                        data.consumer_secret = document.getElementById('ps-secret').value;
+                        break;
+                    case 'flutterwave':
+                        data.public_key = document.getElementById('fw-pubkey').value;
+                        data.secret_key = document.getElementById('fw-seckey').value;
+                        break;
+                    case 'paypal':
+                        data.email = document.getElementById('pp-email').value;
+                        data.client_id = document.getElementById('pp-clientid').value;
+                        break;
+                    case 'stripe':
+                        data.publishable_key = document.getElementById('st-pubkey').value;
+                        data.secret_key = document.getElementById('st-seckey').value;
+                        break;
+                    case 'globalgiving':
+                        data.org_id = document.getElementById('gg-orgid').value;
+                        data.project_url = document.getElementById('gg-url').value;
+                        break;
+                    case 'gofundme':
+                        data.campaign_url = document.getElementById('gfm-url').value;
+                        break;
+                    case 'chuffed':
+                        data.campaign_url = document.getElementById('ch-url').value;
+                        break;
+                    case 'thundafund':
+                        data.project_url = document.getElementById('tf-url').value;
+                        break;
+                    case 'bank':
+                        data.instructions = document.getElementById('bn-details').value;
+                        break;
+                    case 'inkind':
+                        data.accepted_types = document.getElementById('ik-details').value;
+                        break;
+                    case 'other':
+                        data.custom_name = document.getElementById('ot-name').value;
+                        data.custom_details = document.getElementById('ot-details').value;
+                        break;
+                }
+                
+                manifest.gateways[id] = data;
+            }
+        });
+
+        // CRM Mapping
+        const cIds = ['crm-butter','crm-box','crm-zeffy','crm-sheets','crm-mailchimp','crm-hubspot','crm-zapier','crm-none'];
+        cIds.forEach(id => {
+            if(document.getElementById('check-'+id).checked) {
+                manifest.crm_integration[id.replace('crm-','')] = "active";
+            }
+        });
+
+        // Display
+        const block = document.getElementById('output-block');
+        const content = document.getElementById('json-content');
+        content.textContent = JSON.stringify(manifest, null, 4);
+        block.style.display = 'block';
+        block.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // ========== PASSWORD GATE LOGIC ==========
+    // PROJECT_SECRET: Change this to your secure passphrase
+    const PROJECT_SECRET = 'nv-2026';
+    
+    function checkPassword() {
+        const input = document.getElementById('gate-password').value;
+        const errorEl = document.getElementById('gate-error');
+        
+        if (input === PROJECT_SECRET) {
+            // Successful authentication
+            document.getElementById('password-gate').classList.add('hidden');
+            document.getElementById('main-content').classList.add('unlocked');
+            
+            // Store session (expires when tab closes)
+            sessionStorage.setItem('nvcbo-auth-v2', 'true');
+        } else {
+            // Failed attempt
+            errorEl.classList.add('show');
+            document.getElementById('gate-password').value = '';
+            document.getElementById('gate-password').focus();
+            
+            // Log failed attempt (for security audit)
+            console.warn('[SECURITY] Failed auth attempt at', new Date().toISOString());
+            
+            setTimeout(() => {
+                errorEl.classList.remove('show');
+            }, 3000);
+        }
+    }
+    
+    // Check if already authenticated in this session
+    if (sessionStorage.getItem('nvcbo-auth-v2') === 'true') {
+        document.getElementById('password-gate').classList.add('hidden');
+        document.getElementById('main-content').classList.add('unlocked');
+    }
+</script>
+
+</body>
+</html>
