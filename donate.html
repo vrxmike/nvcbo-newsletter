@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate | Northern Vision CBO</title>
+    <meta name="description" content="Support Northern Vision CBO. Make a secure donation to empower communities in Northern Kenya.">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900&display=swap">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <style>
+        body { background: var(--nvcbo-light-bg, #f8f9fa); }
+        .donate-card { background: #fff; border-radius: 1.25rem; box-shadow: 0 4px 32px rgba(29,128,159,0.07); }
+        .donate-header { background: linear-gradient(90deg, var(--nvcbo-blue), var(--nvcbo-orange)); color: #fff; border-radius: 1.25rem 1.25rem 0 0; }
+        .donate-btn { background: linear-gradient(90deg, var(--nvcbo-orange), var(--nvcbo-dark-orange)); color: #fff; border: none; font-weight: 600; }
+        .donate-btn:hover { background: linear-gradient(90deg, var(--nvcbo-dark-orange), var(--nvcbo-orange)); }
+        .gateway-btn.selected, .gateway-btn:focus { border: 2px solid var(--nvcbo-orange); background: #fff7ed; }
+        .currency-btn.selected { background: var(--nvcbo-orange); color: #fff; }
+        .project-btn.selected { background: var(--nvcbo-blue); color: #fff; }
+        .form-check-input:checked { background-color: var(--nvcbo-orange); border-color: var(--nvcbo-orange); }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-9">
+                <div class="donate-card shadow-lg">
+                    <div class="donate-header p-4 text-center">
+                        <h2 class="mb-1">Support Northern Vision CBO</h2>
+                        <p class="mb-0">Your donation empowers communities in Northern Kenya.</p>
+                    </div>
+                    <form class="p-4" id="donation-form" autocomplete="off">
+                        <!-- Gateway Selection -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Choose Payment Method</label>
+                            <div class="d-flex flex-wrap gap-2" id="gateway-options">
+                                <button type="button" class="btn btn-outline-secondary gateway-btn" data-gateway="mpesa"><i class="fa fa-mobile"></i> M-Pesa</button>
+                                <button type="button" class="btn btn-outline-secondary gateway-btn" data-gateway="paypal"><i class="fa fa-paypal"></i> PayPal</button>
+                                <button type="button" class="btn btn-outline-secondary gateway-btn" data-gateway="stripe"><i class="fa fa-cc-stripe"></i> Stripe</button>
+                                <button type="button" class="btn btn-outline-secondary gateway-btn" data-gateway="bank"><i class="fa fa-university"></i> Bank</button>
+                                <button type="button" class="btn btn-outline-secondary gateway-btn" data-gateway="other"><i class="fa fa-ellipsis-h"></i> Other</button>
+                            </div>
+                        </div>
+                        <!-- Amount Selection -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Donation Amount</label>
+                            <div class="d-flex gap-2 mb-2 flex-wrap">
+                                <button type="button" class="btn btn-outline-primary amount-btn" data-amount="1000">KES 1,000</button>
+                                <button type="button" class="btn btn-outline-primary amount-btn" data-amount="2500">KES 2,500</button>
+                                <button type="button" class="btn btn-outline-primary amount-btn" data-amount="5000">KES 5,000</button>
+                                <button type="button" class="btn btn-outline-primary amount-btn" data-amount="10000">KES 10,000</button>
+                                <input type="number" min="1" class="form-control ms-2" style="max-width: 140px;" id="custom-amount" placeholder="Other" />
+                            </div>
+                            <div class="d-flex gap-2 mt-2">
+                                <button type="button" class="btn btn-outline-secondary currency-btn selected" data-currency="KES">KES</button>
+                                <button type="button" class="btn btn-outline-secondary currency-btn" data-currency="USD">USD</button>
+                                <button type="button" class="btn btn-outline-secondary currency-btn" data-currency="EUR">EUR</button>
+                            </div>
+                        </div>
+                        <!-- Recurring/One-time -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Frequency</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="frequency" id="oneTime" value="one-time" checked>
+                                <label class="form-check-label" for="oneTime">One-Time</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="frequency" id="monthly" value="monthly">
+                                <label class="form-check-label" for="monthly">Monthly</label>
+                            </div>
+                        </div>
+                        <!-- Project Earmarking -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Earmark for Project (optional)</label>
+                            <div class="d-flex flex-wrap gap-2" id="project-options">
+                                <button type="button" class="btn btn-outline-secondary project-btn" data-project="education">Education</button>
+                                <button type="button" class="btn btn-outline-secondary project-btn" data-project="health">Health</button>
+                                <button type="button" class="btn btn-outline-secondary project-btn" data-project="water">Water</button>
+                                <button type="button" class="btn btn-outline-secondary project-btn" data-project="food">Food Security</button>
+                                <button type="button" class="btn btn-outline-secondary project-btn" data-project="none">No Preference</button>
+                            </div>
+                        </div>
+                        <!-- Anonymous Option -->
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="anonymous" name="anonymous">
+                                <label class="form-check-label" for="anonymous">Give anonymously</label>
+                            </div>
+                        </div>
+                        <!-- Donor Info -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Your Information</label>
+                            <div class="row g-2">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="donor-name" placeholder="Full Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" id="donor-email" placeholder="Email Address" required>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Thank You Receipt -->
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="send-receipt" name="send-receipt" checked>
+                                <label class="form-check-label" for="send-receipt">Send me a thank-you receipt by email</label>
+                            </div>
+                        </div>
+                        <!-- Submit -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn donate-btn btn-lg">Donate Now</button>
+                        </div>
+                        <div class="text-center mt-3 text-muted" style="font-size:0.95em;">
+                            100% Secure &mdash; All payments encrypted
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside class="d-none d-lg-block col-lg-5 pe-lg-5 mb-4 mb-lg-0">
+        <div class="h-100 d-flex flex-column justify-content-center bg-white rounded-4 shadow-lg p-4" style="min-height: 100%;">
+            <h4 class="fw-bold mb-3 text-primary"><i class="fa fa-heartbeat me-2"></i>Why Your Gift Matters</h4>
+            <ul class="list-unstyled mb-4">
+                <li class="mb-3"><i class="fa fa-check-circle text-success me-2"></i>Empowers girls and youth in Northern Kenya</li>
+                <li class="mb-3"><i class="fa fa-check-circle text-success me-2"></i>Supports education, health, water, and food security</li>
+                <li class="mb-3"><i class="fa fa-check-circle text-success me-2"></i>100% of your donation goes to community projects</li>
+                <li class="mb-3"><i class="fa fa-lock text-info me-2"></i>Secure, encrypted payment processing</li>
+            </ul>
+            <div class="text-center mt-auto">
+                <img src="assets/img/donate-impact.png" alt="Impact" class="img-fluid rounded-3 shadow-sm" style="max-height: 180px; object-fit: cover;">
+            </div>
+        </div>
+    </aside>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        // UI logic for selection buttons
+        document.querySelectorAll('.gateway-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.gateway-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        document.querySelectorAll('.amount-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+                document.getElementById('custom-amount').value = '';
+            });
+        });
+        document.getElementById('custom-amount').addEventListener('input', function() {
+            document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
+        });
+        document.querySelectorAll('.currency-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.currency-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        document.querySelectorAll('.project-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.project-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        // Form submission placeholder
+        document.getElementById('donation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your donation! (Demo only)');
+        });
+    </script>
+</body>
+</html>
